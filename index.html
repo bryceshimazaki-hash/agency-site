@@ -1,75 +1,67 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2867
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab560
-\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Landing Page | Therapy & Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6670; /* Slate Blue */
+            --secondary: #8ba3a1; /* Sage */
+            --light: #f4f7f6;
+            --dark: #333;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: var(--dark); background-color: var(--light); }
+        
+        header { background: white; padding: 1rem 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
+        
+        .hero { padding: 80px 10% ; text-align: center; background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1500&q=80'); background-size: cover; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--primary); }
+        
+        .section { padding: 60px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; border-top: 4px solid var(--secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        
+        .footer { background: var(--primary); color: white; text-align: center; padding: 40px 10%; margin-top: 40px; }
+        .crisis-bar { background: #d9534f; color: white; text-align: center; padding: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
 
-\f0\fs26 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Agency Landing Page | Therapy & Wellness</title>\
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">\
-    <style>\
-        :root \{\
-            --primary: #4a6670; /* Slate Blue */\
-            --secondary: #8ba3a1; /* Sage */\
-            --light: #f4f7f6;\
-            --dark: #333;\
-        \}\
-        body \{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: var(--dark); background-color: var(--light); \}\
-        \
-        header \{ background: white; padding: 1rem 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); \}\
-        .logo \{ font-weight: bold; font-size: 1.5rem; color: var(--primary); \}\
-        \
-        .hero \{ padding: 80px 10% ; text-align: center; background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1500&q=80'); background-size: cover; \}\
-        .hero h1 \{ font-size: 3rem; margin-bottom: 10px; color: var(--primary); \}\
-        \
-        .section \{ padding: 60px 10%; \}\
-        .grid \{ display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; \}\
-        .card \{ background: white; padding: 20px; border-radius: 8px; border-top: 4px solid var(--secondary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); \}\
-        \
-        .footer \{ background: var(--primary); color: white; text-align: center; padding: 40px 10%; margin-top: 40px; \}\
-        .crisis-bar \{ background: #d9534f; color: white; text-align: center; padding: 10px; font-weight: bold; \}\
-    </style>\
-</head>\
-<body>\
-\
-    <div class="crisis-bar">Immediate Crisis? Call or Text 988</div>\
-\
-    <header>\
-        <div class="logo">Agency Name</div>\
-        <nav>Mission | Clinicians | Contact</nav>\
-    </header>\
-\
-    <section class="hero">\
-        <h1>Compassionate Support for the SLC Community</h1>\
-        <p>Providing evidence-based therapy in the Millcreek and Sugarhouse area.</p>\
-    </section>\
-\
-    <section class="section">\
-        <h2>Our Mission</h2>\
-        <p>To provide accessible, high-quality mental health services that empower individuals to navigate life\'92s challenges using frameworks like DBT and ARC.</p>\
-    </section>\
-\
-    <section class="section" style="background: #eef2f1;">\
-        <h2>Meet Our Clinicians</h2>\
-        <div class="grid">\
-            <div class="card">\
-                <h3>Your Name, CSW</h3>\
-                <p><strong>Therapist Intern</strong></p>\
-                <p>Focusing on life transitions and boundary setting. Currently completing MSW at the University of Utah.</p>\
-            </div>\
-            </div>\
-    </section>\
-\
-    <footer class="footer">\
-        <p>&copy; 2026 Agency Name. Located in Salt Lake City, Utah.</p>\
-        <p><small>Supervised by [Supervisor Name, License Type]</small></p>\
-    </footer>\
-\
-</body>\
-</html>}
+    <div class="crisis-bar">Immediate Crisis? Call or Text 988</div>
+
+    <header>
+        <div class="logo">Agency Name</div>
+        <nav>Mission | Clinicians | Contact</nav>
+    </header>
+
+    <section class="hero">
+        <h1>Compassionate Support for the SLC Community</h1>
+        <p>Providing evidence-based therapy in the Millcreek and Sugarhouse area.</p>
+    </section>
+
+    <section class="section">
+        <h2>Our Mission</h2>
+        <p>To provide accessible, high-quality mental health services that empower individuals to navigate life’s challenges using frameworks like DBT and ARC.</p>
+    </section>
+
+    <section class="section" style="background: #eef2f1;">
+        <h2>Meet Our Clinicians</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Your Name, CSW</h3>
+                <p><strong>Therapist Intern</strong></p>
+                <p>Focusing on life transitions and boundary setting. Currently completing MSW at the University of Utah.</p>
+            </div>
+            </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Agency Name. Located in Salt Lake City, Utah.</p>
+        <p><small>Supervised by [Supervisor Name, License Type]</small></p>
+    </footer>
+
+</body>
+</html>
