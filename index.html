@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRL Agency | Trauma & DV Support SLC</title>
+    <title>RRL Agency | Holistic Healing SLC</title>
     <style>
         :root {
-            --primary: #5a7d7c; /* Warm Sage */
-            --secondary: #d9e2e1; /* Soft Gray-Green */
-            --accent: #b48a82; /* Muted Rose */
-            --text: #333;
-            --bg: #f9fbfb;
+            --earth-clay: #a67c52; /* Grounded Terracotta */
+            --forest: #2d3e33; /* Deep Professional Green */
+            --sand: #f2ede4; /* Warm Neutral Background */
+            --text: #3e3a36; /* Soft Charcoal */
+            --white: #ffffff;
         }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.7; }
-        .crisis-banner { background: #b22222; color: white; text-align: center; padding: 12px; font-weight: bold; font-size: 0.9rem; }
-        header { padding: 40px 10%; text-align: center; background: white; border-bottom: 1px solid var(--secondary); }
-        .nav-link { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
-        .hero { padding: 80px 15%; text-align: center; }
-        .hero h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; font-weight: 300; }
-        .section { padding: 60px 15%; }
-        .mission { background: white; text-align: center; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .specialties-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-        .specialty-card { padding: 25px; background: var(--secondary); border-radius: 8px; text-align: center; border-bottom: 3px solid var(--primary); }
-        .clinician-box { max-width: 700px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; border: 1px solid var(--secondary); }
-        footer { background: #f0f4f3; padding: 60px 10%; font-size: 0.85rem; text-align: center; border-top: 1px solid var(--secondary); }
+        body { 
+            font-family: 'Georgia', serif; /* More grounded, classic feel */
+            margin: 0; 
+            background-color: var(--sand); 
+            color: var(--text); 
+            line-height: 1.8; 
+        }
+        .crisis-banner { background: #8c3b3b; color: var(--sand); text-align: center; padding: 10px; font-weight: bold; font-size: 0.85rem; font-family: sans-serif; }
+        
+        header { 
+            padding: 50px 10% 20px; 
+            text-align: center; 
+            background: var(--sand);
+        }
+        .logo { font-size: 1.8rem; letter-spacing: 4px; color: var(--forest); font-weight: 300; text-transform: uppercase; }
+        
+        nav { margin-top: 20px; border-top: 1px solid rgba(166, 124, 82, 0.2); padding-top: 20px; }
+        .nav-link { margin: 0 20px; text-decoration: none; color: var(--earth-clay); font-family: sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        .hero { padding: 80px 15%; text-align: center; background-image: radial-gradient(rgba(166, 124, 82, 0.05) 1px, transparent 1px); background-size: 20px 20px; }
+        .hero h1 { font-size: 2.8rem; color: var(--forest); font-weight: normal; margin-bottom: 20px; }
+
+        .section { padding: 80px 15%; background: var(--white); margin: 20px; border-radius: 4px; }
+        .mission { text-align: center; border: 1px solid var(--sand); box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+
+        .specialties-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
+        .specialty-card { 
+            padding: 30px; 
+            background: var(--sand); 
+            border-radius: 2px; 
+            text-align: center; 
+            transition: 0.3s;
+            border-top: 2px solid var(--earth-clay);
+        }
+
+        .clinician-box { max-width: 800px; margin: 0 auto; padding: 40px 0; border-bottom: 1px solid var(--sand); }
+        .clinician-box h3 { color: var(--earth-clay); font-size: 1.5rem; margin-bottom: 5px; }
+        .tagline { font-family: sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--forest); margin-bottom: 15px; display: block; }
+
+        footer { background: var(--forest); color: var(--sand); padding: 60px 10%; text-align: center; }
+        .footer-note { font-size: 0.8rem; opacity: 0.8; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="crisis-banner">In Crisis? Call or Text 988 | Available 24/7</div>
+    <div class="crisis-banner">Seeking Immediate Help? Call or Text 988</div>
 
     <header>
-        <div style="font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 15px;">RRL AGENCY</div>
+        <div class="logo">RRL Agency</div>
         <nav>
-            <a href="#about" class="nav-link">Mission</a>
-            <a href="#specialties" class="nav-link">Specialties</a>
-            <a href="#clinicians" class="nav-link">Clinicians</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Healing for the Salt Lake Metro Community</h1>
-        <p>Expert trauma and domestic violence support located in the heart of Downtown SLC.</p>
-    </section>
-
-    <section id="about" class="section mission">
-        <h2 style="color: var(--primary);">Our Mission</h2>
-        <p>Based in Downtown Salt Lake City, RRL Agency is dedicated to providing a safe, empowering, and non-judgmental space for survivors and individuals navigating complex life challenges. We use a person-centered approach to help our clients find the keys to their own healing and balance.</p>
-    </section>
-
-    <section id="specialties" class="section">
-        <h2 style="text-align: center; color: var(--primary);">Specialized Support</h2>
-        <p style="text-align: center;">We provide evidence-based care for individuals across the Salt Lake City metro area, with a deep focus on:</p>
-        <div class="specialties-grid">
-            <div class="specialty-card"><strong>Trauma & PTSD</strong><br>
+            <a
