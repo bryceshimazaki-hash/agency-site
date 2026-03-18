@@ -1,0 +1,69 @@
+.hero {
+    background-image: url('path_to_your_hero_image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #5E4B3A; /* Warm earthy tone */
+    padding: 100px 0;
+    text-align: center;
+}
+
+.quote-section {
+    background-color: #F5E1A5; /* Light wheat color */
+    margin: 20px auto;
+    padding: 50px;
+    border-left: 5px solid #CFAE5B; /* Gold accent */
+    font-style: italic;
+    transition: background-color 0.3s ease;
+}
+
+.quote-section:hover {
+    background-color: #E3CFA5; /* Slightly darker wheat */
+}
+
+.resource-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #CDEBFA; /* Light water color */
+}
+
+.resource-item {
+    background-color: #E1E1E1; /* Clay color */
+    border: 1px solid #A57A27; /* Earthy tone for emphasis */
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.resource-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F2F2F2; /* Neutral background for cohesion */
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #8B5A97; /* Purple accent */
+}
+
+p {
+    line-height: 1.6;
+}
+
+.btn {
+    background-color: #CFAE5B; /* Gold accent color for buttons */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #B89D3B; /* Darker gold on hover */
+}
