@@ -3,124 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raven, Lotus, and Grey | Professional Therapy SLC</title>
-    <style>
-        :root {
-            --bone: #f7f3f0; /* Soft, warm off-white */
-            --clay: #a67c52; /* Earthy terracotta accent */
-            --slate: #4a5459; /* Professional charcoal-blue */
-            --stone: #e2ded0; /* Muted stone neutral */
-            --text: #2c2c2c;
-        }
-        body { 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            margin: 0; 
-            background-color: var(--bone); 
-            color: var(--text); 
-            line-height: 1.8; 
-        }
-        h1, h2, h3 { font-family: 'Georgia', serif; font-weight: normal; color: var(--slate); }
-        
-        .crisis-banner { background: var(--clay); color: var(--bone); text-align: center; padding: 12px; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px; }
-        
-        header { padding: 60px 10% 20px; text-align: center; background: var(--bone); border-bottom: 1px solid var(--stone); }
-        .logo { font-size: 1.6rem; letter-spacing: 5px; color: var(--clay); text-transform: uppercase; margin-bottom: 10px; }
-        
-        nav { margin-top: 25px; }
-        .nav-link { margin: 0 15px; text-decoration: none; color: var(--slate); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
-
-        .hero { padding: 100px 15%; text-align: center; border-bottom: 1px solid var(--stone); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--clay); }
-        .hero p { max-width: 600px; margin: 0 auto; font-style: italic; color: var(--slate); }
-
-        .section { padding: 80px 15%; background: white; }
-        .content-box { max-width: 800px; margin: 0 auto; text-align: center; }
-
-        .specialties-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
-        .specialty-item { border-left: 1px solid var(--stone); padding-left: 20px; text-align: left; }
-        .specialty-item h4 { color: var(--clay); margin-bottom: 10px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; font-family: sans-serif; }
-
-        .clinician-card { margin-top: 60px; padding: 40px; background: var(--bone); border: 1px solid var(--stone); display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-        .clinician-tag { font-size: 0.7rem; color: var(--clay); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; font-weight: bold; }
-        
-        footer { background: var(--slate); color: var(--bone); padding: 80px 10%; text-align: center; font-size: 0.8rem; }
-    </style>
+    <title>Comprehensive Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="crisis-banner">IMMEDIATE SUPPORT: CALL OR TEXT 988</div>
-
-    <header>
-        <div class="logo">Raven, Lotus, and Grey</div>
-        <nav>
-            <a href="#approach" class="nav-link">Approach</a>
-            <a href="#expertise" class="nav-link">Expertise</a>
-            <a href="#clinicians" class="nav-link">Clinicians</a>
-        </nav>
+    <header class="hero-image">
+        <h1>Welcome to Our Agency</h1>
     </header>
-
-    <section class="hero">
-        <h1>Grounded Therapy for Real Change</h1>
-        <p>A safe, professional space in Downtown Salt Lake City dedicated to trauma recovery and personal empowerment.</p>
+    <section class="quotes">
+        <blockquote>
+            <p>"Inspiring quote goes here."</p>
+            <cite>- Author Name</cite>
+        </blockquote>
     </section>
-
-    <section id="approach" class="section">
-        <div class="content-box">
-            <h2>Our Clinical Approach</h2>
-            <p>We provide a direct, compassionate, and evidence-based environment for individuals across the Salt Lake Metro area. Our practice is built on the belief that while the journey toward healing can be challenging, every individual possesses the internal resilience needed to find balance and health.</p>
-        </div>
+    <section class="resources">
+        <h2>Resources</h2>
+        <ul>
+            <li><a href="#">Resource 1</a></li>
+            <li><a href="#">Resource 2</a></li>
+            <li><a href="#">Resource 3</a></li>
+        </ul>
     </section>
-
-    <section id="expertise" class="section" style="background: var(--stone);">
-        <div class="content-box">
-            <h2>Areas of Expertise</h2>
-            <div class="specialties-grid">
-                <div class="specialty-item">
-                    <h4>Trauma & PTSD</h4>
-                    <p>Evidence-based recovery specializing in EMDR and trauma-focused modalities for long-term healing.</p>
-                </div>
-                <div class="specialty-item">
-                    <h4>Domestic Violence</h4>
-                    <p>Expert support for survivors, including safety planning and navigating relational trauma.</p>
-                </div>
-                <div class="specialty-item">
-                    <h4>Women's Issues</h4>
-                    <p>Addressing personal and societal pressures that lead to burnout, relational stress, and identity crises.</p>
-                </div>
-                <div class="specialty-item">
-                    <h4>Life Transitions</h4>
-                    <p>Compassionate guidance for those navigating grief, college-to-career shifts, and boundary setting.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="clinicians" class="section">
-        <div class="content-box">
-            <h2>Our Practitioners</h2>
-            
-            <div class="clinician-card">
-                <span class="clinician-tag">MSW Intern</span>
-                <h3>Bryce Shimazaki, MSW Intern</h3>
-                <p>Bryce provides affirming, trauma-informed therapy for individuals navigating domestic violence, identity exploration, and the complexities of plural family systems. Their approach centers on the belief that therapy is not about being 'fixed,' but about reconnecting with one’s inherent strength and finding safety in one's own story.
-Currently in their final semester of the Master of Social Work program at the University of Utah, Bryce is committed to creating an empowering, non-judgmental space for clients across the Salt Lake Metro area. They walk alongside clients on their journey toward clarity, balance, and sustainable healing.</p>
-                <p><small>Directly Supervised by Amy Perry, CMHC, NCC</small></p>
-            </div>
-
-            <div class="clinician-card">
-                <span class="clinician-tag">Clinical Counselor | CMHC, NCC</span>
-                <h3>Amy Perry</h3>
-                <p>With over 8 years of clinical experience, Amy specializes in interpersonal violence, grief, and trauma recovery. Her practice style is warm and direct, utilizing eclectic evidence-based modalities to help clients live lives aligned with their values.</p>
-            </div>
-        </div>
-    </section>
-
     <footer>
-        <p><strong>Raven, Lotus, and Grey</strong> | Salt Lake City, Utah</p>
-        <p>Serving the Downtown area and the wider Salt Lake Metro.</p>
-        <p>This site is for informational purposes only. Services are provided by licensed and supervised professionals.</p>
-        <p style="margin-top: 40px; opacity: 0.6;">&copy; 2026 Raven, Lotus, and Grey</p>
+        <p>&copy; 2026 Comprehensive Website. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
