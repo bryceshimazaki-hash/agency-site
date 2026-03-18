@@ -1,69 +1,88 @@
-.hero {
-    background-image: url('path_to_your_hero_image.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #5E4B3A; /* Warm earthy tone */
-    padding: 100px 0;
+/* Styles for agency-site incorporating earth tones, purple accents, and water/sky themes */
+
+body {
+    background-color: #e0f7fa; /* light blue */
+    color: #4e342e; /* brown */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #6a1b9a; /* purple */
+}
+
+.header {
+    background-color: #c8e6c9; /* light green */
+    padding: 20px;
     text-align: center;
 }
 
-.quote-section {
-    background-color: #F5E1A5; /* Light wheat color */
-    margin: 20px auto;
-    padding: 50px;
-    border-left: 5px solid #CFAE5B; /* Gold accent */
-    font-style: italic;
-    transition: background-color 0.3s ease;
+.navbar {
+    background-color: #a5d6a7; /* green */
+    overflow: hidden;
 }
 
-.quote-section:hover {
-    background-color: #E3CFA5; /* Slightly darker wheat */
+.navbar a {
+    float: left;
+    display: block;
+    color: #4e342e; /* brown */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.resource-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+.navbar a:hover {
+    background-color: #81c784; /* darker green */
+    color: white;
+}
+
+.container {
     padding: 20px;
-    background-color: #CDEBFA; /* Light water color */
+    max-width: 1200px;
+    margin: auto;
 }
 
-.resource-item {
-    background-color: #E1E1E1; /* Clay color */
-    border: 1px solid #A57A27; /* Earthy tone for emphasis */
-    border-radius: 10px;
+.footer {
+    background-color: #c8e6c9; /* light green */
+    text-align: center;
     padding: 20px;
-    transition: transform 0.2s;
 }
 
-.resource-item:hover {
-    transform: scale(1.05); /* Slight zoom effect */
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F2F2F2; /* Neutral background for cohesion */
-    color: #333;
+@media screen and (min-width: 600px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
-h1, h2, h3 {
-    color: #8B5A97; /* Purple accent */
-}
-
-p {
-    line-height: 1.6;
-}
-
-.btn {
-    background-color: #CFAE5B; /* Gold accent color for buttons */
-    color: #FFFFFF;
-    padding: 10px 20px;
+/* Additional Earth Tone Elements */
+.button {
+    background-color: #795548; /* brown */
+    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #B89D3B; /* Darker gold on hover */
+.button:hover {
+    background-color: #5d4037; /* darker brown */
+}
+
+/* Sky Theme Elements */
+.card {
+    background-color: #bbdefb; /* light blue */
+    border: 1px solid #90caf9; /* lighter blue */
+    border-radius: 8px;
+    padding: 20px;
 }
