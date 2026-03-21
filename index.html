@@ -6,11 +6,12 @@
     <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
     <style>
         :root {
-            --healing-purple: #8B5A97;
-            --deep-amethyst: #4b2c5e;
-            --warm-gold: #D4AF37;
-            --stone: #fdfcf9;
-            --slate: #4a5459;
+            /* MUTED & EARTHIER PALETTE */
+            --grayish-purple: #7A6B7F; /* Muted, grayish-purple */
+            --earth-ochre: #C5A059; /* Earthier, natural yellow */
+            --deep-slate: #3E464C; /* Deep slate for headings */
+            --slate: #54626F; /* Standard text slate */
+            --stone: #fcfaf6; /* Light, warm stone background */
             --white: #ffffff;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -34,8 +35,8 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 2px solid var(--warm-gold);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--earth-ochre);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
         .nav-logo { display: flex; align-items: center; gap: 15px; }
         .logo-img { height: 60px; width: auto; }
@@ -45,7 +46,7 @@
             font-size: 1.2rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--deep-amethyst);
+            color: var(--deep-slate);
             font-weight: bold;
         }
         .nav-links a {
@@ -56,13 +57,14 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
+            transition: var(--transition);
         }
-        .nav-links a:hover { color: var(--healing-purple); }
+        .nav-links a:hover { color: var(--grayish-purple); }
 
-        /* --- HERO --- */
+        /* --- HERO: MUTED GRADIENT --- */
         .hero {
             height: 60vh;
-            background: linear-gradient(135deg, var(--deep-amethyst) 0%, var(--healing-purple) 100%);
+            background: linear-gradient(135deg, var(--deep-slate) 0%, var(--grayish-purple) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -71,14 +73,14 @@
             padding: 0 10%;
             color: var(--white);
         }
-        .hero h1 { font-family: 'Georgia', serif; font-size: 3.5rem; margin-bottom: 1rem; color: var(--white); }
+        .hero h1 { font-family: 'Georgia', serif; font-size: 3.5rem; margin-bottom: 1rem; color: var(--white); font-weight: 400; }
         .hero p { font-style: italic; max-width: 700px; margin-bottom: 2.5rem; font-size: 1.2rem; opacity: 0.9; }
 
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
             padding: 1.1rem 2.8rem;
-            border: 2px solid var(--warm-gold);
+            border: 2px solid var(--earth-ochre);
             color: var(--white);
             background: transparent;
             text-decoration: none;
@@ -87,11 +89,11 @@
             font-weight: bold;
             transition: var(--transition);
         }
-        .btn:hover { background: var(--warm-gold); color: var(--deep-amethyst); transform: scale(1.05); }
+        .btn:hover { background: var(--earth-ochre); color: var(--deep-slate); transform: scale(1.03); }
 
         /* --- SECTIONS --- */
         section { padding: 7rem 10%; max-width: 1300px; margin: 0 auto; }
-        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--deep-amethyst); font-size: 2.5rem; font-weight: 400; }
+        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--deep-slate); font-size: 2.5rem; font-weight: 400; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         
@@ -101,28 +103,28 @@
             border: 1px solid #eee; 
             text-align: center; 
             transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .card:hover { border-color: var(--healing-purple); transform: translateY(-10px); box-shadow: 0 12px 20px rgba(139,0,151,0.1); }
+        .card:hover { border-color: var(--grayish-purple); transform: translateY(-7px); box-shadow: 0 8px 16px rgba(122, 107, 127, 0.08); }
         
-        .credentials { color: var(--healing-purple); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
-        .card h3 { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--deep-amethyst); margin-bottom: 1rem; }
+        .credentials { color: var(--grayish-purple); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
+        .card h3 { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--deep-slate); margin-bottom: 1rem; font-weight: 400; }
         
         .card ul { list-style: none; text-align: left; font-size: 0.9rem; margin-top: 1rem; }
         .card li { margin-bottom: 0.6rem; border-bottom: 1px solid #f8f8f8; padding-bottom: 0.3rem; }
-        .group-tag { font-size: 0.75rem; color: var(--warm-gold); font-weight: bold; display: block; margin-bottom: 0.5rem; }
+        .group-tag { font-size: 0.75rem; color: var(--earth-ochre); font-weight: bold; display: block; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- FOOTER --- */
-        footer { background: var(--deep-amethyst); color: var(--white); padding: 5rem 10%; text-align: center; }
-        .crisis-bar { border: 1px solid var(--warm-gold); padding: 1.5rem; margin-bottom: 2rem; display: inline-block; }
+        footer { background: var(--deep-slate); color: var(--white); padding: 5rem 10%; text-align: center; }
+        .crisis-bar { border: 1px solid var(--earth-ochre); padding: 1.5rem; margin-bottom: 2rem; display: inline-block; color: var(--white); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 1rem; }
-            .nav-links a { margin: 0 10px; }
+            .hero h1 { font-size: 2.2rem; }
+            nav { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+            .nav-links a { margin: 0 10px; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -155,7 +157,7 @@
     </div>
 </section>
 
-<section id="clinicians" style="background-color: #fcfcfc; border-top: 1px solid #eee;">
+<section id="clinicians" style="background-color: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
     <h2>Our Clinicians</h2>
     <div class="grid">
         <div class="card">
@@ -164,7 +166,7 @@
             <p>Clinical director specializing in interpersonal violence, trauma recovery, and court reform.</p>
         </div>
         <div class="card">
-            <span class="credentials">Clinician</span>
+            <span class="credentials">LCSW</span>
             <h3>Eric Pribyl</h3>
             <p>Evidence-based care for individuals navigating the complexities of trauma and PTSD.</p>
         </div>
@@ -179,7 +181,7 @@
             <p>Focused on recovery from domestic abuse and providing empowering tools for survivors.</p>
         </div>
         <div class="card">
-            <span class="credentials">Master of Social Work Intern</span>
+            <span class="credentials">Clinician</span>
             <h3>Bryce Shimazaki</h3>
             <p>Focusing on PTSD, Identity Exploration, and Nervous System Healing. Supervised by Amy Perry, CMHC.</p>
         </div>
@@ -212,28 +214,28 @@
     </div>
 </section>
 
-<section id="insurance" style="background-color: #fcfcfc; border-top: 1px solid #eee;">
+<section id="insurance" style="background-color: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
     <h2>Financial Assistance & Insurance</h2>
     <div class="grid">
         <div class="card">
-            <h3 style="color: var(--healing-purple);">In-Network Providers</h3>
+            <h3 style="color: var(--grayish-purple);">In-Network Providers</h3>
             <ul>
-                <li>Aetna / BlueCross BlueShield / Cigna </li>
-                <li>EMI Health / Humana / Medicaid </li>
-                <li>Molina / Optum / PEHP / Regence </li>
-                <li>SelectHealth / TRICARE / TriWest </li>
-                <li>UHC / UBH / UMR </li>
-                <li>University of Utah Health Plans </li>
+                <li>Aetna / BlueCross BlueShield / Cigna</li>
+                <li>EMI Health / Humana / Medicaid</li>
+                <li>Molina / Optum / PEHP / Regence</li>
+                <li>SelectHealth / TRICARE / TriWest</li>
+                <li>UHC / UBH / UMR</li>
+                <li>University of Utah Health Plans</li>
             </ul>
         </div>
         <div class="card">
-            <h3 style="color: var(--healing-purple);">Grants & Programs</h3>
+            <h3 style="color: var(--grayish-purple);">Grants & Programs</h3>
             <ul>
                 <li>Domestic Violence Services Grants</li>
-                <li>Mental Health Services Grants</li>
                 <li>DWS (Dept. of Workforce Services)</li>
+                <li>Mental Health Services Grants</li>
                 <li>Crime Victim Reparations (CVR)</li>
-                <li>Sliding Scale Options Available </li>
+                <li>Sliding Scale Options Available</li>
             </ul>
         </div>
     </div>
@@ -242,18 +244,18 @@
 <section id="contact">
     <h2>Connect With Us</h2>
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111 </p>
-        <p>Email: ravenlotusandgrey@gmail.com · Phone: (385) 438-7310 </p>
+        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111</p>
+        <p>Email: ravenlotusandgrey@gmail.com · Phone: (385) 438-7310</p>
         <br><br>
-        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn" style="color: var(--healing-purple); border-color: var(--healing-purple);">Send Secure Message</a>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn" style="color: var(--grayish-purple); border-color: var(--grayish-purple);">Send Secure Message</a>
     </div>
 </section>
 
 <footer>
     <div class="crisis-bar">
-        <strong>Crisis Support:</strong> 988 · National DV Hotline: 1-800-799-7233 
+        <strong>Crisis Support:</strong> 988 · National DV Hotline: 1-800-799-7233
     </div>
-    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah </p>
+    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah</p>
 </footer>
 
 </body>
