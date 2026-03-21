@@ -6,11 +6,12 @@
     <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
     <style>
         :root {
-            --healing-purple: #8B5A97;
-            --warm-gold: #D4AF37;
-            --slate: #4a5459;
-            --stone: #fdfcf9;
+            --healing-purple: #8B5A97; /* Rich Amethyst */
             --deep-amethyst: #4b2c5e;
+            --warm-gold: #D4AF37; /* Warm Gold */
+            --stone: #fdfcf9;
+            --slate: #4a5459;
+            --white: #ffffff;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -27,75 +28,99 @@
         nav {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--white);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 2px solid var(--warm-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .nav-logo { display: flex; align-items: center; gap: 15px; }
-        .logo-svg { width: 55px; height: auto; }
+        
+        /* ADJUST THIS: This points to your actual logo file */
+        .logo-img { height: 60px; width: auto; }
+
         .nav-brand {
             font-family: 'Georgia', serif;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--deep-amethyst);
+            font-weight: bold;
         }
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
             margin-left: 2rem;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: var(--transition);
+            font-weight: 600;
         }
         .nav-links a:hover { color: var(--healing-purple); }
 
-        /* --- HERO --- */
+        /* --- HERO: RICHER COLOR GRADIENT --- */
         .hero {
-            height: 70vh;
-            background: linear-gradient(135deg, #fdfcf9 0%, #f4f1ea 100%);
+            height: 65vh;
+            background: linear-gradient(135deg, var(--deep-amethyst) 0%, var(--healing-purple) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 10%;
+            color: var(--white);
         }
-        .hero h1 { font-family: 'Georgia', serif; font-size: 3rem; color: var(--deep-amethyst); margin-bottom: 1rem; }
-        .hero p { font-style: italic; max-width: 600px; margin-bottom: 2rem; }
+        .hero h1 { font-family: 'Georgia', serif; font-size: 3.5rem; margin-bottom: 1rem; color: var(--white); }
+        .hero p { font-style: italic; max-width: 700px; margin-bottom: 2.5rem; font-size: 1.2rem; opacity: 0.9; }
 
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            padding: 1.1rem 2.8rem;
-            border: 1px solid var(--healing-purple);
-            color: var(--healing-purple);
+            padding: 1.2rem 3rem;
+            border: 2px solid var(--warm-gold);
+            color: var(--white);
+            background: transparent;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 0.75rem;
+            font-weight: bold;
             transition: var(--transition);
         }
-        .btn:hover { background: var(--healing-purple); color: white; box-shadow: 0 8px 20px rgba(139, 90, 151, 0.2); }
+        .btn:hover { background: var(--warm-gold); color: var(--deep-amethyst); transform: scale(1.05); }
 
-        /* --- SECTIONS --- */
-        section { padding: 6rem 10%; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 3.5rem; color: var(--deep-amethyst); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-        .card { background: white; padding: 2rem; border: 1px solid #eee; text-align: center; transition: var(--transition); }
-        .card:hover { border-color: var(--warm-gold); transform: translateY(-5px); }
+        /* --- CLINICIANS SECTION --- */
+        section { padding: 7rem 10%; max-width: 1300px; margin: 0 auto; }
+        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--deep-amethyst); font-size: 2.5rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        
+        .card { 
+            background: var(--white); 
+            padding: 3rem 2rem; 
+            border: 1px solid #eee; 
+            text-align: center; 
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .card:hover { border-color: var(--healing-purple); transform: translateY(-10px); box-shadow: 0 12px 20px rgba(139, 90, 151, 0.1); }
+        
+        /* Highlight for the Founder */
+        .founder-card { border: 2px solid var(--healing-purple); background: #fdfaff; }
+        
+        .credentials { color: var(--healing-purple); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
+        .card h3 { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--deep-amethyst); margin-bottom: 1rem; }
 
-        footer { text-align: center; padding: 4rem; background: white; border-top: 1px solid #eee; }
+        /* --- FOOTER --- */
+        footer { background: var(--deep-amethyst); color: var(--white); padding: 5rem 10%; text-align: center; }
+        .crisis-bar { border: 1px solid var(--warm-gold); padding: 1.5rem; margin-bottom: 2rem; display: inline-block; }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; padding: 1.5rem; }
-            .nav-links { margin-top: 1rem; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links a { margin: 0 10px; }
         }
     </style>
 </head>
@@ -103,111 +128,73 @@
 
 <nav>
     <div class="nav-logo">
-        <svg class="logo-svg" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 45 C35 45 25 35 25 25 C25 15 35 15 50 45 C65 15 75 15 75 25 C75 35 65 45 50 45Z" stroke="black" stroke-width="2.5"/>
-            <path d="M50 45 C40 30 40 10 50 5 C60 10 60 30 50 45Z" stroke="black" stroke-width="2.5"/>
-            <path d="M25 25 C15 25 10 35 25 45 C35 50 45 45 50 45" stroke="black" stroke-width="2.5"/>
-            <path d="M75 25 C85 25 90 35 75 45 C65 50 55 45 50 45" stroke="black" stroke-width="2.5"/>
-            <path d="M50 45 C50 60 65 60 65 52 C65 44 50 44 50 65" stroke="black" stroke-width="2.5"/>
-            <path d="M50 65 C30 65 30 75 50 75 C70 75 70 85 50 85 C30 85 30 95 50 95 C70 95 70 105 50 105" stroke="black" stroke-width="2.5"/>
-            <path d="M50 105 V115" stroke="black" stroke-width="2.5"/>
-            <circle cx="50" cy="122" r="1.8" fill="black"/>
-            <circle cx="50" cy="130" r="1.3" fill="black"/>
-            <circle cx="50" cy="136" r="0.8" fill="black"/>
-        </svg>
+        <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </div>
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#clinicians">Clinicians</a>
-        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
     <h1>Healing & Recovery</h1>
-    <p>Empowering tools to move through trauma and begin to thrive again[cite: 1].</p>
-    <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Book a Free 15-Minute Consultation</a>
+    <p>Certified in Domestic Violence and Trauma. We provide empowering tools to help you navigate recovery and begin to thrive again.</p>
+    <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Book a Consultation</a>
 </header>
 
-<section id="about">
-    <h2>Specialized Trauma Care</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
-        We are Domestic Violence and trauma certified, offering eclectic approaches including Somatic Experiencing, EMDR 1.0 & 2.0, and Trauma-Focused CBT[cite: 1]. Our team utilizes lived experience and professional expertise to navigate the intricacies of narcissistic abuse, divorce, and custody evaluations[cite: 1].
-    </p>
-    <div class="grid">
-        <div class="card">
-            <h3>Accepted Insurance</h3>
-            <ul style="list-style: none; font-size: 0.85rem; text-align: left;">
-                <li>Aetna, BlueCross/BlueShield, Cigna [cite: 1]</li>
-                <li>EMI Health, Medicaid, Molina [cite: 1]</li>
-                <li>Regence, SelectHealth, TRICARE [cite: 1]</li>
-                <li>UnitedHealthcare, UMR, Optum [cite: 1]</li>
-                <li>University of Utah Health Plans [cite: 1]</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Specialties</h3>
-            <ul style="list-style: none; font-size: 0.85rem; text-align: left;">
-                <li>Domestic Violence & Abuse [cite: 1]</li>
-                <li>Narcissistic Abuse & Recovery [cite: 1]</li>
-                <li>Post-Separation Abuse & Divorce [cite: 1]</li>
-                <li>PTSD & Complex Trauma [cite: 1]</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
 <section id="clinicians">
-    <h2>Our Team</h2>
+    <h2>Our Clinicians</h2>
     <div class="grid">
-        <div class="card">
-            <h3>Bryce Shimazaki, MSW Intern</h3>
-            <p>Master of Social Work Candidate at the University of Utah. Specializing in identity exploration and nervous system healing.</p>
-            <p style="font-size: 0.7rem; margin-top: 1rem; font-style: italic;">Supervised by Amy Perry, CMHC</p>
+        <div class="card founder-card">
+            <span class="credentials">Founder · CMHC, NCC</span>
+            <h3>Amy Perry</h3>
+            <p>Clinical director with 8+ years of experience in interpersonal violence, trauma recovery, and court reform.</p>
         </div>
         <div class="card">
-            <h3>Elizabeth Hoffmann, LCSW</h3>
-            <p>Clinical Social Worker and Therapist[cite: 1]. Focused on providing a safe space free of judgment or rejection[cite: 1].</p>
+            <span class="credentials">Master of Social Work Intern</span>
+            <h3>Bryce Shimazaki</h3>
+            <p>Specializing in identity exploration and nervous system healing. Supervised by Amy Perry, CMHC.</p>
         </div>
         <div class="card">
-            <h3>Amy Perry, CMHC, NCC</h3>
-            <p>National Certified Counselor with 8+ years clinical experience. Specializing in somatic recovery.</p>
+            <span class="credentials">LCSW</span>
+            <h3>Elizabeth Hoffmann</h3>
+            <p>Specializes in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups.</p>
+        </div>
+        <div class="card">
+            <span class="credentials">Clinician</span>
+            <h3>Ellen Seely</h3>
+            <p>Dedicated to supporting survivors of abuse and trauma through specialized clinical care.</p>
+        </div>
+        <div class="card">
+            <span class="credentials">Clinician</span>
+            <h3>Eric Pribyl</h3>
+            <p>Providing evidence-based therapy for individuals navigating complex trauma and PTSD.</p>
+        </div>
+        <div class="card">
+            <span class="credentials">Clinician</span>
+            <h3>Megan Thomson</h3>
+            <p>Focused on recovery from domestic abuse and providing empowering tools for survivors.</p>
         </div>
     </div>
 </section>
 
-<section id="services" style="background-color: #f9f9f9;">
-    <h2>Therapeutic Groups</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>"Just Breathe"</h3>
-            <p>A hybrid processing group for women who have experienced domestic, sexual, or religious trauma[cite: 1].</p>
-        </div>
-        <div class="card">
-            <h3>PTSD & Trauma Group</h3>
-            <p>Support for women identifying controlling tactics, safe boundaries, and self-advocacy[cite: 1].</p>
-        </div>
-        <div class="card">
-            <h3>LGBTQIA+ Processing</h3>
-            <p>A group providing community and understanding for the unique experiences faced by LGBTQIA+ individuals[cite: 1].</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Get in Touch</h2>
-    <div style="text-align: center;">
-        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111 [cite: 1]</p>
-        <p>Phone: (385) 438-7310 [cite: 1] · Email: ravenlotusandgrey@gmail.com</p>
-        <br>
-        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn">Send Secure Message</a>
+<section id="contact" style="background-color: var(--white); border-top: 1px solid #eee;">
+    <h2 style="color: var(--healing-purple);">Begin Your Journey</h2>
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111 </p>
+        <p>Email: ravenlotusandgrey@gmail.com · Phone: (385) 438-7310 </p>
+        <br><br>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn" style="color: var(--healing-purple); border-color: var(--healing-purple);">Send Secure Message</a>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah [cite: 1]</p>
+    <div class="crisis-bar">
+        <strong>Crisis Support:</strong> 988 · National DV Hotline: 1-800-799-7233 
+    </div>
+    <p>&copy; 2026 Raven, Lotus & Grey | Salt Lake City, Utah</p>
 </footer>
 
 </body>
