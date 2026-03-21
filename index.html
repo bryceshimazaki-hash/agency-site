@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raven, Lotus & Grey | Healing & Recovery</title>
+    <title>Raven, Lotus & Grey | Trauma-Informed Therapy</title>
     <style>
-        /* --- INSPIRATION: MINDFUL POSSIBILITIES COLOR PALETTE & TYPOGRAPHY --- */
         :root {
-            --clay: #a67c52;
+            /* Palette inspired by your uploaded Geode and Nature images */
+            --healing-purple: #8B5A97; /* Rich Amethyst */
+            --deep-amethyst: #4b2c5e;
+            --warm-gold: #D4AF37; /* Metallic Gold accent */
             --slate: #4a5459;
-            --stone: #f8f7f2; /* Lightened stone for that airy, "tranquil office" feel */
-            --earth-brown: #5d4037;
-            --healing-purple: #8B5A97;
-            --warm-gold: #D4AF37;
-            --sky-blue-light: #B0E0E6;
-            --sky-blue-dark: #4A90A4;
-            --white: #ffffff;
+            --stone: #fdfcf9; /* Airy, clean background */
+            --clay: #a67c52;
+            --sky-blue: #4A90A4;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        /* --- GLOBAL REFINEMENTS --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -28,224 +25,224 @@
             background-color: var(--stone);
             scroll-behavior: smooth;
         }
-        
+
         h1, h2, h3 { 
             font-family: 'Georgia', serif; 
-            color: var(--earth-brown); 
+            color: var(--deep-amethyst); 
             font-weight: 400;
             text-align: center;
-            letter-spacing: 1px;
         }
 
-        /* --- NAVIGATION (Sticky & Transparent-to-Solid Style) --- */
+        /* --- NAVIGATION --- */
         nav {
             position: sticky;
             top: 0;
-            background: var(--white);
-            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
         }
-        .nav-brand {
-            font-family: 'Georgia', serif;
-            font-size: 1.4rem;
-            color: var(--earth-brown);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; }
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
             margin-left: 2rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: var(--transition);
         }
         .nav-links a:hover { color: var(--healing-purple); }
 
-        /* --- HERO SECTION (Clean & Centered) --- */
+        /* --- HERO SECTION: TEXTURE INSPIRED BY BLUE SILK/WHEAT --- */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(248, 247, 242, 0.8), rgba(248, 247, 242, 0.8)), url('repository-image.jpg') center/cover;
+            height: 75vh;
+            background: linear-gradient(135deg, rgba(248, 247, 242, 0.9) 0%, rgba(176, 224, 230, 0.2) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 15%;
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--earth-brown); }
-        .hero p { font-size: 1.1rem; color: var(--slate); max-width: 700px; margin-bottom: 2.5rem; font-style: italic; }
-
-        /* --- SECTION FORMATTING --- */
-        section { padding: 6rem 10%; max-width: 1400px; margin: 0 auto; }
-        .section-tag { 
-            text-align: center; 
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            letter-spacing: 3px; 
-            color: var(--warm-gold); 
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* --- GRID & CARDS (Mindful Possibilities Style) --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        
-        .card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-            border: 1px solid #eaeaea;
-            transition: var(--transition);
             position: relative;
+            overflow: hidden;
         }
-        .card:hover { 
-            border-color: var(--warm-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        /* Sub-layer for that "Geode/Gold" glimmer effect */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%);
+            z-index: 0;
         }
-        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        
-        /* --- BUTTONS (Large & Minimalist) --- */
+
+        .hero-content { z-index: 1; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; max-width: 650px; margin-bottom: 2.5rem; font-style: italic; opacity: 0.8; }
+
+        /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: var(--earth-brown);
+            padding: 1.2rem 2.8rem;
+            background: var(--white);
+            color: var(--deep-amethyst);
             text-decoration: none;
-            border: 1px solid var(--earth-brown);
+            border: 1px solid var(--healing-purple);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.8rem;
             transition: var(--transition);
+            cursor: pointer;
         }
         .btn:hover {
-            background: var(--earth-brown);
-            color: var(--white);
-        }
-        .btn-solid {
             background: var(--healing-purple);
             color: white;
-            border: none;
+            box-shadow: 0 10px 20px rgba(139, 90, 151, 0.2);
         }
 
-        /* --- CRISIS FOOTER (Prominent) --- */
-        .crisis-banner {
-            background: #fdf2f2;
-            border-top: 1px solid #f8d7da;
-            padding: 2rem;
+        /* --- SECTION STYLING --- */
+        section { padding: 8rem 10%; max-width: 1200px; margin: 0 auto; }
+        .tagline { 
+            display: block; text-align: center; color: var(--warm-gold); 
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 4px; margin-bottom: 1rem;
+        }
+
+        /* --- CARDS: PURPLE BORDER & GOLD HOVER --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+        .card {
+            background: white;
+            padding: 3rem 2rem;
+            border: 1px solid #f0f0f0;
             text-align: center;
-            color: #721c24;
+            transition: var(--transition);
+        }
+        .card:hover {
+            border-color: var(--warm-gold);
+            transform: translateY(-10px);
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- POLYVAGAL / EDUCATION SECTION --- */
+        .edu-section {
+            background: linear-gradient(to bottom, #ffffff, #f4f7f8);
+            border-radius: 50px 50px 0 0;
+        }
+
+        /* --- FOOTER & CRISIS --- */
+        footer {
+            background: white;
+            padding: 4rem 10%;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        .crisis-box {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            color: #c53030;
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            nav { flex-direction: column; padding: 1rem; }
-            .nav-links { margin-top: 1rem; }
+            .hero h1 { font-size: 2.2rem; }
+            nav { flex-direction: column; gap: 1rem; }
             .nav-links a { margin: 0 10px; font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-brand">Raven, Lotus & Grey</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#clinicians">Clinicians</a>
-            <a href="#scheduling">Scheduling</a>
-            <a href="#financial">Fees</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <span class="section-tag">Discover. Heal. Connect.</span>
-        <h1>Healing from Within</h1>
-        <p>A trauma-informed space for domestic violence survivors, focusing on nervous system regulation and lived-experience advocacy.</p>
-        <a href="#scheduling" class="btn">Start Your Journey</a>
-    </header>
-
-    <section id="about">
-        <span class="section-tag">Our Philosophy</span>
-        <h2>Breaking Cycles</h2>
-        <div style="max-width: 800px; margin: 2rem auto; text-align: center;">
-            <p>At Raven, Lotus & Grey, we believe in a non-judgmental, compassionate approach to healing. Our mission is rooted in the belief that those who have walked the path of trauma are uniquely qualified to guide others toward the light.</p>
-        </div>
-    </section>
-
-    <section id="clinicians" style="background-color: #fff;">
-        <span class="section-tag">Meet Our Team</span>
-        <h2>Our Clinicians</h2>
-        <div class="grid" style="margin-top: 3rem;">
-              <div class="card">
-                <h3>Amy Perry, CMHC, NCC</h3>
-                <p style="color: var(--warm-gold); font-size: 0.9rem; margin-bottom: 1rem;">Clinical Director</p>
-                <p>8+ years of experience in EMDR, somatic experiencing, and court reform. Dedicated to trauma recovery and systemic advocacy.</p>
-            </div>
-            <div class="card">
-                <h3>Bryce Shimazaki, MSW Intern</h3>
-                <p style="color: var(--warm-gold); font-size: 0.9rem; margin-bottom: 1rem;">U of U | MSW-I</p>
-                <p>Specializing in PTSD, Complex Trauma, and Identity Exploration. Guided by lived experience and a focus on nervous system healing.</p>
-                <p style="font-size: 0.8rem; margin-top: 1rem; font-style: italic;">Supervised by Amy Perry, CMHC</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="scheduling">
-        <div class="card" style="max-width: 700px; margin: 0 auto; border: none; background: transparent;">
-            <span class="section-tag">Next Steps</span>
-            <h2>Work With Us</h2>
-            <p style="margin-bottom: 2rem;">We offer free 15-minute consultations to help you determine the best path forward for your healing.</p>
-            <a href="#" class="btn btn-solid">Book Online via SimplePractice</a>
-        </div>
-    </section>
-
-    <section id="financial" style="background-color: #fcfcfc;">
-        <span class="section-tag">Investment in Self</span>
-        <h2>Insurance & Fees</h2>
-        <div class="grid">
-            <div class="card" style="border-top: 4px solid var(--warm-gold);">
-                <h3>Grants & Support</h3>
-                <p>We work with DWS and various Domestic Violence Service grants to ensure care is accessible.</p>
-            </div>
-            <div class="card" style="border-top: 4px solid var(--healing-purple);">
-                <h3>Sliding Scale</h3>
-                <p>Reduced rate options are available for uninsured and underinsured clients.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <span class="section-tag">Get In Touch</span>
-        <h2>Contact Raven, Lotus & Grey</h2>
-        <div style="max-width: 600px; margin: 3rem auto;">
-            <p style="text-align: center; margin-bottom: 2rem;">Salt Lake City, Utah | Greater Salt Lake Metro Area</p>
-            <form>
-                <input type="text" placeholder="Name" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd;">
-                <input type="email" placeholder="Email" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd;">
-                <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd;"></textarea>
-                <button type="submit" class="btn" style="width: 100%; cursor: pointer;">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <div class="crisis-banner">
-        <p><strong>Crisis Support:</strong> If you are experiencing a mental health emergency, please call <strong>988</strong> or text <strong>HOME</strong> to <strong>741741</strong>.</p>
-        <p>National Domestic Violence Hotline: 1-800-799-7233</p>
+<nav>
+    <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20C50 20 40 35 30 35C20 35 20 25 30 25C40 25 50 45 50 45C50 45 60 25 70 25C80 25 80 35 70 35C60 35 50 20 50 20Z" stroke="#8B5A97" stroke-width="2"/>
+            <path d="M50 45V80" stroke="#D4AF37" stroke-width="2" stroke-dasharray="2 4"/>
+            <circle cx="50" cy="85" r="1.5" fill="#D4AF37"/>
+            <circle cx="50" cy="92" r="1" fill="#D4AF37"/>
+        </svg>
+        <span class="nav-brand" style="font-family: Georgia; letter-spacing: 1px;">Raven, Lotus & Grey</span>
     </div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#clinicians">Clinicians</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <footer style="padding: 3rem; text-align: center; background: var(--white); border-top: 1px solid #eee; font-size: 0.8rem; letter-spacing: 1px;">
-        <p>RAVEN, LOTUS & GREY | SALT LAKE CITY, UT</p>
-        <p style="margin-top: 1rem; opacity: 0.6;">&copy; 2026 All Rights Reserved.</p>
-    </footer>
+<header class="hero">
+    <div class="hero-content">
+        <span class="tagline">Healing · Recovery · Resilience</span>
+        <h1>Space for the Lived Experience</h1>
+        <p>A trauma-informed clinical practice in Salt Lake City specializing in domestic violence recovery and nervous system healing.</p>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Request Appointment</a>
+    </div>
+</header>
+
+<section id="about">
+    <span class="tagline">Our Mission</span>
+    <h2>Healing from Domestic Violence</h2>
+    <div style="max-width: 800px; margin: 2rem auto; text-align: center;">
+        <p>We provide a non-judgmental, compassionate environment for survivors of complex trauma. Grounded in <strong>Polyvagal Theory</strong> and lived experience, we help you move from a state of survival into a state of thriving.</p>
+    </div>
+</section>
+
+<section id="clinicians" style="background: #fff;">
+    <span class="tagline">Professional Care</span>
+    <h2>The Clinical Team</h2>
+    <div class="grid" style="margin-top: 3rem;">
+        <div class="card">
+            <h3>Bryce Shimazaki, MSW Intern</h3>
+            <p style="color: var(--warm-gold); font-size: 0.8rem; margin-bottom: 1rem;">University of Utah · Master of Social Work Candidate</p>
+            <p>Focusing on PTSD, Identity Exploration, and Nervous System Healing. Bryce integrates lived experience with evidence-based trauma care.</p>
+            <p style="font-size: 0.75rem; margin-top: 1.5rem; opacity: 0.6;">Supervised by Amy Perry, CMHC</p>
+        </div>
+        <div class="card">
+            <h3>Amy Perry, CMHC, NCC</h3>
+            <p style="color: var(--warm-gold); font-size: 0.8rem; margin-bottom: 1rem;">Clinical Director · 8+ Years Experience</p>
+            <p>Specializing in EMDR, Somatic Experiencing, and Court Advocacy. Expert in interpersonal violence recovery and systemic reform.</p>
+        </div>
+    </div>
+</section>
+
+<section id="approach" class="edu-section">
+    <span class="tagline">How We Heal</span>
+    <h2>The Polyvagal Approach</h2>
+    <div class="grid" style="margin-top: 3rem;">
+        <div class="card">
+            <h3 style="color: var(--healing-purple);">Window of Tolerance</h3>
+            <p>Learning to recognize when your nervous system is pushed into hyper-arousal (anxiety) or hypo-arousal (shutdown).</p>
+        </div>
+        <div class="card">
+            <h3 style="color: var(--healing-purple);">Somatic Awareness</h3>
+            <p>The body keeps the score. We focus on physical safety and grounding techniques to regulate the vagus nerve circuit.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <span class="tagline">Connect</span>
+    <h2>Begin Your Journey</h2>
+    <div style="text-align: center; margin-top: 2rem;">
+        <p>Salt Lake City, Utah | Greater Salt Lake Metro Area</p>
+        <p style="margin-bottom: 3rem;">ravenlotusandgrey@gmail.com</p>
+        
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn">Send a Secure Message</a>
+    </div>
+</section>
+
+<footer>
+    <div class="crisis-box">
+        <p><strong>Crisis Support:</strong> National Suicide Prevention Lifeline: <strong>988</strong></p>
+        <p>National Domestic Violence Hotline: 1-800-799-7233 | Crisis Text Line: Text HOME to 741741</p>
+    </div>
+    <p style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Raven, Lotus & Grey | Salt Lake City, UT</p>
+    <p style="margin-top: 1rem; opacity: 0.5; font-size: 0.7rem;">&copy; 2026 All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
