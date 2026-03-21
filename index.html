@@ -6,12 +6,12 @@
     <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
     <style>
         :root {
-            /* CUSTOM PALETTE */
-            --custom-purple: #c0a7cc; 
-            --custom-yellow: #f0dc84; 
-            --deep-slate: #c0a7cc; 
-            --slate: #c0a7cc; 
-            --stone: #fcfaf6; 
+            /* MOODY & MUTED PALETTE */
+            --moody-purple: #4A4453; /* Dark, grayish-purple */
+            --muted-sage: #828A7F;   /* Muted, earthy complementary gray-green */
+            --deep-slate: #2C2F33;   /* For high-contrast text/backgrounds */
+            --soft-gray: #F4F4F2;    /* Warm, light stone for sections */
+            --slate-text: #4E545C;   /* Standard readable body text */
             --white: #ffffff;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -20,8 +20,8 @@
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.8;
-            color: var(--slate);
-            background-color: var(--stone);
+            color: var(--slate-text);
+            background-color: var(--white);
             scroll-behavior: smooth;
         }
 
@@ -30,13 +30,13 @@
             position: sticky;
             top: 0;
             background: var(--white);
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 2px solid var(--custom-yellow);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border-bottom: 2px solid var(--muted-sage);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .nav-logo { display: flex; align-items: center; gap: 15px; }
         .logo-img { height: 60px; width: auto; }
@@ -46,12 +46,12 @@
             font-size: 1.2rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--deep-slate);
+            color: var(--moody-purple);
             font-weight: bold;
         }
         .nav-links { display: flex; gap: 2rem; }
         .nav-links a {
-            color: var(--slate);
+            color: var(--slate-text);
             text-decoration: none;
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -59,12 +59,12 @@
             font-weight: 600;
             transition: var(--transition);
         }
-        .nav-links a:hover { color: var(--custom-purple); }
+        .nav-links a:hover { color: var(--muted-sage); }
 
-        /* --- HERO: SOLID COLOR NO GRADIENT --- */
+        /* --- HERO: SOLID MOODY COLOR --- */
         .hero {
-            height: 60vh;
-            background-color: var(--deep-slate);
+            height: 55vh;
+            background-color: var(--moody-purple);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -74,13 +74,13 @@
             color: var(--white);
         }
         .hero h1 { font-family: 'Georgia', serif; font-size: 3.5rem; margin-bottom: 1rem; color: var(--white); font-weight: 400; }
-        .hero p { font-style: italic; max-width: 700px; margin-bottom: 2.5rem; font-size: 1.2rem; opacity: 0.9; }
+        .hero p { font-style: italic; max-width: 700px; margin-bottom: 2.5rem; font-size: 1.2rem; opacity: 0.85; }
 
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
             padding: 1.1rem 2.8rem;
-            border: 2px solid var(--custom-yellow);
+            border: 2px solid var(--muted-sage);
             color: var(--white);
             background: transparent;
             text-decoration: none;
@@ -89,42 +89,41 @@
             font-weight: bold;
             transition: var(--transition);
         }
-        .btn:hover { background: var(--custom-yellow); color: var(--deep-slate); transform: scale(1.03); }
+        .btn:hover { background: var(--muted-sage); color: var(--white); transform: translateY(-2px); }
 
         /* --- SECTIONS --- */
         section { padding: 7rem 10%; max-width: 1300px; margin: 0 auto; }
-        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--deep-slate); font-size: 2.5rem; font-weight: 400; }
+        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--moody-purple); font-size: 2.5rem; font-weight: 400; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         
         .card { 
             background: var(--white); 
-            padding: 3rem 2rem; 
-            border: 1px solid #eee; 
+            padding: 3rem 2.5rem; 
+            border: 1px solid #eef0ef; 
             text-align: center; 
             transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .card:hover { border-color: var(--custom-purple); transform: translateY(-7px); box-shadow: 0 8px 16px rgba(192, 167, 204, 0.15); }
+        .card:hover { border-color: var(--muted-sage); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         
-        .credentials { color: var(--custom-purple); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
-        .card h3 { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--deep-slate); margin-bottom: 1rem; font-weight: 400; }
+        .credentials { color: var(--muted-sage); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; margin-bottom: 0.8rem; display: block; }
+        .card h3 { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--moody-purple); margin-bottom: 1rem; font-weight: 400; }
         
         .card ul { list-style: none; text-align: left; font-size: 0.9rem; margin-top: 1rem; }
-        .card li { margin-bottom: 0.6rem; border-bottom: 1px solid #f8f8f8; padding-bottom: 0.3rem; }
-        .group-tag { font-size: 0.75rem; color: var(--custom-yellow); background: var(--deep-slate); padding: 2px 8px; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .card li { margin-bottom: 0.6rem; border-bottom: 1px solid #f4f4f2; padding-bottom: 0.3rem; }
+        .group-tag { font-size: 0.75rem; color: var(--white); background: var(--muted-sage); padding: 3px 10px; font-weight: bold; display: inline-block; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- FOOTER --- */
         footer { background: var(--deep-slate); color: var(--white); padding: 5rem 10%; text-align: center; }
-        .crisis-bar { border: 1px solid var(--custom-yellow); padding: 1.5rem; margin-bottom: 2rem; display: inline-block; color: var(--white); }
+        .crisis-bar { border: 1px solid var(--muted-sage); padding: 1.5rem; margin-bottom: 2rem; display: inline-block; color: var(--white); font-size: 0.9rem; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
-            nav { flex-direction: column; gap: 1rem; padding: 1.5rem; }
-            .nav-links a { margin: 0 5px; font-size: 0.75rem; }
+            nav { flex-direction: column; gap: 1.5rem; padding: 1.5rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -146,39 +145,39 @@
 
 <header class="hero">
     <h1>Healing & Recovery</h1>
-    <p>Certified Domestic Violence and Trauma specialists providing empowering tools to move from survival to thriving[cite: 1].</p>
+    <p>Certified Domestic Violence and Trauma specialists providing empowering tools to move from survival to thriving.</p>
     <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Request a Consultation</a>
 </header>
 
-<section id="about">
+<section id="about" style="background-color: var(--soft-gray); border-bottom: 1px solid #e5e5e0;">
     <h2>Mission & Philosophy</h2>
     <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <p>At Raven, Lotus & Grey, we believe that lived experience, coupled with professional expertise, provides a unique depth of insight into the complexities of domestic violence, trauma, and narcissistic abuse[cite: 1]. We offer a safe space where healing happens without fear of judgment or rejection[cite: 1].</p>
+        <p>At Raven, Lotus & Grey, we believe that lived experience, coupled with professional expertise, provides a unique depth of insight into the complexities of domestic violence, trauma, and narcissistic abuse. We offer a safe, non-judgmental space where survivors can rebuild their lives and begin to thrive again.</p>
     </div>
 </section>
 
-<section id="clinicians" style="background-color: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+<section id="clinicians">
     <h2>Our Clinicians</h2>
     <div class="grid">
         <div class="card">
             <span class="credentials">Founder · CMHC, NCC</span>
             <h3>Amy Perry</h3>
-            <p>Clinical director specializing in interpersonal violence, trauma recovery, and court reform[cite: 1].</p>
+            <p>Clinical director specializing in interpersonal violence, trauma recovery, and court reform.</p>
         </div>
         <div class="card">
             <span class="credentials">LCSW</span>
             <h3>Eric Pribyl</h3>
-            <p>Evidence-based care for individuals navigating the complexities of trauma and PTSD[cite: 1].</p>
+            <p>Evidence-based care for individuals navigating the complexities of trauma and PTSD.</p>
         </div>
         <div class="card">
             <span class="credentials">LCSW</span>
             <h3>Elizabeth Hoffmann</h3>
-            <p>Specializing in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups[cite: 1].</p>
+            <p>Specializing in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups.</p>
         </div>
         <div class="card">
             <span class="credentials">Clinician</span>
             <h3>Megan Thomson</h3>
-            <p>Focused on recovery from domestic abuse and providing empowering tools for survivors[cite: 1].</p>
+            <p>Focused on recovery from domestic abuse and providing empowering tools for survivors.</p>
         </div>
         <div class="card">
             <span class="credentials">Clinician</span>
@@ -188,71 +187,71 @@
         <div class="card">
             <span class="credentials">Clinician</span>
             <h3>Ellen Seely</h3>
-            <p>Dedicated to supporting survivors of abuse through specialized, compassionate clinical care[cite: 1].</p>
+            <p>Dedicated to supporting survivors of abuse through specialized, compassionate clinical care.</p>
         </div>
     </div>
 </section>
 
-<section id="groups">
+<section id="groups" style="background-color: var(--soft-gray); border-top: 1px solid #e5e5e0; border-bottom: 1px solid #e5e5e0;">
     <h2>Therapeutic Groups</h2>
     <div class="grid">
         <div class="card">
             <span class="group-tag">Women's Support</span>
             <h3>"Just Breathe"</h3>
-            <p>A hybrid processing group for women who have experienced a variety of trauma[cite: 1].</p>
+            <p>A hybrid processing group for women who have experienced a variety of trauma.</p>
         </div>
         <div class="card">
             <span class="group-tag">LGBTQIA+ Community</span>
             <h3>LGBTQIA+ Processing</h3>
-            <p>Providing community, connection, and understanding for the LGBTQIA+ community in Utah[cite: 1].</p>
+            <p>Providing community and connection for LGBTQIA+ individuals navigating unique experiences in Utah.</p>
         </div>
         <div class="card">
             <span class="group-tag">Support & Education</span>
             <h3>PTSD & Trauma Group</h3>
-            <p>Helping women identify controlling tactics and learn safe boundaries while moving forward[cite: 1].</p>
+            <p>Helping women identify controlling tactics and learn safe boundaries while moving forward.</p>
         </div>
     </div>
 </section>
 
-<section id="insurance" style="background-color: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+<section id="insurance">
     <h2>Financial Assistance & Insurance</h2>
     <div class="grid">
         <div class="card">
-            <h3 style="color: var(--custom-purple);">In-Network Providers</h3>
+            <h3 style="color: var(--muted-sage);">In-Network Providers</h3>
             <ul>
-                <li>Aetna / BlueCross BlueShield / Cigna [cite: 1]</li>
-                <li>EMI Health / Humana / Medicaid [cite: 1]</li>
-                <li>SelectHealth / TRICARE / TriWest [cite: 1]</li>
-                <li>University of Utah Health Plans [cite: 1]</li>
+                <li>Aetna / BlueCross BlueShield / Cigna</li>
+                <li>EMI Health / Humana / Medicaid</li>
+                <li>SelectHealth / TRICARE / TriWest</li>
+                <li>University of Utah Health Plans</li>
             </ul>
         </div>
         <div class="card">
-            <h3 style="color: var(--custom-purple);">Grants & Programs</h3>
+            <h3 style="color: var(--muted-sage);">Grants & Programs</h3>
             <ul>
-                <li>Domestic Violence Services Grants [cite: 1]</li>
-                <li>DWS (Dept. of Workforce Services) [cite: 1]</li>
-                <li>Crime Victim Reparations (CVR) [cite: 1]</li>
-                <li>Sliding Scale Options Available [cite: 1]</li>
+                <li>Domestic Violence Services Grants</li>
+                <li>DWS (Dept. of Workforce Services)</li>
+                <li>Crime Victim Reparations (CVR)</li>
+                <li>Sliding Scale Options Available</li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" style="background-color: var(--soft-gray); border-top: 1px solid #e5e5e0;">
     <h2>Connect With Us</h2>
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111 [cite: 1]</p>
-        <p>Email: ravenlotusandgrey@gmail.com · Phone: (385) 438-7310 [cite: 1]</p>
+        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111</p>
+        <p>Email: ravenlotusandgrey@gmail.com · Phone: (385) 438-7310</p>
         <br><br>
-        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn" style="color: var(--custom-purple); border-color: var(--custom-purple);">Send Secure Message</a>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn" style="color: var(--moody-purple); border-color: var(--moody-purple);">Send Secure Message</a>
     </div>
 </section>
 
 <footer>
     <div class="crisis-bar">
-        <strong>Crisis Support:</strong> 988 · National DV Hotline: 1-800-799-7233 [cite: 1]
+        <strong>Crisis Support:</strong> 988 · National DV Hotline: 1-800-799-7233
     </div>
-    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah [cite: 1]</p>
+    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah</p>
 </footer>
 
 </body>
