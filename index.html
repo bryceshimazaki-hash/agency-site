@@ -6,9 +6,9 @@
     <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
     <style>
         :root {
-            --healing-purple: #8B5A97; /* Rich Amethyst */
+            --healing-purple: #8B5A97;
             --deep-amethyst: #4b2c5e;
-            --warm-gold: #D4AF37; /* Warm Gold */
+            --warm-gold: #D4AF37;
             --stone: #fdfcf9;
             --slate: #4a5459;
             --white: #ffffff;
@@ -38,8 +38,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .nav-logo { display: flex; align-items: center; gap: 15px; }
-        
-        /* ADJUST THIS: This points to your actual logo file */
         .logo-img { height: 60px; width: auto; }
 
         .nav-brand {
@@ -61,9 +59,9 @@
         }
         .nav-links a:hover { color: var(--healing-purple); }
 
-        /* --- HERO: RICHER COLOR GRADIENT --- */
+        /* --- HERO --- */
         .hero {
-            height: 65vh;
+            height: 60vh;
             background: linear-gradient(135deg, var(--deep-amethyst) 0%, var(--healing-purple) 100%);
             display: flex;
             flex-direction: column;
@@ -79,7 +77,7 @@
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            padding: 1.1rem 2.8rem;
             border: 2px solid var(--warm-gold);
             color: var(--white);
             background: transparent;
@@ -91,9 +89,9 @@
         }
         .btn:hover { background: var(--warm-gold); color: var(--deep-amethyst); transform: scale(1.05); }
 
-        /* --- CLINICIANS SECTION --- */
+        /* --- SECTIONS --- */
         section { padding: 7rem 10%; max-width: 1300px; margin: 0 auto; }
-        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--deep-amethyst); font-size: 2.5rem; }
+        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 4rem; color: var(--deep-amethyst); font-size: 2.5rem; font-weight: 400; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
         
@@ -104,14 +102,18 @@
             text-align: center; 
             transition: var(--transition);
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .card:hover { border-color: var(--healing-purple); transform: translateY(-10px); box-shadow: 0 12px 20px rgba(139, 90, 151, 0.1); }
-        
-        /* Highlight for the Founder */
-        .founder-card { border: 2px solid var(--healing-purple); background: #fdfaff; }
+        .card:hover { border-color: var(--healing-purple); transform: translateY(-10px); box-shadow: 0 12px 20px rgba(139,0,151,0.1); }
         
         .credentials { color: var(--healing-purple); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
         .card h3 { font-family: 'Georgia', serif; font-size: 1.6rem; color: var(--deep-amethyst); margin-bottom: 1rem; }
+        
+        .card ul { list-style: none; text-align: left; font-size: 0.9rem; margin-top: 1rem; }
+        .card li { margin-bottom: 0.6rem; border-bottom: 1px solid #f8f8f8; padding-bottom: 0.3rem; }
+        .group-tag { font-size: 0.75rem; color: var(--warm-gold); font-weight: bold; display: block; margin-bottom: 0.5rem; }
 
         /* --- FOOTER --- */
         footer { background: var(--deep-amethyst); color: var(--white); padding: 5rem 10%; text-align: center; }
@@ -132,56 +134,113 @@
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </div>
     <div class="nav-links">
-        <a href="#about">About</a>
+        <a href="#about">Philosophy</a>
         <a href="#clinicians">Clinicians</a>
+        <a href="#groups">Groups</a>
+        <a href="#insurance">Insurance</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
     <h1>Healing & Recovery</h1>
-    <p>Certified in Domestic Violence and Trauma. We provide empowering tools to help you navigate recovery and begin to thrive again.</p>
-    <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Book a Consultation</a>
+    <p>Certified Domestic Violence and Trauma specialists providing empowering tools to move from survival to thriving.</p>
+    <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Request a Consultation</a>
 </header>
 
-<section id="clinicians">
+<section id="about">
+    <h2>Mission & Philosophy</h2>
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <p>At Raven, Lotus & Grey, we believe that lived experience, coupled with professional expertise, provides a unique depth of insight into the complexities of domestic violence, trauma, and narcissistic abuse. We are Domestic Violence and trauma certified, licensed by the State of Utah to offer a safe space where healing happens without fear of judgment or rejection. Our mission is to provide authentic, realistic tools that empower survivors to rebuild their lives and thrive again.</p>
+    </div>
+</section>
+
+<section id="clinicians" style="background-color: #fcfcfc; border-top: 1px solid #eee;">
     <h2>Our Clinicians</h2>
     <div class="grid">
-        <div class="card founder-card">
+        <div class="card">
             <span class="credentials">Founder · CMHC, NCC</span>
             <h3>Amy Perry</h3>
-            <p>Clinical director with 8+ years of experience in interpersonal violence, trauma recovery, and court reform.</p>
-        </div>
-        <div class="card">
-            <span class="credentials">Master of Social Work Intern</span>
-            <h3>Bryce Shimazaki</h3>
-            <p>Specializing in identity exploration and nervous system healing. Supervised by Amy Perry, CMHC.</p>
-        </div>
-        <div class="card">
-            <span class="credentials">LCSW</span>
-            <h3>Elizabeth Hoffmann</h3>
-            <p>Specializes in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups.</p>
-        </div>
-        <div class="card">
-            <span class="credentials">Clinician</span>
-            <h3>Ellen Seely</h3>
-            <p>Dedicated to supporting survivors of abuse and trauma through specialized clinical care.</p>
+            <p>Clinical director specializing in interpersonal violence, trauma recovery, and court reform.</p>
         </div>
         <div class="card">
             <span class="credentials">Clinician</span>
             <h3>Eric Pribyl</h3>
-            <p>Providing evidence-based therapy for individuals navigating complex trauma and PTSD.</p>
+            <p>Evidence-based care for individuals navigating the complexities of trauma and PTSD.</p>
+        </div>
+        <div class="card">
+            <span class="credentials">LCSW</span>
+            <h3>Elizabeth Hoffmann</h3>
+            <p>Specializing in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups.</p>
         </div>
         <div class="card">
             <span class="credentials">Clinician</span>
             <h3>Megan Thomson</h3>
             <p>Focused on recovery from domestic abuse and providing empowering tools for survivors.</p>
         </div>
+        <div class="card">
+            <span class="credentials">Master of Social Work Intern</span>
+            <h3>Bryce Shimazaki</h3>
+            <p>Focusing on PTSD, Identity Exploration, and Nervous System Healing. Supervised by Amy Perry, CMHC.</p>
+        </div>
+        <div class="card">
+            <span class="credentials">Clinician</span>
+            <h3>Ellen Seely</h3>
+            <p>Dedicated to supporting survivors of abuse through specialized, compassionate clinical care.</p>
+        </div>
     </div>
 </section>
 
-<section id="contact" style="background-color: var(--white); border-top: 1px solid #eee;">
-    <h2 style="color: var(--healing-purple);">Begin Your Journey</h2>
+<section id="groups">
+    <h2>Therapeutic Groups</h2>
+    <div class="grid">
+        <div class="card">
+            <span class="group-tag">Women's Support</span>
+            <h3>"Just Breathe"</h3>
+            <p>A safe environment to share and support others who understand the dynamics of domestic, sexual, or religious trauma.</p>
+        </div>
+        <div class="card">
+            <span class="group-tag">LGBTQIA+ Community</span>
+            <h3>LGBTQIA+ Processing</h3>
+            <p>Aiming to provide community, connection, and understanding to the experiences faced by LGBTQIA+ individuals in Utah.</p>
+        </div>
+        <div class="card">
+            <span class="group-tag">Support & Education</span>
+            <h3>PTSD & Trauma Group</h3>
+            <p>Helping women identify controlling tactics, learn safe boundaries, and value themselves while moving forward.</p>
+        </div>
+    </div>
+</section>
+
+<section id="insurance" style="background-color: #fcfcfc; border-top: 1px solid #eee;">
+    <h2>Financial Assistance & Insurance</h2>
+    <div class="grid">
+        <div class="card">
+            <h3 style="color: var(--healing-purple);">In-Network Providers</h3>
+            <ul>
+                <li>Aetna / BlueCross BlueShield / Cigna </li>
+                <li>EMI Health / Humana / Medicaid </li>
+                <li>Molina / Optum / PEHP / Regence </li>
+                <li>SelectHealth / TRICARE / TriWest </li>
+                <li>UHC / UBH / UMR </li>
+                <li>University of Utah Health Plans </li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3 style="color: var(--healing-purple);">Grants & Programs</h3>
+            <ul>
+                <li>Domestic Violence Services Grants</li>
+                <li>Mental Health Services Grants</li>
+                <li>DWS (Dept. of Workforce Services)</li>
+                <li>Crime Victim Reparations (CVR)</li>
+                <li>Sliding Scale Options Available </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Connect With Us</h2>
     <div style="text-align: center; max-width: 600px; margin: 0 auto;">
         <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111 </p>
         <p>Email: ravenlotusandgrey@gmail.com · Phone: (385) 438-7310 </p>
@@ -194,7 +253,7 @@
     <div class="crisis-bar">
         <strong>Crisis Support:</strong> 988 · National DV Hotline: 1-800-799-7233 
     </div>
-    <p>&copy; 2026 Raven, Lotus & Grey | Salt Lake City, Utah</p>
+    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah </p>
 </footer>
 
 </body>
