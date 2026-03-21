@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raven, Lotus & Grey | Trauma-Informed Therapy</title>
+    <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
     <style>
         :root {
-            --healing-purple: #8B5A97; /* Inspired by your Geode/Amethyst images */
-            --warm-gold: #D4AF37; /* Warm Gold highlights */
+            --healing-purple: #8B5A97;
+            --warm-gold: #D4AF37;
             --slate: #4a5459;
             --stone: #fdfcf9;
             --deep-amethyst: #4b2c5e;
@@ -23,7 +23,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- NAVIGATION & LOGO --- */
+        /* --- NAVIGATION --- */
         nav {
             position: sticky;
             top: 0;
@@ -34,19 +34,16 @@
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
         .nav-logo { display: flex; align-items: center; gap: 15px; }
-        .logo-svg { width: 50px; height: auto; }
-        
+        .logo-svg { width: 55px; height: auto; }
         .nav-brand {
             font-family: 'Georgia', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--deep-amethyst);
         }
-
         .nav-links a {
             color: var(--slate);
             text-decoration: none;
@@ -58,7 +55,7 @@
         }
         .nav-links a:hover { color: var(--healing-purple); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             height: 70vh;
             background: linear-gradient(135deg, #fdfcf9 0%, #f4f1ea 100%);
@@ -69,18 +66,13 @@
             text-align: center;
             padding: 0 10%;
         }
-        .hero h1 { 
-            font-family: 'Georgia', serif; 
-            font-size: 3rem; 
-            color: var(--deep-amethyst);
-            margin-bottom: 1rem;
-        }
+        .hero h1 { font-family: 'Georgia', serif; font-size: 3rem; color: var(--deep-amethyst); margin-bottom: 1rem; }
         .hero p { font-style: italic; max-width: 600px; margin-bottom: 2rem; }
 
-        /* --- BUTTON STYLES --- */
+        /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.1rem 2.8rem;
             border: 1px solid var(--healing-purple);
             color: var(--healing-purple);
             text-decoration: none;
@@ -88,19 +80,14 @@
             letter-spacing: 2px;
             font-size: 0.75rem;
             transition: var(--transition);
-            background: transparent;
         }
-        .btn:hover {
-            background: var(--healing-purple);
-            color: white;
-            box-shadow: 0 5px 15px rgba(139, 90, 151, 0.3);
-        }
+        .btn:hover { background: var(--healing-purple); color: white; box-shadow: 0 8px 20px rgba(139, 90, 151, 0.2); }
 
         /* --- SECTIONS --- */
         section { padding: 6rem 10%; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 3rem; color: var(--deep-amethyst); }
+        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 3.5rem; color: var(--deep-amethyst); }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-        .card { background: white; padding: 3rem; border: 1px solid #eee; text-align: center; transition: var(--transition); }
+        .card { background: white; padding: 2rem; border: 1px solid #eee; text-align: center; transition: var(--transition); }
         .card:hover { border-color: var(--warm-gold); transform: translateY(-5px); }
 
         footer { text-align: center; padding: 4rem; background: white; border-top: 1px solid #eee; }
@@ -108,7 +95,7 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 1.5rem; }
             .nav-links { margin-top: 1rem; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -116,60 +103,111 @@
 
 <nav>
     <div class="nav-logo">
-        <svg class="logo-svg" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 40 C50 40 55 25 65 25 C75 25 75 35 65 35 C55 35 50 45 50 45" fill="none" stroke="#8B5A97" stroke-width="2"/>
-            <path d="M50 40 C50 40 45 25 35 25 C25 25 25 35 35 35 C45 35 50 45 50 45" fill="none" stroke="#8B5A97" stroke-width="2"/>
-            <path d="M50 40 C50 40 60 15 75 15 C90 15 90 30 75 30 C60 30 50 50 50 50" fill="none" stroke="#8B5A97" stroke-width="2"/>
-            <path d="M50 40 C50 40 40 15 25 15 C10 15 10 30 25 30 C40 30 50 50 50 50" fill="none" stroke="#8B5A97" stroke-width="2"/>
-            <path d="M50 10 L60 40 L50 35 L40 40 Z" fill="#8B5A97"/>
-            
-            <path d="M50 45 Q50 65 65 65 Q80 65 80 55 Q80 45 65 45 Q50 45 50 75" fill="none" stroke="#D4AF37" stroke-width="2"/>
-            <path d="M50 75 Q30 75 30 85 Q30 95 50 95 Q70 95 70 105 Q70 115 50 115" fill="none" stroke="#D4AF37" stroke-width="2"/>
-            
-            <circle cx="50" cy="125" r="2" fill="#D4AF37"/>
-            <circle cx="50" cy="135" r="1.5" fill="#D4AF37"/>
-            <circle cx="50" cy="142" r="1" fill="#D4AF37"/>
+        <svg class="logo-svg" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 45 C35 45 25 35 25 25 C25 15 35 15 50 45 C65 15 75 15 75 25 C75 35 65 45 50 45Z" stroke="black" stroke-width="2.5"/>
+            <path d="M50 45 C40 30 40 10 50 5 C60 10 60 30 50 45Z" stroke="black" stroke-width="2.5"/>
+            <path d="M25 25 C15 25 10 35 25 45 C35 50 45 45 50 45" stroke="black" stroke-width="2.5"/>
+            <path d="M75 25 C85 25 90 35 75 45 C65 50 55 45 50 45" stroke="black" stroke-width="2.5"/>
+            <path d="M50 45 C50 60 65 60 65 52 C65 44 50 44 50 65" stroke="black" stroke-width="2.5"/>
+            <path d="M50 65 C30 65 30 75 50 75 C70 75 70 85 50 85 C30 85 30 95 50 95 C70 95 70 105 50 105" stroke="black" stroke-width="2.5"/>
+            <path d="M50 105 V115" stroke="black" stroke-width="2.5"/>
+            <circle cx="50" cy="122" r="1.8" fill="black"/>
+            <circle cx="50" cy="130" r="1.3" fill="black"/>
+            <circle cx="50" cy="136" r="0.8" fill="black"/>
         </svg>
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </div>
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#clinicians">Clinicians</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <header class="hero">
     <h1>Healing & Recovery</h1>
-    <p>A trauma-informed space dedicated to breaking cycles of domestic violence through lived experience and clinical expertise.</p>
-    <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Request Appointment</a>
+    <p>Empowering tools to move through trauma and begin to thrive again[cite: 1].</p>
+    <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Book a Free 15-Minute Consultation</a>
 </header>
 
+<section id="about">
+    <h2>Specialized Trauma Care</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+        We are Domestic Violence and trauma certified, offering eclectic approaches including Somatic Experiencing, EMDR 1.0 & 2.0, and Trauma-Focused CBT[cite: 1]. Our team utilizes lived experience and professional expertise to navigate the intricacies of narcissistic abuse, divorce, and custody evaluations[cite: 1].
+    </p>
+    <div class="grid">
+        <div class="card">
+            <h3>Accepted Insurance</h3>
+            <ul style="list-style: none; font-size: 0.85rem; text-align: left;">
+                <li>Aetna, BlueCross/BlueShield, Cigna [cite: 1]</li>
+                <li>EMI Health, Medicaid, Molina [cite: 1]</li>
+                <li>Regence, SelectHealth, TRICARE [cite: 1]</li>
+                <li>UnitedHealthcare, UMR, Optum [cite: 1]</li>
+                <li>University of Utah Health Plans [cite: 1]</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Specialties</h3>
+            <ul style="list-style: none; font-size: 0.85rem; text-align: left;">
+                <li>Domestic Violence & Abuse [cite: 1]</li>
+                <li>Narcissistic Abuse & Recovery [cite: 1]</li>
+                <li>Post-Separation Abuse & Divorce [cite: 1]</li>
+                <li>PTSD & Complex Trauma [cite: 1]</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 <section id="clinicians">
-    <h2>Our Clinicians</h2>
+    <h2>Our Team</h2>
     <div class="grid">
         <div class="card">
             <h3>Bryce Shimazaki, MSW Intern</h3>
-            <p>Master of Social Work Candidate, University of Utah. Specializing in Domestic Violence, PTSD, and Nervous System Healing.</p>
+            <p>Master of Social Work Candidate at the University of Utah. Specializing in identity exploration and nervous system healing.</p>
+            <p style="font-size: 0.7rem; margin-top: 1rem; font-style: italic;">Supervised by Amy Perry, CMHC</p>
+        </div>
+        <div class="card">
+            <h3>Elizabeth Hoffmann, LCSW</h3>
+            <p>Clinical Social Worker and Therapist[cite: 1]. Focused on providing a safe space free of judgment or rejection[cite: 1].</p>
         </div>
         <div class="card">
             <h3>Amy Perry, CMHC, NCC</h3>
-            <p>Clinical Director with 8+ years experience. Expert in EMDR, somatic experiencing, and trauma recovery.</p>
+            <p>National Certified Counselor with 8+ years clinical experience. Specializing in somatic recovery.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services" style="background-color: #f9f9f9;">
+    <h2>Therapeutic Groups</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>"Just Breathe"</h3>
+            <p>A hybrid processing group for women who have experienced domestic, sexual, or religious trauma[cite: 1].</p>
+        </div>
+        <div class="card">
+            <h3>PTSD & Trauma Group</h3>
+            <p>Support for women identifying controlling tactics, safe boundaries, and self-advocacy[cite: 1].</p>
+        </div>
+        <div class="card">
+            <h3>LGBTQIA+ Processing</h3>
+            <p>A group providing community and understanding for the unique experiences faced by LGBTQIA+ individuals[cite: 1].</p>
         </div>
     </div>
 </section>
 
 <section id="contact">
-    <h2>Connect With Us</h2>
+    <h2>Get in Touch</h2>
     <div style="text-align: center;">
-        <p>Salt Lake City Metro Area · ravenlotusandgrey@gmail.com</p>
+        <p>231 East 400 South, Suite 370, Salt Lake City, UT 84111 [cite: 1]</p>
+        <p>Phone: (385) 438-7310 [cite: 1] · Email: ravenlotusandgrey@gmail.com</p>
         <br>
         <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D&contact=true" class="btn">Send Secure Message</a>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Raven, Lotus & Grey | Suite 370 [cite: 2]</p>
+    <p>&copy; 2026 Raven, Lotus & Grey | Licensed by the State of Utah [cite: 1]</p>
 </footer>
 
 </body>
