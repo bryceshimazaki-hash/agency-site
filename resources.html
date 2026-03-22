@@ -28,7 +28,7 @@
             position: sticky;
             top: 0;
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
@@ -56,29 +56,15 @@
         .safe-exit { background-color: #b33a3a; color: white; }
         .safe-exit:hover { background-color: #8b2e2e; }
 
-        /* --- HEADER & SEARCH --- */
+        /* --- HEADER --- */
         header {
             background-color: var(--midnight-amethyst);
             color: var(--white);
-            padding: 4rem 10% 6rem 10%;
+            padding: 5rem 10%;
             text-align: center;
         }
-        header h1 { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 20px; font-weight: 400; }
-        
-        .search-container {
-            max-width: 600px;
-            margin: -30px auto 0 auto;
-            padding: 0 20px;
-        }
-        #resourceSearch {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid var(--muted-sage);
-            border-radius: 50px;
-            font-size: 1rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            outline: none;
-        }
+        header h1 { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 15px; font-weight: 400; letter-spacing: 2px; }
+        header p { font-style: italic; opacity: 0.8; font-size: 1.1rem; }
 
         /* --- ACCORDION SYSTEM --- */
         .container { max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
@@ -128,20 +114,26 @@
         }
         .resource-entry:last-child { border-bottom: none; }
         
-        .resource-entry h4 { color: var(--midnight-amethyst); font-size: 1.1rem; margin-bottom: 5px; }
-        .resource-entry .tag { font-size: 0.7rem; text-transform: uppercase; color: var(--muted-sage); font-weight: bold; letter-spacing: 1px; }
+        .resource-entry h4 { color: var(--midnight-amethyst); font-size: 1.1rem; margin-bottom: 5px; font-family: 'Georgia', serif; font-weight: 400; }
+        .resource-entry .tag { font-size: 0.7rem; text-transform: uppercase; color: var(--muted-sage); font-weight: bold; letter-spacing: 1.5px; }
         .resource-entry p { font-size: 0.9rem; margin: 10px 0; color: var(--slate-text); }
         
-        .contact-link {
+        .contact-btn {
+            display: inline-block;
+            margin-top: 10px;
             font-size: 0.85rem;
             font-weight: bold;
             color: var(--midnight-amethyst);
             text-decoration: none;
-            border-bottom: 1px solid var(--muted-sage);
+            padding: 8px 18px;
+            border: 1px solid var(--muted-sage);
+            border-radius: 4px;
+            transition: 0.3s;
         }
+        .contact-btn:hover { background: var(--muted-sage); color: white; }
 
         footer { background: var(--deep-slate); color: white; padding: 5rem 10%; text-align: center; }
-        footer p { font-weight: bold; letter-spacing: 1px; margin-bottom: 10px; }
+        footer p { font-weight: bold; letter-spacing: 1.5px; margin-bottom: 10px; font-size: 1.1rem; }
 
     </style>
 </head>
@@ -160,12 +152,8 @@
 
 <header>
     <h1>Community Resources</h1>
-    <p>A comprehensive directory of support, advocacy, and educational resources.</p>
+    <p>A comprehensive directory of support and educational tools for the Salt Lake Metro area.</p>
 </header>
-
-<div class="search-container">
-    <input type="text" id="resourceSearch" placeholder="Search for a service, city, or keyword..." onkeyup="filterResources()">
-</div>
 
 <div class="container" id="accordionContainer">
 
@@ -173,40 +161,40 @@
         <button class="accordion-header">Crisis & Suicide Prevention</button>
         <div class="accordion-content">
             <div class="resource-entry">
-                <span class="tag">National Hotline</span>
-                <h4>988 Suicide & Crisis Lifeline</h4>
-                <p>Available 24/7. Provides free and confidential support for people in distress, prevention and crisis resources.</p>
-                <a href="tel:988" class="contact-link">Call 988</a>
+                <span class="tag">Crisis Hotline</span>
+                <h4>National Suicide Prevention Hotline</h4>
+                <p>National network of local crisis centers providing free and confidential emotional support 24/7 for people in distress.</p>
+                <a href="tel:988" class="contact-btn">Call 988</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Utah DV Support</span>
+                <span class="tag">Support Line</span>
+                <h4>UNI Warmline</h4>
+                <p>For individuals who are not in crisis, but seeking support, engagement, or encouragement (available 9am-10pm).</p>
+                <a href="tel:8015871055" class="contact-btn">801-587-1055</a>
+            </div>
+            <div class="resource-entry">
+                <span class="tag">Utah Domestic Violence</span>
                 <h4>Utah Domestic Violence LINKline</h4>
                 <p>24/7 free and confidential support for those experiencing domestic violence in Utah.</p>
-                <a href="tel:18008975465" class="contact-link">1-800-897-5465</a>
+                <a href="tel:18008975465" class="contact-btn">1-800-897-5465</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">National DV Support</span>
+                <span class="tag">National Support</span>
                 <h4>National Domestic Violence Hotline</h4>
-                <p>Call, live chat, or text (START to 88788). Assistance with safety planning and local resources.</p>
-                <a href="tel:18007997233" class="contact-link">1-800-799-7233</a>
+                <p>Call, live chat, or text (START to 88788). Assistance with safety planning and legal help.</p>
+                <a href="tel:18007997233" class="contact-btn">1-800-799-7233</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Sexual Violence</span>
-                <h4>Rape Recovery Crisis Line (Utah)</h4>
-                <p>Utah's 24-hour sexual violence helpline for immediate support.</p>
-                <a href="tel:18884211100" class="contact-link">1-888-421-1100</a>
+                <span class="tag">LGBTQ+ Youth</span>
+                <h4>Trevor Project</h4>
+                <p>Crisis support for LGBTQ young people via phone or text (START to 678-678).</p>
+                <a href="tel:18664887386" class="contact-btn">1-866-488-7386</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Peer Support</span>
-                <h4>Utah Warm Line</h4>
-                <p>Talk to someone who has been there. For support, engagement, or encouragement (not for active crisis).</p>
-                <a href="tel:18337732588" class="contact-link">1-833-773-2588</a>
-            </div>
-            <div class="resource-entry">
-                <span class="tag">Trafficking Support</span>
-                <h4>National Human Trafficking Hotline</h4>
-                <p>24/7 hotline available in English, Spanish, and 200 more languages.</p>
-                <a href="tel:18883737888" class="contact-link">1-888-373-7888</a>
+                <span class="tag">Trans Support</span>
+                <h4>Trans Peer Lifeline</h4>
+                <p>Connecting trans people to the community support and resources needed to thrive.</p>
+                <a href="tel:18775658860" class="contact-btn">1-877-565-8860</a>
             </div>
         </div>
     </div>
@@ -215,28 +203,28 @@
         <button class="accordion-header">Victim Advocacy</button>
         <div class="accordion-content">
             <div class="resource-entry">
-                <span class="tag">Police Advocacy</span>
+                <span class="tag">SLC Police</span>
                 <h4>Salt Lake City PD Victim Advocates</h4>
-                <p>Address immediate needs of victims, assists in the recovery process, and provides info/resources.</p>
-                <a href="tel:8015807969" class="contact-link">801-580-7969</a>
+                <p>Assists in the process of recovery from crime and provides immediate resources.</p>
+                <a href="tel:8015807969" class="contact-btn">801-580-7969</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Police Advocacy</span>
+                <span class="tag">Murray Police</span>
                 <h4>Murray City PD Victim Advocates</h4>
-                <p>Victim advocacy services located within the Murray Police Department.</p>
-                <a href="tel:8012844203" class="contact-link">801-284-4203</a>
+                <p>Dedicated advocates providing crisis intervention and recovery support.</p>
+                <a href="tel:8012844203" class="contact-btn">801-284-4203</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Police Advocacy</span>
-                <h4>West Valley City PD Victim Advocates</h4>
-                <p>Resources and support for victims of crime in West Valley City.</p>
-                <a href="tel:8019633223" class="contact-link">801-963-3223</a>
+                <span class="tag">Summit/Wasatch</span>
+                <h4>Peace House</h4>
+                <p>Emergency shelter and 24/7 victim advocacy for survivors in the Park City area.</p>
+                <a href="tel:4356584739" class="contact-btn">435-658-4739</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">24/7 Support</span>
-                <h4>Peace House (Park City)</h4>
-                <p>Provides emergency 24/7 victim advocacy and domestic violence shelter services.</p>
-                <a href="tel:4356584739" class="contact-link">435-658-4739</a>
+                <span class="tag">West Valley City</span>
+                <h4>WVC PD Victim Advocates</h4>
+                <p>Resource navigation and criminal justice support for victims in West Valley.</p>
+                <a href="tel:8019633223" class="contact-btn">801-963-3223</a>
             </div>
         </div>
     </div>
@@ -247,38 +235,38 @@
             <div class="resource-entry">
                 <span class="tag">Employment</span>
                 <h4>Workforce Services (DWS)</h4>
-                <p>Assistance in finding jobs, administering SNAP (food stamps), and child care assistance.</p>
-                <a href="tel:8015269675" class="contact-link">801-526-9675</a>
+                <p>Job finding assistance, SNAP (food stamps), and temporary financial assistance programs.</p>
+                <a href="tel:8015269675" class="contact-btn">801-526-9675</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Medical</span>
+                <span class="tag">Women's Careers</span>
+                <h4>People Helping People</h4>
+                <p>Mentoring and workshops for single moms and low-income women seeking a living wage.</p>
+                <a href="https://www.phputah.org/" target="_blank" class="contact-btn">Visit Website</a>
+            </div>
+            <div class="resource-entry">
+                <span class="tag">Medical Care</span>
                 <h4>4th Street Clinic</h4>
-                <p>High-quality health care for individuals experiencing homelessness. Primary care and walk-ins available.</p>
-                <a href="tel:8013640058" class="contact-link">801-364-0058</a>
+                <p>Comprehensive health care for individuals experiencing homelessness. Walk-ins available.</p>
+                <a href="tel:8013640058" class="contact-btn">801-364-0058</a>
             </div>
             <div class="resource-entry">
                 <span class="tag">Food & Baby</span>
                 <h4>CrossRoads Urban Center</h4>
-                <p>Emergency food pantries. Specializes in infant needs including formula, diapers, and baby food.</p>
-                <a href="tel:8013647765" class="contact-link">801-364-7765</a>
+                <p>Emergency food pantries specializing in formula, diapers, and baby food.</p>
+                <a href="tel:8013647765" class="contact-btn">801-364-7765</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Medical</span>
-                <h4>Urban Indian Center of Salt Lake</h4>
-                <p>Physical health, educational, and social services for American Indians in SLC.</p>
-                <a href="tel:8014864877" class="contact-link">801-486-4877</a>
-            </div>
-            <div class="resource-entry">
-                <span class="tag">Children's Vision</span>
+                <span class="tag">Vision</span>
                 <h4>Eye Care 4 Kids</h4>
-                <p>Free eye exams and glasses for children in low-income families.</p>
-                <a href="tel:8012558525" class="contact-link">801-255-8525</a>
+                <p>Free eye exams and glasses for low-income children at no cost to families.</p>
+                <a href="tel:8012558525" class="contact-btn">801-255-8525</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Employment</span>
-                <h4>People Helping People</h4>
-                <p>Mentoring and workshops for low-income women and single moms seeking living-wage jobs.</p>
-                <a href="https://www.phputah.org/" class="contact-link">Visit Website</a>
+                <span class="tag">Native Resources</span>
+                <h4>Urban Indian Center of SLC</h4>
+                <p>Social, educational, and medical services for American Indians in the SLC area.</p>
+                <a href="tel:8014864877" class="contact-btn">801-486-4877</a>
             </div>
         </div>
     </div>
@@ -287,22 +275,22 @@
         <button class="accordion-header">Educational Info & Safety Planning</button>
         <div class="accordion-content">
             <div class="resource-entry">
-                <span class="tag">DV Education</span>
+                <span class="tag">Understanding Abuse</span>
                 <h4>The Power & Control Wheel</h4>
-                <p>A diagram of tactics used by abusive partners to maintain control. Helps identify subtle abusive behaviors.</p>
-                <a href="https://www.thehotline.org/identify-abuse/power-and-control-wheel/" class="contact-link">View Diagram</a>
+                <p>A diagram of tactics used by abusive partners to maintain control. Helps identify subtle behaviors.</p>
+                <a href="https://www.thehotline.org/identify-abuse/power-and-control-wheel/" target="_blank" class="contact-btn">View Diagram</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Safety Tool</span>
-                <h4>NDVC Safety Planning Guide</h4>
+                <span class="tag">Action Tool</span>
+                <h4>NDVH Safety Planning Guide</h4>
                 <p>Interactive tool to help you lower your risk of being hurt at home, work, or school.</p>
-                <a href="https://www.thehotline.org/plan-for-safety/create-a-safety-plan/" class="contact-link">Create a Plan</a>
+                <a href="https://www.thehotline.org/plan-for-safety/create-a-safety-plan/" target="_blank" class="contact-btn">Create a Plan</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Support Guide</span>
+                <span class="tag">Survivor Support</span>
                 <h4>Family & Friends Support Guide</h4>
-                <p>A guide for loved ones of sexual assault survivors to provide meaningful support.</p>
-                <a href="https://static1.squarespace.com/static/59ab0aedf14aa1fbc5860946/t/59ab16d1c027d8465d89a2dd/1504384724292/survivor_guide.pdf" class="contact-link">Download PDF</a>
+                <p>A comprehensive guide for loved ones of sexual assault survivors to provide meaningful support.</p>
+                <a href="https://static1.squarespace.com/static/59ab0aedf14aa1fbc5860946/t/59ab16d1c027d8465d89a2dd/1504384724292/survivor_guide.pdf" target="_blank" class="contact-btn">Download PDF</a>
             </div>
         </div>
     </div>
@@ -314,19 +302,19 @@
                 <span class="tag">Low-Income Support</span>
                 <h4>Legal Aid Society of Salt Lake</h4>
                 <p>Affordable representation for divorce, custody, and protection orders for low-income families.</p>
-                <a href="tel:8013288849" class="contact-link">801-328-8849</a>
+                <a href="tel:8013288849" class="contact-btn">801-328-8849</a>
             </div>
             <div class="resource-entry">
                 <span class="tag">Pro Bono Advice</span>
                 <h4>Tuesday Night Bar</h4>
-                <p>Free legal advice consultations with law students. First four Tuesdays of each month (Appointment required).</p>
-                <a href="tel:8012977037" class="contact-link">801-297-7037</a>
+                <p>Free legal advice consultations with law students. Appointment required.</p>
+                <a href="tel:8012977037" class="contact-btn">801-297-7037</a>
             </div>
             <div class="resource-entry">
                 <span class="tag">Victim Rights</span>
                 <h4>Crime Victims Reparations (UOVC)</h4>
                 <p>Financial assistance for victims to pay for expenses resulting from victimization.</p>
-                <a href="tel:8012382360" class="contact-link">801-238-2360</a>
+                <a href="tel:8012382360" class="contact-btn">801-238-2360</a>
             </div>
         </div>
     </div>
@@ -338,19 +326,26 @@
                 <span class="tag">Moving Help</span>
                 <h4>Smart Move SLC</h4>
                 <p>Free professional moving assistance specifically for victims of DV escaping unsafe homes.</p>
-                <a href="tel:8018604342" class="contact-link">801-860-4342</a>
+                <a href="tel:8018604342" class="contact-btn">801-860-4342</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Women & Children</span>
-                <h4>Rescue Mission SLC (Women)</h4>
-                <p>Emergency shelter for women and children with access to food, clothing, and counseling.</p>
-                <a href="tel:8015215925" class="contact-link">801-521-5925</a>
+                <span class="tag">Emergency Shelter</span>
+                <h4>Rescue Mission SLC</h4>
+                <p>Emergency shelter for men and women. Includes food, clothing, and job placement.</p>
+                <a href="tel:8015215925" class="contact-btn">Call Women's</a>
+                <a href="tel:8013551302" class="contact-btn" style="margin-left: 10px;">Call Men's</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Homeless/Detox</span>
-                <h4>VOA Center for Women & Children</h4>
-                <p>Detoxification facility for women. Allows children under age 10.</p>
-                <a href="tel:8012619177" class="contact-link">801-261-9177</a>
+                <span class="tag">Detox/Shelter</span>
+                <h4>VOA Center for Women</h4>
+                <p>Detoxification facility for women; can bring children under the age of 10.</p>
+                <a href="tel:8012619177" class="contact-btn">801-261-9177</a>
+            </div>
+            <div class="resource-entry">
+                <span class="tag">Utility Help</span>
+                <h4>HEAT Program (DWS)</h4>
+                <p>Assistance with utility bills for low-income households in Utah.</p>
+                <a href="https://jobs.utah.gov/housing/scso/seal/heat.html" target="_blank" class="contact-btn">Apply for HEAT</a>
             </div>
         </div>
     </div>
@@ -361,14 +356,14 @@
             <div class="resource-entry">
                 <span class="tag">Abuse/Neglect</span>
                 <h4>Adult Protective Services</h4>
-                <p>Reporting and protection for vulnerable adults experiencing abuse or neglect. Available 24/7 online.</p>
-                <a href="tel:18003717897" class="contact-link">1-800-371-7897</a>
+                <p>Reporting and protection for vulnerable adults experiencing abuse or neglect.</p>
+                <a href="tel:18003717897" class="contact-btn">1-800-371-7897</a>
             </div>
             <div class="resource-entry">
-                <span class="tag">Independence</span>
+                <span class="tag">Aging Independence</span>
                 <h4>Neighbors Helping Neighbors</h4>
                 <p>Helping individuals 65+ maintain independence and live on their own.</p>
-                <a href="tel:8015859505" class="contact-link">801-585-9505</a>
+                <a href="tel:8015859505" class="contact-btn">801-585-9505</a>
             </div>
         </div>
     </div>
@@ -379,14 +374,14 @@
             <div class="resource-entry">
                 <span class="tag">Crisis Boarding</span>
                 <h4>Ruff Haven</h4>
-                <p>Emergency pet boarding and medical help for people in transition or crisis.</p>
-                <a href="tel:8012516765" class="contact-link">801-251-6765</a>
+                <p>Emergency pet boarding and medical help for people in crisis or transition.</p>
+                <a href="tel:8012516765" class="contact-btn">801-251-6765</a>
             </div>
             <div class="resource-entry">
                 <span class="tag">DV Pet Housing</span>
-                <h4>Purple Paw Program (Nuzzles & Co)</h4>
-                <p>Free housing for pets while owners leave domestic violence situations.</p>
-                <a href="https://nuzzlesandco.org/purple-paw" class="contact-link">Visit Website</a>
+                <h4>Purple Paw Program</h4>
+                <p>Free housing for pets while owners leave domestic violence situations (Nuzzles & Co).</p>
+                <a href="https://nuzzlesandco.org/purple-paw" target="_blank" class="contact-btn">Visit Website</a>
             </div>
         </div>
     </div>
@@ -407,37 +402,6 @@
             item.classList.toggle("active");
         });
     });
-
-    // Search Filter Logic
-    function filterResources() {
-        const input = document.getElementById('resourceSearch').value.toLowerCase();
-        const entries = document.querySelectorAll('.resource-entry');
-        const items = document.querySelectorAll('.accordion-item');
-
-        entries.forEach(entry => {
-            const text = entry.innerText.toLowerCase();
-            const parentItem = entry.closest('.accordion-item');
-            
-            if (text.includes(input)) {
-                entry.style.display = "block";
-                parentItem.classList.add('active'); // Expand accordion if searching
-            } else {
-                entry.style.display = "none";
-            }
-        });
-
-        // Hide the whole accordion section if it has no matches
-        items.forEach(item => {
-            const hasVisibleContent = Array.from(item.querySelectorAll('.resource-entry'))
-                                           .some(e => e.style.display !== "none");
-            item.style.display = hasVisibleContent ? "block" : "none";
-            
-            // If search is cleared, collapse them again
-            if (input === "") {
-                item.classList.remove('active');
-            }
-        });
-    }
 </script>
 
 </body>
