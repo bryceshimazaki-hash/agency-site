@@ -8,6 +8,7 @@
         :root {
             --midnight-amethyst: #3B2D42; 
             --muted-sage: #828A7F;        
+            --deep-slate: #1F2225;        
             --soft-stone: #F7F7F5;        
             --slate-text: #4E545C;
             --white: #ffffff;
@@ -36,19 +37,34 @@
             border-bottom: 2px solid var(--muted-sage);
         }
         
-        .nav-brand { font-family: 'Georgia', serif; font-weight: bold; color: var(--midnight-amethyst); text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
+        .nav-brand { 
+            font-family: 'Georgia', serif; 
+            font-weight: bold; 
+            color: var(--midnight-amethyst); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            text-decoration: none; 
+        }
 
-        .safe-exit {
-            background-color: #b33a3a;
-            color: white;
-            padding: 8px 15px;
+        .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+        .btn-nav {
+            padding: 8px 16px;
             border-radius: 4px;
             text-decoration: none;
             font-size: 0.75rem;
             font-weight: bold;
+            text-transform: uppercase;
+            transition: var(--transition);
         }
 
-        /* --- STICKY CATEGORY MENU --- */
+        .home-btn { border: 1px solid var(--midnight-amethyst); color: var(--midnight-amethyst); }
+        .home-btn:hover { background: var(--midnight-amethyst); color: white; }
+
+        .safe-exit { background-color: #b33a3a; color: white; }
+        .safe-exit:hover { background-color: #8b2e2e; transform: scale(1.05); }
+
+        /* --- CATEGORY QUICK LINKS --- */
         .category-nav {
             background: var(--midnight-amethyst);
             padding: 1rem;
@@ -62,11 +78,10 @@
             scrollbar-width: none;
         }
         .category-nav::-webkit-scrollbar { display: none; }
-
         .category-nav a {
             color: white;
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 6px 14px;
@@ -77,7 +92,7 @@
         .category-nav a:hover { background: var(--muted-sage); border-color: var(--muted-sage); }
 
         /* --- CONTENT --- */
-        .container { max-width: 1250px; margin: 0 auto; padding: 4rem 5%; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 4rem 5%; }
 
         h2 {
             font-family: 'Georgia', serif;
@@ -90,11 +105,11 @@
 
         .resource-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 25px;
         }
 
-        /* --- PREMIUM RESOURCE CARDS --- */
+        /* --- CARDS --- */
         .card {
             background: white;
             padding: 2.5rem 2rem;
@@ -104,65 +119,39 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            text-align: center;
         }
 
-        .card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 45px rgba(59, 45, 66, 0.08);
-            border-color: var(--muted-sage);
-        }
-
-        .card h4 { 
-            font-family: 'Georgia', serif; 
-            color: var(--midnight-amethyst); 
-            font-size: 1.35rem; 
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
-
-        .subtitle { 
-            color: var(--muted-sage); 
-            font-weight: bold; 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px;
-            margin-bottom: 1.5rem; 
-            display: block; 
-        }
-
-        .description { 
-            font-size: 0.9rem; 
-            color: var(--slate-text); 
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 45px rgba(59, 45, 66, 0.08); border-color: var(--muted-sage); }
+        .card h4 { font-family: 'Georgia', serif; color: var(--midnight-amethyst); font-size: 1.3rem; margin-bottom: 8px; font-weight: 400; }
+        .subtitle { color: var(--muted-sage); font-weight: bold; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; display: block; }
+        .description { font-size: 0.85rem; color: var(--slate-text); margin-bottom: 1.5rem; flex-grow: 1; border-top: 1px solid #f4f4f2; padding-top: 10px; }
+        
         .card-link {
             font-weight: bold;
             color: var(--midnight-amethyst);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border: 1px solid var(--muted-sage);
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.3s;
-            display: inline-block;
-            align-self: center;
+            text-align: center;
         }
+        .card-link:hover { background: var(--muted-sage); color: white; }
 
-        .card-link:hover { 
-            background: var(--muted-sage); 
-            color: white; 
+        /* --- FOOTER (High Visibility) --- */
+        footer { 
+            background: var(--deep-slate); 
+            color: var(--white); 
+            padding: 5rem 10%; 
+            text-align: center; 
+            margin-top: 5rem;
         }
-
-        footer { background: var(--deep-slate); color: white; padding: 5rem; text-align: center; }
+        footer p { opacity: 1; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 10px; }
 
         @media (max-width: 768px) {
-            .category-nav { justify-content: flex-start; padding-left: 5%; }
+            .category-nav { justify-content: flex-start; }
             h2 { font-size: 1.8rem; }
-            .card { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
@@ -170,19 +159,21 @@
 
 <nav>
     <a href="index.html" class="nav-brand">Raven, Lotus & Grey</a>
-    <div class="nav-links">
-        <a href="https://www.google.com" class="safe-exit">Quick Exit</a>
+    <div class="nav-actions">
+        <a href="index.html" class="btn-nav home-btn">Return Home</a>
+        <a href="https://www.google.com" class="btn-nav safe-exit">Quick Exit</a>
     </div>
 </nav>
 
 <div class="category-nav">
     <a href="#crisis">Crisis</a>
     <a href="#advocacy">Advocacy</a>
-    <a href="#legal">Legal Aid</a>
-    <a href="#shelter">Housing</a>
+    <a href="#legal">Legal</a>
+    <a href="#shelter">Shelter</a>
+    <a href="#needs">Essentials</a>
     <a href="#children">Children</a>
-    <a href="#animals">Animals</a>
     <a href="#aging">Aging</a>
+    <a href="#animals">Animals</a>
 </div>
 
 <div class="container">
@@ -190,127 +181,183 @@
     <h2 id="crisis">Crisis & Suicide Prevention</h2>
     <div class="resource-grid">
         <div class="card">
-            <span class="subtitle">National Hotline</span>
-            <h4>Suicide Prevention Lifeline</h4>
-            <p class="description">National network of local crisis centers providing free and confidential emotional support 24/7.</p>
+            <span class="subtitle">24/7 Hotline</span>
+            <h4>National Suicide Prevention</h4>
+            <p class="description">National network of local crisis centers providing free and confidential emotional support 24/7 for people in distress.</p>
             <a href="tel:988" class="card-link">Call 988</a>
         </div>
         <div class="card">
             <span class="subtitle">Domestic Violence</span>
-            <h4>Utah LINKline</h4>
+            <h4>Utah DV LINKline</h4>
             <p class="description">24/7 free and confidential support for those experiencing domestic violence in Utah.</p>
             <a href="tel:18008975465" class="card-link">1-800-897-5465</a>
         </div>
         <div class="card">
+            <span class="subtitle">Crisis Text</span>
+            <h4>SafeUT Chat</h4>
+            <p class="description">Confidential emotional support and crisis prevention for youth and students with licensed counselors 24/7.</p>
+            <a href="https://safeut.org/" target="_blank" class="card-link">Visit SafeUT</a>
+        </div>
+        <div class="card">
             <span class="subtitle">LGBTQ+ Support</span>
-            <h4>The Trevor Project</h4>
-            <p class="description">Crisis intervention and suicide prevention for LGBTQ young people (ages 13-24).</p>
+            <h4>Trevor Project</h4>
+            <p class="description">Crisis intervention and suicide prevention for LGBTQ young people available via phone or text.</p>
             <a href="tel:18664887386" class="card-link">1-866-488-7386</a>
+        </div>
+        <div class="card">
+            <span class="subtitle">Trans Support</span>
+            <h4>Trans Peer Lifeline</h4>
+            <p class="description">Trans-led organization connecting trans people to community support and resources.</p>
+            <a href="tel:18775658860" class="card-link">1-877-565-8860</a>
+        </div>
+        <div class="card">
+            <span class="subtitle">Spanish Speaking</span>
+            <h4>Linea de Apoyo Sexual</h4>
+            <p class="description">Utah 24-hour sexual violence helpline specifically for Spanish speakers.</p>
+            <a href="tel:8019240860" class="card-link">801-924-0860</a>
         </div>
     </div>
 
     <h2 id="advocacy">Victim Advocacy</h2>
     <div class="resource-grid">
         <div class="card">
-            <span class="subtitle">SLC Police Dept</span>
-            <h4>SLCPD Victim Advocates</h4>
-            <p class="description">Address immediate needs of victims, assist in recovery from crime, and provide resource information.</p>
+            <span class="subtitle">SLC PD</span>
+            <h4>SLC PD Victim Advocates</h4>
+            <p class="description">Address immediate needs of victims and assists in the process of recovery from crime.</p>
             <a href="tel:8015807969" class="card-link">801-580-7969</a>
         </div>
         <div class="card">
-            <span class="subtitle">Sexual Assault</span>
-            <h4>Rape Recovery Center</h4>
-            <p class="description">Advocacy services, group services, mobile response teams, and specialized therapy for survivors.</p>
-            <a href="tel:8014677282" class="card-link">801-467-7282</a>
+            <span class="subtitle">Murray PD</span>
+            <h4>Murray City Advocates</h4>
+            <p class="description">Dedicated advocates at the Murray Police Department providing information and resources.</p>
+            <a href="tel:8012844203" class="card-link">801-284-4203</a>
         </div>
         <div class="card">
-            <span class="subtitle">Police Dept</span>
-            <h4>West Valley PD Advocates</h4>
-            <p class="description">Provides crisis intervention, criminal justice support, and follow-up for victims in WVC.</p>
-            <a href="tel:8019633223" class="card-link">801-963-3223</a>
+            <span class="subtitle">24/7 Shelter</span>
+            <h4>Peace House</h4>
+            <p class="description">Provides victim advocacy and emergency 24/7 crisis support located in Park City.</p>
+            <a href="tel:4356584739" class="card-link">435-658-4739</a>
         </div>
     </div>
 
     <h2 id="legal">Legal Assistance</h2>
     <div class="resource-grid">
         <div class="card">
-            <span class="subtitle">Low-Income Support</span>
+            <span class="subtitle">Low-Income Aid</span>
             <h4>Legal Aid Society of SLC</h4>
-            <p class="description">Affordable legal representation for low-income families in divorce, custody, and protective orders.</p>
+            <p class="description">Law firm giving low-income families affordable representation in divorce, custody, and protection orders.</p>
             <a href="tel:8013288849" class="card-link">801-328-8849</a>
-        </div>
-        <div class="card">
-            <span class="subtitle">Victim Rights</span>
-            <h4>Victim Reparations (UOVC)</h4>
-            <p class="description">Help for crime victims to pay for expenses resulting from victimization, like medical or counseling bills.</p>
-            <a href="tel:8012382360" class="card-link">801-238-2360</a>
         </div>
         <div class="card">
             <span class="subtitle">Pro Bono Advice</span>
             <h4>Tuesday Night Bar</h4>
-            <p class="description">Brief consultations and free legal advice from law students. Appointment required (no walk-ins).</p>
+            <p class="description">Brief consultations and free legal advice from law students. (Appointment required).</p>
             <a href="tel:8012977037" class="card-link">801-297-7037</a>
+        </div>
+        <div class="card">
+            <span class="subtitle">Immigrant/Refugee</span>
+            <h4>Asian Association of Utah</h4>
+            <p class="description">ESL, Life Skills, and legal interpreting/translation services for refugees and immigrants.</p>
+            <a href="tel:8014676060" class="card-link">801-467-6060</a>
         </div>
     </div>
 
     <h2 id="shelter">Shelter & Housing</h2>
     <div class="resource-grid">
         <div class="card">
-            <span class="subtitle">DV Moving Help</span>
+            <span class="subtitle">DV Victims</span>
             <h4>Smart Move SLC</h4>
-            <p class="description">Free 24/7 professional moving assistance specifically for victims of DV leaving unsafe homes.</p>
+            <p class="description">Free 24/7 professional moving assistance specifically for victims of DV leaving unsafe situations.</p>
             <a href="tel:8018604342" class="card-link">801-860-4342</a>
         </div>
         <div class="card">
-            <span class="subtitle">Emergency Shelter</span>
+            <span class="subtitle">Women & Children</span>
             <h4>Rescue Mission of SLC</h4>
-            <p class="description">Emergency shelter, food, clothing, and job placement for homeless and low-income individuals.</p>
-            <a href="tel:8015215925" class="card-link">Call Shelter</a>
+            <p class="description">Safe shelter for women and their children with access to food, clothing, and counseling.</p>
+            <a href="tel:8015215925" class="card-link">801-521-5925</a>
         </div>
         <div class="card">
-            <span class="subtitle">Low-Income Support</span>
-            <h4>HEAT Utility Program</h4>
-            <p class="description">Assistance with utility bills for low-income households in Utah, especially during winter months.</p>
-            <a href="https://jobs.utah.gov/housing/scso/seal/heat.html" class="card-link" target="_blank">Apply Online</a>
+            <span class="subtitle">Utility Help</span>
+            <h4>HEAT Program</h4>
+            <p class="description">Utility assistance for low-income households struggling to pay heating and cooling bills.</p>
+            <a href="https://jobs.utah.gov/housing/scso/seal/heat.html" target="_blank" class="card-link">Apply for HEAT</a>
         </div>
     </div>
 
-    <h2 id="children">Children & Family</h2>
+    <h2 id="needs">Essential Needs</h2>
     <div class="resource-grid">
         <div class="card">
-            <span class="subtitle">Parenting Classes</span>
-            <h4>Family Support Center</h4>
-            <p class="description">Offers "Nurturing Parenting" courses, a trauma-informed way to empower individuals and families.</p>
-            <a href="https://www.familysupportcenter.org" class="card-link" target="_blank">Visit Site</a>
+            <span class="subtitle">Employment</span>
+            <h4>Department of Workforce Services</h4>
+            <p class="description">Assists individuals in preparing for and finding jobs, and administering temporary assistance.</p>
+            <a href="tel:8015269675" class="card-link">801-526-9675</a>
         </div>
         <div class="card">
-            <span class="subtitle">Early Childhood</span>
+            <span class="subtitle">Food Pantry</span>
+            <h4>CrossRoads Urban Center</h4>
+            <p class="description">Distributes 3-day emergency food boxes. Specialize in infant needs (formula and diapers).</p>
+            <a href="tel:8013647765" class="card-link">801-364-7765</a>
+        </div>
+        <div class="card">
+            <span class="subtitle">Eye Care</span>
+            <h4>Eye Care 4 Kids</h4>
+            <p class="description">Professional eye exams and glasses for children at no cost to low-income families.</p>
+            <a href="tel:8012558525" class="card-link">801-255-8525</a>
+        </div>
+    </div>
+
+    <h2 id="children">Children & Parenting</h2>
+    <div class="resource-grid">
+        <div class="card">
+            <span class="subtitle">Free Course</span>
+            <h4>Family Support Center</h4>
+            <p class="description">"Nurturing Parenting" course which is a trauma-informed way to empower families.</p>
+            <a href="https://www.familysupportcenter.org" target="_blank" class="card-link">Visit Website</a>
+        </div>
+        <div class="card">
+            <span class="subtitle">Child Therapy</span>
             <h4>The Children's Center Utah</h4>
-            <p class="description">Experts in treating trauma and attachment challenges for children under the age of 7.</p>
+            <p class="description">Expert care in treating trauma and attachment challenges for children under age 7.</p>
             <a href="tel:8015825534" class="card-link">801-582-5534</a>
         </div>
     </div>
 
-    <h2 id="animals">Animal Safety</h2>
+    <h2 id="aging">Aging Services</h2>
+    <div class="resource-grid">
+        <div class="card">
+            <span class="subtitle">Abuse/Neglect</span>
+            <h4>Adult Protective Services</h4>
+            <p class="description">Report physical/emotional abuse, neglect and exploitation of vulnerable adults.</p>
+            <a href="tel:18003717897" class="card-link">1-800-371-7897</a>
+        </div>
+        <div class="card">
+            <span class="subtitle">Independence</span>
+            <h4>Neighbors Helping Neighbors</h4>
+            <p class="description">Services to help individuals 65+ maintain independence and live on their own.</p>
+            <a href="tel:8015859505" class="card-link">801-585-9505</a>
+        </div>
+    </div>
+
+    <h2 id="animals">Animal Resources</h2>
     <div class="resource-grid">
         <div class="card">
             <span class="subtitle">Crisis Boarding</span>
             <h4>Ruff Haven</h4>
-            <p class="description">Emergency animal shelter providing pet boarding and medical help for people in crisis or transition.</p>
+            <p class="description">Emergency animal shelter and medical help for people in crisis or transition.</p>
             <a href="tel:8012516765" class="card-link">801-251-6765</a>
         </div>
         <div class="card">
             <span class="subtitle">Safe Housing</span>
             <h4>Purple Paw Program</h4>
-            <p class="description">Nuzzles & Co: Houses animals for a pre-determined time while victims are leaving DV situations.</p>
-            <a href="https://nuzzlesandco.org/purple-paw" class="card-link" target="_blank">Learn More</a>
+            <p class="description">Nuzzles & Co: Houses animals while victims are leaving DV situations, free for clients.</p>
+            <a href="https://nuzzlesandco.org/purple-paw" target="_blank" class="card-link">Visit Website</a>
         </div>
     </div>
 
 </div>
 
 <footer>
-    <p>Crisis Bar: 988 | National DV Hotline: 1-800-799-7233</p>
+    <p>Crisis Support: 988 | National DV Hotline: 1-800-799-7233</p>
     <p>&copy; 2026 Raven, Lotus & Grey | Salt Lake City, Utah</p>
 </footer>
 
