@@ -3,26 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Resources | Raven, Lotus & Grey</title>
+    <title>Resources | Raven, Lotus & Grey</title>
     <style>
         :root {
             --midnight-amethyst: #3B2D42; 
             --muted-sage: #828A7F;        
+            --deep-slate: #1F2225;        
             --soft-stone: #F7F7F5;        
             --slate-text: #4E545C;
             --white: #ffffff;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--soft-stone);
             color: var(--slate-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
+        /* --- NAVIGATION (Matches Index) --- */
+        nav {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.88);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 2px solid var(--muted-sage);
+        }
+        
+        .nav-logo { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 50px; width: auto; }
+        .nav-brand { font-family: 'Georgia', serif; font-size: 1.1rem; text-transform: uppercase; color: var(--midnight-amethyst); font-weight: bold; }
+
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--slate-text); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; }
+        
+        .safe-exit {
+            background-color: #b33a3a !important;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.7rem !important;
+        }
+
+        /* --- HEADER --- */
         header {
             background-color: var(--midnight-amethyst);
             color: var(--white);
@@ -30,294 +62,209 @@
             text-align: center;
         }
 
-        .back-nav {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            border-bottom: 1px solid var(--muted-sage);
-        }
+        header h1 { font-family: 'Georgia', serif; font-size: 3rem; font-weight: 400; margin-bottom: 10px; }
+        header p { font-style: italic; opacity: 0.8; }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 20px;
-        }
-
-        .resource-section {
-            margin-bottom: 5rem;
-        }
+        /* --- CONTENT CONTAINER --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 5%; }
 
         h2 {
             font-family: 'Georgia', serif;
             color: var(--midnight-amethyst);
-            font-size: 2.2rem;
-            border-bottom: 2px solid var(--muted-sage);
-            padding-bottom: 15px;
-            margin-bottom: 2rem;
             text-align: center;
+            font-size: 2.2rem;
+            margin: 4rem 0 2rem 0;
+            font-weight: 400;
+            letter-spacing: 1.5px;
         }
 
         .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            gap: 2rem;
         }
 
+        /* --- RESOURCE CARDS (Premium UI) --- */
         .resource-card {
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-top: 4px solid var(--muted-sage);
-        }
-
-        .resource-card h3 {
-            margin: 0 0 10px 0;
-            color: var(--midnight-amethyst);
-            font-family: 'Georgia', serif;
-            font-size: 1.3rem;
-        }
-
-        .resource-card .type-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--muted-sage);
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .resource-card p {
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            color: var(--slate-text);
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .action-btn {
-            flex: 1;
             text-align: center;
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
+            border: 1px solid rgba(130, 138, 127, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
             transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
         }
 
-        .btn-call { background: var(--muted-sage); color: white; }
-        .btn-web { border: 1px solid var(--muted-sage); color: var(--muted-sage); }
-        .action-btn:hover { opacity: 0.8; }
-
-        footer {
-            background: var(--midnight-amethyst);
-            color: white;
-            text-align: center;
-            padding: 5rem 10%;
+        .resource-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(59, 45, 66, 0.1);
+            border-color: var(--muted-sage);
         }
+
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        .resource-card h3 { font-family: 'Georgia', serif; color: var(--midnight-amethyst); margin-bottom: 0.5rem; font-weight: 400; }
+        .resource-card .tag { color: var(--muted-sage); font-weight: bold; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; display: block; margin-bottom: 1rem; }
+        .resource-card p { font-size: 0.9rem; margin-bottom: 1.5rem; }
+        
+        .resource-link {
+            display: inline-block;
+            color: var(--midnight-amethyst);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid var(--muted-sage);
+            padding-bottom: 2px;
+            transition: 0.3s;
+        }
+        .resource-link:hover { color: var(--muted-sage); }
+
+        footer { background: var(--deep-slate); color: var(--white); padding: 4rem 10%; text-align: center; margin-top: 5rem; }
 
         @media (max-width: 768px) {
-            header { padding: 3rem 5%; }
-            .resource-grid { grid-template-columns: 1fr; }
+            nav { flex-direction: column; padding: 1.5rem; gap: 1rem; }
+            header h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
+<nav>
+    <div class="nav-logo">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <span class="nav-brand">Raven, Lotus & Grey</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="https://www.google.com" class="safe-exit">Quick Exit</a>
+    </div>
+</nav>
+
 <header>
-    <a href="index.html" class="back-nav">← Back to Practice Website</a>
-    <h1>Community Resource Directory</h1>
-    <p>A comprehensive list of essential services for the Greater Salt Lake Area</p>
+    <h1>Community Resources</h1>
+    <p>A comprehensive directory of support services in the Greater Salt Lake area.</p>
 </header>
 
 <div class="container">
 
-    <div class="resource-section" id="crisis">
-        <h2>Crisis & Suicide Prevention</h2>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">24/7 Hotline</span>
-                    <h3>National Suicide Prevention</h3>
-                    <p>Free and confidential emotional support 24/7 for people in distress or crisis.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:988" class="action-btn btn-call">Call 988</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Support Line</span>
-                    <h3>Utah Warm Line</h3>
-                    <p>Talk to someone who has been there before and understands. Free for all callers.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:833-773-2588" class="action-btn btn-call">Call Support</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Domestic Violence</span>
-                    <h3>Utah DV LINKline</h3>
-                    <p>24/7 free and confidential support for those experiencing domestic violence.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:800-897-5465" class="action-btn btn-call">Call LINKline</a>
-                </div>
-            </div>
+    <h2>Crisis Support</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">24/7 Hotline</span>
+            <h3>988 Lifeline</h3>
+            <p>National network providing free and confidential emotional support 24/7.</p>
+            <a href="tel:988" class="resource-link">Call 988</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">Domestic Violence</span>
+            <h3>Utah LINKline</h3>
+            <p>24/7 free and confidential support for domestic violence survivors.</p>
+            <a href="tel:18008975465" class="resource-link">1-800-897-5465</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">LGBTQ+ Support</span>
+            <h3>Trevor Project</h3>
+            <p>Crisis intervention and suicide prevention for LGBTQ young people.</p>
+            <a href="tel:18664887386" class="resource-link">1-866-488-7386</a>
         </div>
     </div>
 
-    <div class="resource-section">
-        <h2>Victim Advocacy</h2>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Police Advocacy</span>
-                    <h3>SLC PD Victim Advocates</h3>
-                    <p>Assists victims in recovery from crime and provides immediate resources and information.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:801-580-7969" class="action-btn btn-call">Call Advocate</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">24/7 Support</span>
-                    <h3>Peace House</h3>
-                    <p>Emergency advocacy and services for victims of domestic violence (Park City area).</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:435-658-4739" class="action-btn btn-call">Call Peace House</a>
-                </div>
-            </div>
+    <h2>Victim Advocacy</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">SLC PD</span>
+            <h3>SLCPD Advocates</h3>
+            <p>Information and resources for victims of crime within Salt Lake City.</p>
+            <a href="tel:8015807969" class="resource-link">801-580-7969</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">24/7 Advocacy</span>
+            <h3>Peace House</h3>
+            <p>Emergency shelter and victim advocacy serving the Summit/Wasatch area.</p>
+            <a href="tel:4356584739" class="resource-link">435-658-4739</a>
         </div>
     </div>
 
-    <div class="resource-section">
-        <h2>Shelter & Housing</h2>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Emergency Shelter</span>
-                    <h3>Rescue Mission of SLC</h3>
-                    <p>Safe place for homeless and low-income individuals. Includes job placement and counseling.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:801-355-1302" class="action-btn btn-call">Call Men's</a>
-                    <a href="tel:801-521-5925" class="action-btn btn-call">Call Women's</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Moving Help</span>
-                    <h3>Smart Move</h3>
-                    <p>Free 24/7 moving assistance specifically for victims of domestic violence leaving unsafe situations.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:801-860-4342" class="action-btn btn-call">Call Smart Move</a>
-                </div>
-            </div>
+    <h2>Shelter & Housing</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">Emergency Shelter</span>
+            <h3>Rescue Mission SLC</h3>
+            <p>Providing food, clothing, and shelter for those experiencing homelessness.</p>
+            <a href="https://rescuesaltlake.org" class="resource-link">Visit Website</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">Moving Support</span>
+            <h3>Smart Move</h3>
+            <p>Free moving assistance for victims of DV leaving unsafe situations.</p>
+            <a href="tel:8018604342" class="resource-link">801-860-4342</a>
         </div>
     </div>
 
-    <div class="resource-section">
-        <h2>Legal Assistance</h2>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Low-Income Aid</span>
-                    <h3>Legal Aid Society of SLC</h3>
-                    <p>Affordable representation for domestic violence protection orders, divorce, and custody.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:801-328-8849" class="action-btn btn-call">Call Legal Aid</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Consultation</span>
-                    <h3>Tuesday Night Bar</h3>
-                    <p>Free legal advice consultations held weekly (appointment required).</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:801-297-7037" class="action-btn btn-call">Call To Schedule</a>
-                </div>
-            </div>
+    <h2>Legal Assistance</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">Domestic Law</span>
+            <h3>Legal Aid Society</h3>
+            <p>Affordable legal representation for protection orders and family law.</p>
+            <a href="tel:8013288849" class="resource-link">801-328-8849</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">Reparations</span>
+            <h3>UOVC</h3>
+            <p>Utah Office for Victims of Crime: Assistance with crime-related expenses.</p>
+            <a href="https://crimevictim.utah.gov" class="resource-link">Visit Website</a>
         </div>
     </div>
 
-    <div class="resource-section">
-        <h2>Children & Parenting</h2>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Parenting Courses</span>
-                    <h3>Family Support Center</h3>
-                    <p>Free "Nurturing Parenting" courses that use trauma-informed ways to empower families.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="https://www.familysupportcenter.org" target="_blank" class="action-btn btn-web">Visit Site</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Child Trauma</span>
-                    <h3>The Children's Center Utah</h3>
-                    <p>Experts in treating trauma and attachment challenges for children under age 7.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="https://childrenscenterutah.org" target="_blank" class="action-btn btn-web">Visit Site</a>
-                </div>
-            </div>
+    <h2>Children & Parenting</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">Parenting Classes</span>
+            <h3>Family Support Center</h3>
+            <p>Trauma-informed "Nurturing Parenting" courses for families.</p>
+            <a href="https://www.familysupportcenter.org" class="resource-link">Visit Website</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">Child Therapy</span>
+            <h3>The Children's Center</h3>
+            <p>Specialists in treating trauma for children under the age of seven.</p>
+            <a href="https://childrenscenterutah.org" class="resource-link">Visit Website</a>
         </div>
     </div>
 
-    <div class="resource-section">
-        <h2>Animal Safety</h2>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Pet Boarding</span>
-                    <h3>Ruff Haven</h3>
-                    <p>Crisis animal shelter offering emergency pet boarding and medical help for those in transition.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="tel:801-251-6765" class="action-btn btn-call">Call Ruff Haven</a>
-                </div>
-            </div>
-            <div class="resource-card">
-                <div>
-                    <span class="type-tag">Safe Housing</span>
-                    <h3>Purple Paw Program</h3>
-                    <p>Free housing for pets while victims are in the process of leaving domestic violence situations.</p>
-                </div>
-                <div class="card-actions">
-                    <a href="https://www.nuzzlesandco.org/purple-paw-program" target="_blank" class="action-btn btn-web">Learn More</a>
-                </div>
-            </div>
+    <h2>Animal Resources</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">Crisis Boarding</span>
+            <h3>Ruff Haven</h3>
+            <p>Emergency pet boarding for individuals in crisis or transition.</p>
+            <a href="tel:8012516765" class="resource-link">801-251-6765</a>
+        </div>
+        <div class="resource-card">
+            <span class="tag">Safe Housing</span>
+            <h3>Purple Paw Program</h3>
+            <p>Housing for pets while owners seek safety from domestic violence.</p>
+            <a href="https://nuzzlesandco.org/purple-paw" class="resource-link">Visit Website</a>
+        </div>
+    </div>
+
+    <h2>Aging Services</h2>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <span class="tag">Protective Services</span>
+            <h3>Adult Protective Services</h3>
+            <p>Reporting and protection for vulnerable adults experiencing abuse or neglect.</p>
+            <a href="tel:18003717897" class="resource-link">1-800-371-7897</a>
         </div>
     </div>
 
 </div>
 
 <footer>
-    <p>Crisis Bar: 988 | National DV Hotline: 1-800-799-7233</p>
+    <p>Crisis Support: 988 | National DV Hotline: 1-800-799-7233</p>
     <p>&copy; 2026 Raven, Lotus & Grey | Salt Lake City, Utah</p>
 </footer>
 
