@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Resources | Raven, Lotus & Grey</title>
+    <style>
+        :root {
+            --midnight-amethyst: #3B2D42; 
+            --muted-sage: #828A7F;        
+            --soft-stone: #F7F7F5;        
+            --white: #ffffff;
+            --slate-text: #4E545C;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--soft-stone);
+            color: var(--slate-text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--midnight-amethyst);
+            color: var(--white);
+            padding: 4rem 10%;
+            text-align: center;
+        }
+
+        .back-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--muted-sage);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 800px;
+            margin: -30px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        #resourceSearch {
+            width: 100%;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 1rem;
+        }
+
+        /* Accordion Styling */
+        .resources-container {
+            max-width: 900px;
+            margin: 0 auto 5rem auto;
+            padding: 0 20px;
+        }
+
+        .category {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--muted-sage);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .category-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            color: var(--midnight-amethyst);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .category-content {
+            display: none;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .resource-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .resource-item h4 { margin: 0; color: var(--midnight-amethyst); }
+        .resource-item p { margin: 5px 0; font-size: 0.95rem; }
+        .resource-item a { color: var(--muted-sage); font-weight: bold; text-decoration: none; }
+
+        .active .category-content { display: block; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">← Back to Main Site</a>
+    <h1 style="font-family: Georgia, serif; margin-top: 2rem;">Community Resources</h1>
+    <p>A comprehensive directory for support in the Greater Salt Lake area.</p>
+</header>
+
+<div class="search-container">
+    <input type="text" id="resourceSearch" placeholder="Search resources (e.g. 'Shelter', 'Legal', 'Food')..." onkeyup="filterResources()">
+</div>
+
+<div class="resources-container" id="resourcesList">
+    <div class="category">
+        <div class="category-header" onclick="toggleCategory(this)">Crisis & Suicide Prevention <span>+</span></div>
+        <div class="category-content">
+            <div class="resource-item">
+                <h4>National Suicide Prevention Lifeline</h4>
+                <p>Available 24/7</p>
+                <a href="tel:988">Call 988</a>
+            </div>
+            </div>
+    </div>
+
+    <div class="category">
+        <div class="category-header" onclick="toggleCategory(this)">Shelter & Housing <span>+</span></div>
+        <div class="category-content">
+            <div class="resource-item">
+                <h4>South Valley Services</h4>
+                <p>Domestic Violence Shelter & Advocacy</p>
+                <a href="https://svsutah.org" target="_blank">Visit Website</a>
+            </div>
+            </div>
+    </div>
+
+    </div>
+
+<script>
+    function toggleCategory(header) {
+        header.parentElement.classList.toggle('active');
+        const span = header.querySelector('span');
+        span.innerText = header.parentElement.classList.contains('active') ? '−' : '+';
+    }
+
+    function filterResources() {
+        let input = document.getElementById('resourceSearch').value.toLowerCase();
+        let categories = document.getElementsByClassName('category');
+
+        for (let i = 0; i < categories.length; i++) {
+            let text = categories[i].innerText.toLowerCase();
+            categories[i].style.display = text.includes(input) ? "" : "none";
+        }
+    }
+</script>
+
+</body>
+</html>
