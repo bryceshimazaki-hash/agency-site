@@ -21,28 +21,42 @@
         /* --- NAVIGATION --- */
         nav {
             position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
-            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; border-bottom: 2px solid var(--muted-sage);
         }
-        .nav-brand { font-family: 'Georgia', serif; font-size: 1.2rem; font-weight: bold; color: var(--midnight-amethyst); text-decoration: none; text-transform: uppercase; }
+        
+        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 50px; width: auto; transition: 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        
+        .nav-brand { 
+            font-family: 'Georgia', serif; 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            color: var(--midnight-amethyst); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+
         .nav-links { display: flex; gap: 1.5rem; align-items: center; }
         .nav-links a { color: var(--slate-text); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
-        .safe-exit { background: #b33a3a; color: white !important; padding: 8px 15px; border-radius: 4px; }
+        .safe-exit { background: #b33a3a; color: white !important; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
+        .safe-exit:hover { background: #8b2e2e; }
 
         /* --- HERO --- */
         .hero {
             height: 75vh;
-            background: linear-gradient(rgba(59, 45, 66, 0.3), rgba(59, 45, 66, 0.3)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
+            background: linear-gradient(rgba(59, 45, 66, 0.4), rgba(59, 45, 66, 0.4)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: white; padding: 0 10%;
         }
-        .hero h1 { font-family: 'Georgia', serif; font-size: 4.5rem; margin-bottom: 1rem; }
+        .hero h1 { font-family: 'Georgia', serif; font-size: 4.5rem; margin-bottom: 1rem; letter-spacing: 2px; }
         .hero p { max-width: 850px; font-size: 1.3rem; margin-bottom: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.4); line-height: 1.6; }
         .hero-btn { padding: 1.2rem 3rem; background: var(--white); color: var(--midnight-amethyst); text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition); }
         .hero-btn:hover { background: var(--muted-sage); color: white; transform: translateY(-3px); }
 
-        /* --- CLINICIANS --- */
+        /* --- CLINICIAN PROFILES --- */
         section { padding: 8rem 10%; }
         h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 5rem; font-size: 2.8rem; color: var(--midnight-amethyst); font-weight: 400; }
         
@@ -55,32 +69,36 @@
 
         /* --- FLIP CARDS FOR GROUPS --- */
         .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-        .flip-card { height: 500px; perspective: 1000px; }
+        .flip-card { height: 480px; perspective: 1000px; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; }
-        .flip-card-front { background: white; border: 1px solid #eee; }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2.5rem; }
+        .flip-card-front { background: white; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
         .flip-card-back { background: var(--midnight-amethyst); color: white; transform: rotateY(180deg); text-align: center; }
-        .flip-card-back h3 { font-family: 'Georgia', serif; margin-bottom: 1rem; }
-        .flip-card-back p { font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem; }
-        .inquire-btn { background: var(--muted-sage); color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        .flip-card-back h3 { font-family: 'Georgia', serif; margin-bottom: 1rem; color: var(--white); }
+        .flip-card-back p { font-size: 0.85rem; margin-bottom: 2rem; line-height: 1.5; }
+        .inquire-btn { background: var(--muted-sage); color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- INSURANCE --- */
+        /* --- INSURANCE SECTION --- */
         .insurance-card { background: var(--soft-stone); padding: 5rem 10%; border-radius: 15px; text-align: center; }
         .insurance-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin: 3rem 0; }
-        .insurance-list li { background: white; padding: 15px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid #eef0ef; }
+        .insurance-list li { background: white; padding: 15px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; border: 1px solid #eef0ef; color: var(--midnight-amethyst); }
 
         /* --- FOOTER --- */
         footer { background: var(--deep-slate); color: white; padding: 6rem 10%; text-align: center; }
-        .footer-info { font-size: 1.2rem; margin-bottom: 10px; }
+        .footer-info { font-size: 1.2rem; margin-bottom: 15px; font-weight: 300; letter-spacing: 0.5px; }
+        .footer-sub { opacity: 0.6; font-size: 0.9rem; margin-top: 2rem; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2.8rem; } .flip-card { height: 600px; } }
+        @media (max-width: 768px) { section { padding: 5rem 5%; } .hero h1 { font-size: 2.8rem; } .clinician-profile { padding: 2rem; } }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html" class="nav-brand">Raven, Lotus & Grey</a>
+    <a href="index.html" class="nav-logo-container">
+        <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
+        <span class="nav-brand">Raven, Lotus & Grey</span>
+    </a>
     <div class="nav-links">
         <a href="#clinicians">Clinicians</a>
         <a href="#groups">Groups</a>
@@ -92,7 +110,7 @@
 <header class="hero">
     <h1>You Matter.</h1>
     <p>Healing from domestic violence is complex—but you don’t have to do it alone. Together, we heal without judgment, rewire for safety, and make your story truly your own.</p>
-    <a href="https://ravenlotusandgrey.clientsecure.me/" class="hero-btn" target="_blank">Client Portal</a>
+    <a href="https://ravenlotusandgrey.clientsecure.me/" class="hero-btn" target="_blank">Request Consultation</a>
 </header>
 
 <section id="clinicians">
@@ -104,18 +122,8 @@
             <span class="clinician-title">CMHC, NCC | Clinician</span>
             <div class="clinician-bio">
                 <p>I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. With over eight years as a certified domestic violence counselor—and additional years immersed in advocacy, mentorship and support work—I bring both professional expertise and lived experience as a partner, parent, and co-parent. Clients often find that this combination allows for a deeper level of understanding, clarity, and connection as we navigate the complexities of their experiences together.</p>
-                <p>I support clients across a wide range of situations, including growing up in abusive environments, experiencing harm from a partner or parent, leaving unsafe relationships, and navigating the legal system—with or without children. My work also includes guiding clients through custody concerns, creating safety plans, and rebuilding stability and identity during and after crisis. I work closely with parents who are co-parenting with an unsafe individual, helping them develop practical skills to support and protect their children.</p>
+                <p>I support clients across a wide range of situations, including growing up in abusive environments, experiencing harm from a partner or parent, leaving unsafe relationships, and navigating the legal system—with or without children. My work also includes guiding clients through custody concerns, creating safety plans, and rebuilding stability and identity during and after crisis. I work closely with parents who are co-parenting with an unsafe individual, helping them develop practical skills to support and protect their children. When appropriate, I also work directly with children affected by these dynamics.</p>
                 <p>My approach is grounded in empowerment, honesty, and practical support. I integrate modalities such as somatic experiencing, Dialectical Behavior Therapy (DBT), EMDR (1.0 and 2.0), solution-focused therapy, and psychoeducation to help clients process trauma and move toward a more stable, self-directed life.</p>
-            </div>
-        </div>
-
-        <div class="clinician-profile">
-            <h3 class="clinician-name">Megan Thomson</h3>
-            <span class="clinician-title">CMHC, NCC | Clinician</span>
-            <div class="clinician-bio">
-                <p>Therapy is often described as a difficult and raw process—and at times, it truly is. But it can also be energizing, motivating, and even enjoyable. There are moments in therapy where you may feel empowered by new insights, discovering truths about who you are and what you’re capable of becoming.</p>
-                <p>I am passionate about working with adults and teenagers (12+) who are ready to learn, heal, and grow—both in mind and body. I commonly support clients navigating PTSD, anxiety, depression, domestic violence, ADHD, trauma, OCD, and eating disorders. My approach integrates evidence-based modalities such as DBT, CBT, and ACT, along with somatic approaches and person-centered therapy.</p>
-                <p>Therapy is a collaborative process, and I strive to build a natural, authentic connection with each client. While therapy can be challenging, you don’t have to go through it alone. I provide a safe, supportive, and non-judgmental space where you can explore what matters most to you.</p>
             </div>
         </div>
 
@@ -125,7 +133,15 @@
             <div class="clinician-bio">
                 <p>I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or looking for a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
                 <p>I work with individuals ages 7+ with a focus on supporting the queer community—especially trans and gender-diverse folks—as well as those working to stop using violence in all relationships. I specialize in working with both survivors and perpetrators of domestic violence, offering a space rooted in accountability, compassion, and real change. I also specialize in working with personality disorders, particularly BPD and NPD.</p>
-                <p>My approach is person-first and somatic-focused, meaning therapy adapts to you while honoring how your experiences live in both your mind and body. I integrate evidence-based modalities including IFS (Internal Family Systems), EMDR 2.0, mindfulness, ACT, and DBT to support lasting stability—not just survival.</p>
+                <p>My approach is person-first and somatic-focused, meaning therapy adapts to you while honoring how your experiences live in both your mind and body. I integrate evidence-based modalities including IFS (Internal Family Systems), EMDR and EMDR 2.0, mindfulness, ACT, EFT, DBT, and TF-CBT.</p>
+            </div>
+        </div>
+
+        <div class="clinician-profile">
+            <h3 class="clinician-name">Elizabeth Hoffmann</h3>
+            <span class="clinician-title">LCSW | Clinician</span>
+            <div class="clinician-bio">
+                <p>I specialize in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups. I provide a structured and compassionate environment for survivors to process their experiences, build resilience, and regain a sense of self-worth after leaving high-conflict or abusive relationships.</p>
             </div>
         </div>
 
@@ -133,9 +149,9 @@
             <h3 class="clinician-name">Ellen Seely</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <div class="clinician-bio">
-                <p>I am a Domestic Violence certified therapist who works with women, queer communities, people who use drugs, and individuals ages 16+, offering affirming, inclusive care grounded in values of empowerment, autonomy, and authenticity. With a background in public health and harm reduction, I bring specialized experience in sexual health, social justice, and supporting marginalized communities.</p>
-                <p>Over the past several years, I have taught sexual health programs, facilitated groups for queer youth, and provided compassionate, nonjudgmental support to individuals navigating stigma and complex life challenges. My approach integrates multiple modalities, including solution-focused therapy, EFT, CBT, somatic experiencing, sound healing and trauma-informed therapies.</p>
-                <p>I create spaces where clients can show up as their full selves. I am deeply committed to fostering trust, connection, and empowerment, bringing a strong dedication to advocacy and equity into my work.</p>
+                <p>I am a Domestic Violence certified therapist who works with women, queer communities, people who use drugs, and individuals ages 16+, offering affirming, inclusive care grounded in values of empowerment, autonomy, and authenticity. With a strong background in public health and harm reduction, I bring specialized experience in sexual health, social justice, and supporting marginalized communities.</p>
+                <p>Over the past several years, I have taught sexual health programs to youth and young adults, facilitated groups for queer youth and adults, provided case management for people living with HIV/AIDS, Hepatitis C, and other communicable infections, and offered compassionate, nonjudgmental support to individuals navigating stigma, trauma, and complex life challenges.</p>
+                <p>My approach integrates multiple modalities, including solution-focused therapy, EFT, CBT, somatic experiencing, sound healing and trauma-informed therapies. My work is rooted in the belief that lasting change comes from addressing the underlying root causes of distress. I incorporate a trauma-focused, harm reduction lens that centers around personal autonomy, dignity, and client-defined success.</p>
             </div>
         </div>
 
@@ -145,15 +161,17 @@
             <div class="clinician-bio">
                 <p>I am a Domestic Violence certified therapist and social work professional with four years of experience supporting diverse populations across school, community, and domestic violence settings. I work with individuals navigating trauma, depression, anxiety, and life transitions, offering a safe, supportive space grounded in dignity, advocacy, and empowerment.</p>
                 <p>I view therapy as a collaborative partnership: You set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many “struggles” began as survival skills. Together, we’ll honor how you’ve protected yourself while building new patterns that align with your values—moving from survival toward a more intentional, authentic life.</p>
-                <p>Using evidence-based practices such as DBT, ACT, CBT, mindfulness, and psychoeducation, I help clients develop emotional regulation and a stronger sense of agency. I am committed to creating a secure, respectful space where you can break cycles and move forward with confidence.</p>
+                <p>Using evidence-based practices such as DBT, ACT, CBT, mindfulness, and psychoeducation, I help clients develop emotional regulation, psychological flexibility, and a stronger sense of agency. I am committed to creating a secure, respectful space—whether in person or via telehealth—where clients can break cycles and move forward with confidence.</p>
             </div>
         </div>
 
         <div class="clinician-profile">
-            <h3 class="clinician-name">Elizabeth Hoffmann</h3>
-            <span class="clinician-title">LCSW | Clinician</span>
+            <h3 class="clinician-name">Megan Thomson</h3>
+            <span class="clinician-title">CMHC, NCC | Clinician</span>
             <div class="clinician-bio">
-                <p>I specialize in Narcissistic Abuse, Divorce, and trauma-focused healing for individuals and groups. I provide a structured and compassionate environment for survivors to process their experiences, build resilience, and regain a sense of self-worth after leaving high-conflict or abusive relationships.</p>
+                <p>Therapy is often described as a difficult and raw process—and at times, it truly is. But it can also be energizing, motivating, and even enjoyable. There are moments in therapy where you may feel empowered by new insights, discovering truths about who you are and what you’re capable of becoming.</p>
+                <p>I am passionate about working with adults and teenagers (12+) who are ready to learn, heal, and grow—both in mind and body. I commonly support clients navigating PTSD, anxiety, depression, domestic violence, ADHD, trauma, OCD, and eating disorders. I focus deeply on individual therapeutic work.</p>
+                <p>My approach integrates evidence-based modalities such as DBT, CBT, ACT, psychoeducation, somatic approaches, and person-centered therapy. I focus on methods that translate effectively into the online space, ensuring our work together is both practical and impactful. I strive to provide a safe, supportive, and non-judgmental space where you can explore what matters most.</p>
             </div>
         </div>
 
@@ -175,11 +193,12 @@
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <h3>LGBTQIA+ Psychotherapy</h3>
-                    <span class="clinician-title">Hosted by Elizabeth Hoffmann</span>
+                    <h3>LGBTQIA+ Community Support</h3>
+                    <span class="clinician-title">Psychotherapy Group</span>
                 </div>
                 <div class="flip-card-back">
-                    <p>Are you part of the LGBTQIA+ community in Utah looking for a place to connect with others with similar experiences? Times are tough and sometimes they feel like they may get tougher before it gets better. This group aims to provide community, connection, and understanding to the experiences LGBTQIA+ folks face each day.</p>
+                    <h3>Community & Connection</h3>
+                    <p>Are you part of the LGBTQIA+ community in Utah looking for a place to connect with others with similar experiences? This group aims to provide community, connection, and understanding to the experiences LGBTQIA+ folks face each day.</p>
                     <a href="mailto:ravenlotusandgrey@gmail.com?subject=Inquiry: LGBTQIA Processing Group" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
@@ -189,10 +208,11 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <h3>PTSD and Trauma</h3>
-                    <span class="clinician-title">Women's Domestic Violence</span>
+                    <span class="clinician-title">Domestic Violence Support</span>
                 </div>
                 <div class="flip-card-back">
-                    <p>This group supports women who are just learning they might be in a DV relationship, thinking about leaving, or moving forward after leaving. We identify and articulate why 'you're not crazy,' how to recognize controlling tactics, and how to use boundaries in safe ways. The ultimate goal is learning to thrive again.</p>
+                    <h3>Recovery & Growth</h3>
+                    <p>For women learning they might be in a DV relationship, thinking about leaving, or moving forward after leaving. We identify controlling tactics, recognize why 'you're not crazy,' and learn safe boundaries to thrive again.</p>
                     <a href="mailto:ravenlotusandgrey@gmail.com?subject=Inquiry: PTSD and Trauma Group" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
@@ -202,10 +222,11 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <h3>"Just Breathe"</h3>
-                    <span class="clinician-title">Women's Trauma Support</span>
+                    <span class="clinician-title">Hybrid Processing</span>
                 </div>
                 <div class="flip-card-back">
-                    <p>This group is a hybrid processing group for women who have experienced a variety of trauma. We openly discuss each other’s experiences of survival in areas of domestic violence, sexual violence, religious trauma, childhood abuse, etc. It is a safe place to receive support, give support, and share with others who understand the dynamics of trauma.</p>
+                    <h3>Safe Support</h3>
+                    <p>A hybrid processing group for women who have experienced survival in domestic violence, sexual violence, religious trauma, or childhood abuse. It is a safe place to share with others who understand the dynamics of trauma.</p>
                     <a href="mailto:ravenlotusandgrey@gmail.com?subject=Inquiry: Just Breathe Group" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
@@ -217,7 +238,7 @@
 <section id="insurance">
     <div class="insurance-card">
         <h2>Insurance & Financial Assistance</h2>
-        <p>We work with a variety of providers and grant programs to ensure care is accessible.</p>
+        <p>Accessible care is our priority. We work with a variety of providers and grant programs.</p>
         <ul class="insurance-list">
             <li>Aetna</li>
             <li>BlueCross BlueShield</li>
@@ -230,7 +251,7 @@
             <li>UHC / UMR / WMI</li>
             <li>University of Utah Health Plans</li>
         </ul>
-        <div style="margin-top: 3rem;">
+        <div style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
             <p><strong>Additional Support:</strong> We work with Crime Victim Reparations (CVR) and DWS grants. Sliding scale options are available upon request.</p>
         </div>
     </div>
@@ -239,8 +260,8 @@
 <footer>
     <div class="footer-info"><strong>Office Line:</strong> 801-839-5734</div>
     <div class="footer-info">231 East 400 South, Suite 370, Salt Lake City, UT 84111</div>
-    <div style="margin-top: 2rem; opacity: 0.6; font-size: 0.8rem;">
-        &copy; 2026 Raven, Lotus & Grey | Licensed Clinicians serving the Utah Community
+    <div class="footer-sub">
+        &copy; 2026 Raven, Lotus & Grey | Trauma-Informed Clinical Services
     </div>
 </footer>
 
