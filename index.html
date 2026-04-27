@@ -4,81 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
-    <style>
-        :root {
-            --midnight-amethyst: #3B2D42; 
-            --muted-sage: #828A7F;        
-            --deep-slate: #1F2225;        
-            --soft-stone: #F7F7F5;        
-            --slate-text: #4E545C;        
-            --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: var(--slate-text); background-color: var(--white); scroll-behavior: smooth; }
-
-        /* --- NAVIGATION --- */
-        nav {
-            position: sticky; top: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px);
-            padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 2px solid var(--muted-sage);
-        }
-        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { height: 50px; width: auto; }
-        .nav-brand { font-family: 'Georgia', serif; font-size: 1.1rem; font-weight: bold; color: var(--midnight-amethyst); text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-        .nav-links a { color: var(--slate-text); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
-        .safe-exit { background: #b33a3a; color: white !important; padding: 8px 15px; border-radius: 4px; }
-
-        /* --- HERO --- */
-        .hero {
-            height: 75vh;
-            background: linear-gradient(rgba(59, 45, 66, 0.4), rgba(59, 45, 66, 0.4)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; padding: 0 10%;
-        }
-        .hero h1 { font-family: 'Georgia', serif; font-size: 4.5rem; margin-bottom: 1rem; }
-        .hero p { max-width: 850px; font-size: 1.3rem; margin-bottom: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
-        .hero-btn { padding: 1.2rem 3rem; background: var(--white); color: var(--midnight-amethyst); text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition); }
-
-        /* --- CLINICIANS --- */
-        section { padding: 8rem 10%; }
-        h2 { font-family: 'Georgia', serif; text-align: center; margin-bottom: 5rem; font-size: 2.8rem; color: var(--midnight-amethyst); font-weight: 400; }
-        .clinician-grid { display: flex; flex-direction: column; gap: 5rem; max-width: 1100px; margin: 0 auto; }
-        .clinician-profile { display: flex; gap: 3rem; background: white; border-radius: 12px; border-left: 8px solid var(--muted-sage); padding: 4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.04); align-items: flex-start; }
-        .clinician-img { width: 220px; height: 280px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .clinician-info { flex: 1; }
-        .clinician-name { font-family: 'Georgia', serif; font-size: 2.2rem; color: var(--midnight-amethyst); margin-bottom: 0.5rem; }
-        .clinician-title { display: block; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; color: var(--muted-sage); letter-spacing: 2px; margin-bottom: 2.5rem; border-bottom: 1px solid #f4f4f2; padding-bottom: 10px; display: inline-block; }
-        .clinician-bio { font-size: 1.05rem; color: var(--slate-text); line-height: 1.8; }
-
-        /* --- GROUPS --- */
-        .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
-        .flip-card { height: 480px; perspective: 1000px; }
-        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
-        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2.5rem; }
-        .flip-card-front { background: white; border: 1px solid #eee; }
-        .flip-card-back { background: var(--midnight-amethyst); color: white; transform: rotateY(180deg); padding: 2rem; }
-        .inquire-btn { background: var(--muted-sage); color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-top: 1rem; }
-
-        /* --- INSURANCE --- */
-        .insurance-card { background: var(--soft-stone); padding: 5rem 10%; border-radius: 15px; text-align: center; }
-        .insurance-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin: 3rem 0; }
-        .insurance-list li { background: white; padding: 15px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid #eef0ef; }
-
-        footer { background: var(--deep-slate); color: white; padding: 6rem 10%; text-align: center; }
-        .footer-info { font-size: 1.2rem; margin-bottom: 10px; }
-
-        @media (max-width: 768px) { 
-            .clinician-profile { flex-direction: column; align-items: center; padding: 2rem; text-align: center; }
-            .clinician-img { width: 100%; height: auto; max-width: 300px; margin-bottom: 2rem; }
-            .hero h1 { font-size: 2.8rem; } 
-            .flip-card { height: 600px; } 
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -106,12 +32,13 @@
     <div class="clinician-grid">
         
         <div class="clinician-profile">
+            <img src="https://photos.psychologytoday.com/982937db-e9ba-4d70-9fbe-e9649516ed43/2/320x400.jpeg" alt="Amy Perry" class="clinician-img">
             <div class="clinician-info">
                 <h3 class="clinician-name">Amy Perry</h3>
                 <span class="clinician-title">CMHC, NCC | Clinician</span>
                 <div class="clinician-bio">
                     <p>I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. With over eight years as a certified domestic violence counselor—and additional years immersed in advocacy, mentorship and support work—I bring both professional expertise and lived experience as a partner, parent, and co-parent. Clients often find that this combination allows for a deeper level of understanding, clarity, and connection as we navigate the complexities of their experiences together.</p>
-                    <p>I support clients across a wide range of situations, including leaving unsafe relationships and navigating the legal system. My work also includes guiding clients through custody concerns, creating safety plans, and rebuilding stability and identity during and after crisis.</p>
+                    <p>I support clients across a wide range of situations, including growing up in abusive environments, leaving unsafe relationships, and navigating the legal system. My approach integrates modalities such as somatic experiencing, DBT, EMDR (1.0 and 2.0), and psychoeducation to help clients process trauma and move toward a more stable, self-directed life.</p>
                 </div>
             </div>
         </div>
@@ -121,8 +48,8 @@
                 <h3 class="clinician-name">Eric Pribyl</h3>
                 <span class="clinician-title">LCSW | Clinician</span>
                 <div class="clinician-bio">
-                    <p>I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or looking for a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
-                    <p>I work with individuals ages 7+ with a focus on supporting the queer community—especially trans and gender-diverse folks—as well as those working to stop using violence in all relationships. I specialize in working with both survivors and perpetrators of domestic violence, offering a space rooted in accountability, compassion, and real change.</p>
+                    <p>Healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating domestic violence or looking for a space where your LGBTQIA+ identity is truly celebrated, you don’t have to do it alone.</p>
+                    <p>I work with individuals ages 7+ with a focus on supporting the queer community—especially trans and gender-diverse folks. I specialize in working with both survivors and perpetrators of domestic violence, offering a space rooted in accountability, compassion, and real change.</p>
                 </div>
             </div>
         </div>
@@ -142,8 +69,8 @@
                 <h3 class="clinician-name">Ellen Seely</h3>
                 <span class="clinician-title">CSW | Clinician</span>
                 <div class="clinician-bio">
-                    <p>I am a Domestic Violence certified therapist who works with women, queer communities, people who use drugs, and individuals ages 16+, offering affirming, inclusive care grounded in values of empowerment, autonomy, and authenticity. With a strong background in public health and harm reduction, I bring specialized experience in sexual health and supporting marginalized communities.</p>
-                    <p>My approach integrates solution-focused therapy, EFT, CBT, and somatic experiencing, centering on personal autonomy and client-defined success.</p>
+                    <p>I am a Domestic Violence certified therapist offering affirming, inclusive care grounded in values of empowerment and authenticity. With a background in public health and harm reduction, I bring specialized experience in supporting marginalized communities.</p>
+                    <p>My approach integrates multiple modalities, addresssing the underlying root causes of distress, and centers on personal autonomy, dignity, and client-defined success.</p>
                 </div>
             </div>
         </div>
@@ -154,8 +81,8 @@
                 <h3 class="clinician-name">Bryce Shimazaki</h3>
                 <span class="clinician-title">CSW | Clinician</span>
                 <div class="clinician-bio">
-                    <p>I view therapy as a collaborative partnership: You set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many “struggles” began as survival skills. Together, we’ll honor how you’ve protected yourself while building new patterns that align with your values—moving from survival toward a more intentional, authentic life.</p>
-                    <p>Using evidence-based practices such as DBT, ACT, CBT, mindfulness, and psychoeducation, I help clients develop emotional regulation, psychological flexibility, and a stronger sense of agency.</p>
+                    <p>I view therapy as a collaborative partnership: You set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many “struggles” began as survival skills.</p>
+                    <p>Together, we’ll honor how you’ve protected yourself while building new patterns that align with your values—moving from survival toward a more intentional, authentic life.</p>
                 </div>
             </div>
         </div>
@@ -165,8 +92,7 @@
                 <h3 class="clinician-name">Megan Thomson</h3>
                 <span class="clinician-title">CMHC, NCC | Clinician</span>
                 <div class="clinician-bio">
-                    <p>Therapy is often described as a difficult and raw process—and at times, it truly is. I am passionate about working with adults and teenagers (12+) who are ready to learn, heal, and grow. I commonly support clients navigating PTSD, anxiety, depression, domestic violence, ADHD, and trauma.</p>
-                    <p>I strive to provide a safe, supportive, and non-judgmental space where you can explore what matters most to you. My approach integrates evidence-based modalities such as DBT, CBT, and ACT.</p>
+                    <p>Therapy can be a raw process, but it can also be energizing and empowering. I am passionate about working with adults and teenagers (12+) navigating PTSD, anxiety, depression, and domestic violence. I utilize DBT, CBT, and somatic approaches to help you discover truths about what you are capable of becoming.</p>
                 </div>
             </div>
         </div>
@@ -175,9 +101,7 @@
             <div class="clinician-info">
                 <h3 class="clinician-name">Erika</h3>
                 <span class="clinician-title">Clinician</span>
-                <div class="clinician-bio">
-                    <p>Professional biography coming soon.</p>
-                </div>
+                <div class="clinician-bio"><p>Professional biography coming soon.</p></div>
             </div>
         </div>
 
@@ -185,8 +109,7 @@
             <div class="clinician-info">
                 <h3 class="clinician-name">Rebecca Symes</h3>
                 <span class="clinician-title">ACMHC | Clinician</span>
-                <div class="clinician-bio">
-                    <p>Professional biography coming soon.</p>
+                <div class="clinician-bio"><p>Professional biography coming soon.</p>
                 </div>
             </div>
         </div>
@@ -199,28 +122,37 @@
     <div class="group-grid">
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="flip-card-front"><h3>LGBTQIA+ Community Support</h3></div>
+                <div class="flip-card-front">
+                    <h3>LGBTQIA+ Processing</h3>
+                    <span class="clinician-title">Identity & Support</span>
+                </div>
                 <div class="flip-card-back">
-                    <p>Providing community and connection for LGBTQIA+ folks navigating unique daily experiences. Affirming care focused on community safety and understanding.</p>
-                    <a href="mailto:ravenlotusandgrey@gmail.com?subject=LGBTQIA Group" class="inquire-btn">Email Inquiry</a>
+                    <p>Are you part of the LGBTQIA+ community in Utah looking for a place to connect? This group aims to provide community, connection, and understanding to the experiences faced each day.</p>
+                    <a href="mailto:ravenlotusandgrey@gmail.com?subject=Inquiry: LGBTQIA Processing Group" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
         </div>
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="flip-card-front"><h3>PTSD and Trauma</h3></div>
+                <div class="flip-card-front">
+                    <h3>PTSD and Trauma</h3>
+                    <span class="clinician-title">Women's Domestic Violence</span>
+                </div>
                 <div class="flip-card-back">
-                    <p>Identify controlling tactics, recognize why 'you're not crazy,' and learn safe boundaries to thrive again. Focused on moving from survival to thriving.</p>
-                    <a href="mailto:ravenlotusandgrey@gmail.com?subject=PTSD Group" class="inquire-btn">Email Inquiry</a>
+                    <p>Supports women who are learning they might be in a DV relationship, thinking about leaving, or moving forward after leaving. We identify tactics, recognize boundaries, and thrive again.</p>
+                    <a href="mailto:ravenlotusandgrey@gmail.com?subject=Inquiry: PTSD and Trauma Group" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
         </div>
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="flip-card-front"><h3>"Just Breathe"</h3></div>
+                <div class="flip-card-front">
+                    <h3>"Just Breathe"</h3>
+                    <span class="clinician-title">Trauma Support</span>
+                </div>
                 <div class="flip-card-back">
-                    <p>A hybrid processing group for survivors of DV, sexual violence, and childhood trauma. A safe place to share with others who understand the dynamics of trauma.</p>
-                    <a href="mailto:ravenlotusandgrey@gmail.com?subject=Just Breathe Group" class="inquire-btn">Email Inquiry</a>
+                    <p>A hybrid processing group for survivors of DV, sexual violence, religious trauma, and childhood abuse. A safe place to share with others who understand the dynamics of trauma.</p>
+                    <a href="mailto:ravenlotusandgrey@gmail.com?subject=Inquiry: Just Breathe Group" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
         </div>
@@ -231,7 +163,7 @@
     <div class="insurance-card">
         <h2>Insurance Accepted</h2>
         <ul class="insurance-list">
-            <li>Aetna</li><li>BlueCross BlueShield</li><li>Cigna</li><li>Optum Medicaid</li><li>Health Choice</li><li>PEHP</li><li>Molina</li><li>SelectHealth</li><li>UHC / UMR / WMI</li><li>University of Utah Health Plans</li>
+            <li>Aetna</li><li>BCBS</li><li>Cigna</li><li>Optum Medicaid</li><li>PEHP</li><li>Molina</li><li>SelectHealth</li><li>UHC / UMR / WMI</li>
         </ul>
         <p><strong>Additional Support:</strong> We work with Crime Victim Reparations (CVR) and DWS grants. Sliding scale options are available upon request.</p>
     </div>
@@ -241,7 +173,7 @@
     <div class="footer-info"><strong>Office Line:</strong> 801-839-5734</div>
     <div class="footer-info">231 East 400 South, Suite 370, Salt Lake City, UT 84111</div>
     <div style="margin-top: 2rem; opacity: 0.6; font-size: 0.8rem;">
-        &copy; 2026 Raven, Lotus & Grey | Trauma-Informed Clinical Services
+        &copy; 2026 Raven, Lotus & Grey
     </div>
 </footer>
 
