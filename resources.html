@@ -3,177 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resource Directory | Raven, Lotus & Grey</title>
+    <title>Community Resources | Raven, Lotus & Grey</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
         :root {
-            --midnight-amethyst: #3B2D42; 
-            --muted-sage: #828A7F;        
-            --deep-slate: #1F2225;        
-            --soft-stone: #F7F7F5;        
-            --slate-text: #4E545C;
+            --rlg-slate: #2F353B;      
+            --rlg-moss: #848D82;       
+            --rlg-cream: #F9F8F6;      
+            --rlg-mist: #EAECE9;       
             --white: #ffffff;
             --transition: all 0.3s ease;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: var(--soft-stone); color: var(--slate-text); line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--rlg-cream); color: var(--rlg-slate); line-height: 1.6; }
 
-        /* --- NAVIGATION --- */
+        /* --- NAV --- */
         nav {
-            position: sticky; top: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);
             padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 2px solid var(--muted-sage);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--rlg-mist); position: sticky; top: 0; z-index: 1000;
         }
-        .nav-logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-img { height: 50px; width: auto; }
-        .nav-brand { font-family: 'Georgia', serif; font-weight: bold; color: var(--midnight-amethyst); text-transform: uppercase; letter-spacing: 1px; }
+        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 40px; }
+        .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; color: var(--rlg-slate); }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
 
-        .nav-actions { display: flex; gap: 10px; }
-        .btn-nav { padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; transition: var(--transition); }
-        .home-btn { border: 1px solid var(--midnight-amethyst); color: var(--midnight-amethyst); }
-        .home-btn:hover { background: var(--midnight-amethyst); color: white; }
-        .safe-exit { background-color: #b33a3a; color: white; }
-        .safe-exit:hover { background-color: #8b2e2e; }
+        header { padding: 6rem 10% 3rem; text-align: center; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem; }
 
-        /* --- HEADER --- */
-        header { background-color: var(--midnight-amethyst); color: var(--white); padding: 5rem 10%; text-align: center; }
-        header h1 { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 15px; font-weight: 400; letter-spacing: 2px; }
-        header p { font-style: italic; opacity: 0.8; font-size: 1.1rem; }
-
-        /* --- ACCORDION SYSTEM --- */
-        .container { max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
-        .accordion-item { background: white; margin-bottom: 15px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .accordion-header { width: 100%; padding: 1.5rem 2rem; background: white; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Georgia', serif; font-size: 1.25rem; color: var(--midnight-amethyst); text-align: left; }
-        .accordion-header::after { content: '+'; font-size: 1.5rem; color: var(--muted-sage); }
-        .active .accordion-header::after { content: '−'; }
-        .active .accordion-header { border-bottom: 1px solid #eee; color: var(--muted-sage); }
-        .accordion-content { display: none; padding: 2rem; background: #fff; }
-        .active .accordion-content { display: block; }
-
-        .resource-entry { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f4f4f2; }
+        /* --- ACCORDION UI --- */
+        .resource-container { max-width: 1000px; margin: 0 auto 8rem; padding: 0 5%; }
+        
+        .accordion-item { background: var(--white); border: 1px solid var(--rlg-mist); margin-bottom: 0.5rem; border-radius: 4px; overflow: hidden; }
+        .accordion-header { 
+            width: 100%; padding: 1.5rem 2rem; background: var(--white); border: none;
+            text-align: left; font-family: 'Playfair Display', serif; font-size: 1.2rem;
+            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+            transition: var(--transition);
+        }
+        .accordion-header:hover { background: var(--rlg-mist); }
+        .accordion-content { display: none; padding: 2rem; border-top: 1px solid var(--rlg-mist); background: #fafafa; }
+        
+        .resource-entry { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee; }
         .resource-entry:last-child { border-bottom: none; }
-        .resource-entry h4 { color: var(--midnight-amethyst); font-size: 1.1rem; margin-bottom: 5px; font-family: 'Georgia', serif; font-weight: 400; }
-        .resource-entry .tag { font-size: 0.7rem; text-transform: uppercase; color: var(--muted-sage); font-weight: bold; letter-spacing: 1.5px; }
-        .resource-entry p { font-size: 0.9rem; margin: 10px 0; color: var(--slate-text); }
-        .contact-btn { display: inline-block; margin-top: 10px; font-size: 0.85rem; font-weight: bold; color: var(--midnight-amethyst); text-decoration: none; padding: 8px 18px; border: 1px solid var(--muted-sage); border-radius: 4px; transition: 0.3s; }
-        .contact-btn:hover { background: var(--muted-sage); color: white; }
+        .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1rem; display: block; }
+        .resource-info { font-size: 0.85rem; color: var(--rlg-moss); font-weight: 600; margin: 0.3rem 0; display: block; }
+        .resource-desc { font-size: 0.9rem; color: #666; }
 
-        footer { background: var(--deep-slate); color: white; padding: 5rem 10%; text-align: center; }
+        /* --- WHEELS SECTION --- */
+        .wheel-box { background: var(--white); padding: 2rem; border-radius: 8px; border: 1px solid var(--rlg-moss); margin-top: 2rem; }
+        
+        .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.7rem; z-index: 2000; }
+
+        footer { padding: 4rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.7rem; }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="Logo" class="logo-img">
+    <a href="index.html" class="nav-logo-container">
+        <img src="logo.png" alt="RLG Logo" class="logo-img">
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </a>
-    <div class="nav-actions">
-        <a href="index.html" class="btn-nav home-btn">Return Home</a>
-        <a href="https://www.google.com" class="btn-nav safe-exit">Quick Exit</a>
-    </div>
+    <div class="nav-links"><a href="index.html">Home</a><a href="index.html#clinicians">Team</a></div>
 </nav>
 
 <header>
-    <h1>Community Resources</h1>
-    <p>A curated directory of support, advocacy, and educational tools.</p>
+    <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--rlg-moss);">SLC Community Archive</span>
+    <h1>Resources & Support</h1>
 </header>
 
-<div class="container">
+<a href="https://www.google.com" class="safe-exit">QUICK EXIT</a>
+
+<div class="resource-container">
 
     <div class="accordion-item">
-        <button class="accordion-header">Crisis & Suicide Prevention</button>
-        <div class="accordion-content">
+        <button class="accordion-header" onclick="toggleAccordion('crisis')">Crisis & Suicide Prevention <span>+</span></button>
+        <div id="crisis" class="accordion-content">
             <div class="resource-entry">
-                <span class="tag">24/7 Hotline</span>
-                <h4>National Suicide Prevention Hotline</h4>
-                <p>Free and confidential emotional support 24/7 for people in distress.</p>
-                <a href="tel:988" class="contact-btn">Call 988</a>
+                <span class="resource-name">National Suicide Prevention Hotline</span>
+                <span class="resource-info">1-800-273-8255</span>
+                <p class="resource-desc">24/7 free and confidential emotional support.</p>
             </div>
             <div class="resource-entry">
-                <span class="tag">Domestic Violence</span>
-                <h4>Utah Domestic Violence LINKline</h4>
-                <p>24/7 free and confidential support for those experiencing domestic violence in Utah.</p>
-                <a href="tel:18008975465" class="contact-btn">1-800-897-5465</a>
+                <span class="resource-name">Utah Domestic Violence LINKline</span>
+                <span class="resource-info">1-800-897-5465</span>
+                <p class="resource-desc">Statewide 24/7 free/confidential support.</p>
+            </div>
+            <div class="resource-entry">
+                <span class="resource-name">Trevor Project</span>
+                <span class="resource-info">1-866-488-7386 | Text START to 678678</span>
+                <p class="resource-desc">LGBTQ+ community crisis support.</p>
+            </div>
+            <div class="resource-entry">
+                <span class="resource-name">SafeUT Crisis Chat</span>
+                <span class="resource-info">1-833-372-3388</span>
+                <p class="resource-desc">Real-time emotional support for students and families.</p>
             </div>
         </div>
     </div>
 
     <div class="accordion-item">
-        <button class="accordion-header">Shelter & Housing</button>
-        <div class="accordion-content">
+        <button class="accordion-header" onclick="toggleAccordion('shelter')">Shelter & Housing <span>+</span></button>
+        <div id="shelter" class="accordion-content">
             <div class="resource-entry">
-                <span class="tag">DV Shelter</span>
-                <h4>YWCA Utah</h4>
-                <p>Salt Lake City's largest shelter and resource center for women and children escaping domestic violence.</p>
-                <a href="tel:8015378600" class="contact-btn">801-537-8600</a>
+                <span class="resource-name">Peace House</span>
+                <span class="resource-info">435-658-4739</span>
+                <p class="resource-desc">Emergency shelter and victim advocacy for those leaving DV situations.</p>
             </div>
             <div class="resource-entry">
-                <span class="tag">DV Shelter</span>
-                <h4>Peace House</h4>
-                <p>24/7 domestic violence shelter and victim advocacy serving Summit and Wasatch counties.</p>
-                <a href="tel:4356584739" class="contact-btn">435-658-4739</a>
+                <span class="resource-name">YWCA Utah</span>
+                <span class="resource-info">801-537-8600</span>
+                <p class="resource-desc">Comprehensive services including emergency shelter and transitional housing for women.</p>
             </div>
             <div class="resource-entry">
-                <span class="tag">Moving Help</span>
-                <h4>Smart Move SLC</h4>
-                <p>Free professional moving assistance for victims of domestic violence leaving unsafe situations.</p>
-                <a href="tel:8018604342" class="contact-btn">801-860-4342</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header">Other Essential Needs</button>
-        <div class="accordion-content">
-            <div class="resource-entry">
-                <span class="tag">Medical Care</span>
-                <h4>4th Street Clinic</h4>
-                <p>Comprehensive health care and support services for individuals experiencing homelessness.</p>
-                <a href="tel:8013640058" class="contact-btn">801-364-0058</a>
+                <span class="resource-name">The Road Home</span>
+                <span class="resource-info">801-359-4142</span>
+                <p class="resource-desc">Emergency shelter and housing programs in Salt Lake County.</p>
             </div>
             <div class="resource-entry">
-                <span class="tag">Food & Infants</span>
-                <h4>CrossRoads Urban Center</h4>
-                <p>Emergency food pantry specializing in infant needs including formula, diapers, and baby food.</p>
-                <a href="tel:8013647765" class="contact-btn">801-364-7765</a>
+                <span class="resource-name">Smart Move SLC</span>
+                <span class="resource-info">801-860-4342</span>
+                <p class="resource-desc">Free moving assistance specifically for victims of Domestic Violence.</p>
             </div>
         </div>
     </div>
 
     <div class="accordion-item">
-        <button class="accordion-header">Educational Info & Wheels</button>
-        <div class="accordion-content">
+        <button class="accordion-header" onclick="toggleAccordion('legal')">Legal Assistance <span>+</span></button>
+        <div id="legal" class="accordion-content">
             <div class="resource-entry">
-                <span class="tag">Education</span>
-                <h4>The Power & Control Wheel</h4>
-                <p>A diagram illustrating tactics an abusive partner uses to maintain control. Essential for identifying subtle abuse.</p>
-                <a href="https://www.thehotline.org/identify-abuse/power-and-control-wheel/" target="_blank" class="contact-btn">View Wheel</a>
+                <span class="resource-name">Legal Aid Society of Salt Lake</span>
+                <span class="resource-info">801-328-8849</span>
+                <p class="resource-desc">Representing low-income victims in obtaining protective orders and stalking injunctions.</p>
             </div>
             <div class="resource-entry">
-                <span class="tag">Education</span>
-                <h4>The Equality Wheel</h4>
-                <p>Illustrates the components of a healthy, non-violent relationship based on mutual respect and safety.</p>
-                <a href="https://www.thehotline.org/identify-abuse/power-and-control-wheel/" target="_blank" class="contact-btn">View Equality Wheel</a>
+                <span class="resource-name">Timpanogos Legal Center</span>
+                <span class="resource-info">801-649-8895</span>
+                <p class="resource-desc">Free legal document assistance and consultations for DV victims.</p>
+            </div>
+            <div class="resource-entry">
+                <span class="resource-name">Crime Victim Reparations (UOVC)</span>
+                <span class="resource-info">801-238-2360</span>
+                <p class="resource-desc">Financial assistance for costs related to being a victim of a crime.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('animals')">Animal & Pet Resources <span>+</span></button>
+        <div id="animals" class="accordion-content">
+            <div class="resource-entry">
+                <span class="resource-name">Ruff Haven</span>
+                <span class="resource-info">801-251-6765</span>
+                <p class="resource-desc">Crisis animal sheltering for individuals in transition or crisis.</p>
+            </div>
+            <div class="resource-entry">
+                <span class="resource-name">Nuzzles & Co (Purple Paw Program)</span>
+                <span class="resource-info">nuzzlesandco.org</span>
+                <p class="resource-desc">Free boarding for pets while owners are leaving domestic violence situations.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('edu')">Educational Info & Wheels <span>+</span></button>
+        <div id="edu" class="accordion-content">
+            <p style="margin-bottom: 2rem;">Understanding the dynamics of power and control is a vital step in the healing process.</p>
+            <div class="wheel-box">
+                <span class="resource-name">Power & Control Wheel</span>
+                <p class="resource-desc">A visual tool used to understand the overall pattern of abusive and violent behaviors used by an abuser.</p>
+            </div>
+            <div class="wheel-box">
+                <span class="resource-name">Equality Wheel</span>
+                <p class="resource-desc">A tool used to describe the qualities of a healthy, non-violent, and equitable relationship.</p>
             </div>
         </div>
     </div>
 
 </div>
 
-<footer>
-    <p>CRISIS: 988 | NATIONAL DV HOTLINE: 1-800-799-7233</p>
-    <p>&copy; 2026 Raven, Lotus & Grey | Salt Lake City, Utah</p>
-</footer>
-
 <script>
-    const headers = document.querySelectorAll(".accordion-header");
-    headers.forEach(header => {
-        header.addEventListener("click", () => {
-            header.parentElement.classList.toggle("active");
-        });
-    });
+    function toggleAccordion(id) {
+        var content = document.getElementById(id);
+        var allContent = document.getElementsByClassName('accordion-content');
+        for (var i = 0; i < allContent.length; i++) {
+            if (allContent[i].id !== id) allContent[i].style.display = "none";
+        }
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    }
 </script>
+
+<footer>
+    <address style="font-style: normal; margin-bottom: 2rem;">
+        <strong>Raven, Lotus & Grey</strong><br>
+        231 East 400 South, Suite 370, SLC, UT 84111<br>
+        Main Office: 801-839-5734
+    </address>
+    &copy; 2026 Specialized Clinical Services
+</footer>
 
 </body>
 </html>
