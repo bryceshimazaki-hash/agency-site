@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raven, Lotus & Grey | Clinical Excellence</title>
+    <title>Raven, Lotus & Grey | Trauma-Informed Healing</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
 
         :root {
-            --rlg-charcoal: #2c2c2c;   
-            --rlg-cream: #fdfcfb;      
-            --rlg-sage: #828a7f;       
-            --rlg-taupe: #a69f95;      
-            --text-main: #4a4a4a;
+            --rlg-slate: #2F353B;      /* Grounding Slate */
+            --rlg-moss: #848D82;       /* Nature/Growth Green */
+            --rlg-cream: #F9F8F6;      /* Warm, Safe Background */
+            --rlg-mist: #EAECE9;       /* Subtle Section Break */
             --white: #ffffff;
         }
 
@@ -20,79 +19,95 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--rlg-cream); 
-            color: var(--text-main); 
+            color: var(--rlg-slate); 
             line-height: 1.7; 
             scroll-behavior: smooth;
         }
 
         /* --- NAVIGATION --- */
         nav {
-            padding: 1.2rem 5%;
+            padding: 1rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: var(--rlg-cream); border-bottom: 1px solid #f0efed;
+            background: var(--white); border-bottom: 1px solid var(--rlg-mist);
             position: sticky; top: 0; z-index: 1000;
         }
-        .nav-logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-img { height: 45px; width: auto; }
-        .nav-brand { font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-charcoal); }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
-        .safe-exit { color: #b33a3a !important; margin-left: 1.5rem; }
+        .nav-brand { font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; color: var(--rlg-slate); }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        /* --- HERO --- */
+        /* --- HERO: SimplePractice Editorial Style --- */
         .hero {
-            height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover; background-position: center; color: white;
+            height: 65vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(47, 53, 59, 0.25), rgba(47, 53, 59, 0.25)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center; color: white; padding: 0 10%;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); font-style: italic; font-weight: 400; margin-bottom: 2rem; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 400; margin-bottom: 1.5rem; line-height: 1.2; }
         .hero-btn { 
-            padding: 1.1rem 2.8rem; border: 1px solid white; color: white; 
-            text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; transition: 0.4s;
+            padding: 1.2rem 3rem; background: var(--rlg-slate); color: white; 
+            text-decoration: none; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; transition: 0.3s;
         }
-        .hero-btn:hover { background: white; color: var(--rlg-charcoal); }
+        .hero-btn:hover { background: var(--rlg-moss); }
 
-        /* --- MISSION STATEMENT --- */
-        .mission { padding: 9rem 15%; text-align: center; background-color: var(--white); }
-        .section-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.4em; color: var(--rlg-sage); margin-bottom: 3rem; display: block; font-weight: 600; }
-        .mission p { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3.5vw, 2.1rem); line-height: 1.5; color: var(--rlg-charcoal); font-style: italic; }
+        /* --- MISSION SECTION --- */
+        .mission { padding: 8rem 15%; text-align: center; background-color: var(--rlg-mist); }
+        .section-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.4em; color: var(--rlg-moss); margin-bottom: 2.5rem; display: block; font-weight: 700; }
+        .mission p { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3.5vw, 2.1rem); line-height: 1.5; color: var(--rlg-slate); font-style: italic; }
 
-        /* --- CLINICIANS --- */
-        section { padding: 8rem 10%; }
-        .clinician-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 5rem 3.5rem; }
-        .clinician-profile { display: flex; flex-direction: column; }
-        .clinician-img { width: 100%; height: 480px; object-fit: cover; border-radius: 2px; margin-bottom: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.04); }
-        .photo-placeholder { width: 100%; height: 480px; background: #f4f2f0; display: flex; align-items: center; justify-content: center; color: var(--rlg-taupe); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; margin-bottom: 2rem; }
-        .clinician-name { font-family: 'Playfair Display', serif; font-size: 2.1rem; color: var(--rlg-charcoal); font-weight: 400; margin-bottom: 0.3rem; }
-        .clinician-title { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--rlg-sage); margin-bottom: 1.8rem; display: block; }
-        .clinician-bio { font-size: 0.95rem; font-weight: 300; color: #555; }
+        /* --- CLINICIANS: 2x4 Grid --- */
+        section { padding: 8rem 5%; }
+        .clinician-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            gap: 4rem 2rem; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .clinician-card { width: calc(25% - 2rem); min-width: 300px; text-align: center; }
+        
+        .img-container { 
+            width: 100%; 
+            height: 400px; /* Tall container for full-body/headshot */
+            overflow: hidden; 
+            margin-bottom: 2rem; 
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .clinician-img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; /* Prevents any cropping of the original image */
+        }
+        
+        .clinician-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--rlg-slate); margin-bottom: 0.3rem; }
+        .clinician-title { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--rlg-moss); display: block; margin-bottom: 1.5rem; }
+        .clinician-bio { font-size: 0.9rem; color: #555; line-height: 1.6; padding: 0 10%; }
 
-        /* --- GROUPS --- */
-        .group-section { background-color: #f6f4f2; padding: 10rem 10%; }
-        .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        .flip-card { height: 450px; perspective: 1000px; cursor: pointer; }
-        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+        /* --- FLIP CARDS --- */
+        .group-section { background-color: var(--rlg-mist); padding: 8rem 10%; }
+        .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .flip-card { height: 420px; perspective: 1000px; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
         .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2.5rem; }
-        .flip-card-front { background: var(--white); border: 1px solid #eee; }
-        .flip-card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; color: var(--rlg-charcoal); }
-        .flip-card-back { background: var(--rlg-charcoal); color: var(--rlg-cream); transform: rotateY(180deg); text-align: center; }
-        .flip-card-back p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 300; }
-        .inquire-btn { background: var(--rlg-sage); color: white; padding: 10px 20px; text-decoration: none; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; }
+        .flip-card-front { background: var(--white); border: 1px solid #ddd; }
+        .flip-card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--rlg-slate); }
+        .flip-card-back { background: var(--rlg-slate); color: white; transform: rotateY(180deg); text-align: center; }
+        .flip-card-back p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 2rem; }
+        .inquire-btn { background: var(--rlg-moss); color: white; padding: 12px 24px; text-decoration: none; border-radius: 2px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- INSURANCE --- */
-        .insurance-section { padding: 8rem 10%; background: var(--white); text-align: center; }
-        .ins-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-top: 4rem; }
-        .ins-tag { border: 1px solid #e0e0e0; padding: 1.2rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--rlg-taupe); }
+        .ins-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-top: 3rem; }
+        .ins-tag { background: var(--white); border: 1px solid #e0e0e0; padding: 1.2rem; text-align: center; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--rlg-moss); }
 
-        footer { padding: 5rem 10%; background: #1a1a1a; color: #777; text-align: center; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; }
+        footer { padding: 5rem 10%; background: var(--rlg-slate); color: #888; text-align: center; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3.2rem; }
-            section { padding: 5rem 5%; }
-            .clinician-grid { grid-template-columns: 1fr; }
-            .flip-card { height: 500px; }
-        }
+        @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2rem); } }
+        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -103,103 +118,106 @@
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </a>
     <div class="nav-links">
-        <a href="#clinicians">Clinicians</a>
-        <a href="#groups">Approach</a>
+        <a href="#clinicians">Team</a>
+        <a href="#groups">Groups</a>
         <a href="resources.html">Resources</a>
-        <a href="https://www.google.com" class="safe-exit">Quick Exit</a>
     </div>
 </nav>
 
 <header class="hero">
-    <h1>you matter.</h1>
+    <h1>healing without judgment,<br>rewiring for safety.</h1>
     <a href="https://ravenlotusandgrey.clientsecure.me/" class="hero-btn">Consultation</a>
 </header>
 
 <section class="mission">
     <span class="section-tag">Our Philosophy</span>
-    <p>We provide a safe, trauma-informed space where healing is a collaborative partnership—empowering you to rewire for safety and reclaim your authentic story.</p>
+    <p>We provide a safe, trauma-informed space where healing is a collaborative partnership—empowering you to reclaim your authentic story.</p>
 </section>
 
 <section id="clinicians">
     <span class="section-tag">Clinical Roster</span>
     <div class="clinician-grid">
         
-        <div class="clinician-profile">
-            <img src="https://photos.psychologytoday.com/982937db-e9ba-4d70-9fbe-e9649516ed43/2/320x400.jpeg" class="clinician-img">
+        <div class="clinician-card">
+            <div class="img-container">
+                <img src="https://photos.psychologytoday.com/982937db-e9ba-4d70-9fbe-e9649516ed43/2/320x400.jpeg" class="clinician-img">
+            </div>
             <h3 class="clinician-name">Amy Perry</h3>
             <span class="clinician-title">CMHC, NCC | Clinical Director</span>
-            <p class="clinician-bio">I specialize in working with families impacted by domestic violence, trauma, and narcissistic abuse. I use somatic experiencing and EMDR to foster long-term resilience.</p>
+            <p class="clinician-bio">Specializing in families impacted by domestic violence, trauma, and narcissistic abuse.</p>
         </div>
 
-        <div class="clinician-profile">
-            <div class="photo-placeholder">Photo Pending</div>
-            <h3 class="clinician-name">Eric Pribyl</h3>
-            <span class="clinician-title">LCSW | Clinician</span>
-            <p class="clinician-bio">Healing from trauma is about reclaiming safety. I specialize in working with both survivors and perpetrators of violence, providing a space rooted in accountability and compassion.</p>
-        </div>
-
-        <div class="clinician-profile">
-            <div class="photo-placeholder">Photo Pending</div>
-            <h3 class="clinician-name">Ellen Seely</h3>
-            <span class="clinician-title">CSW | Clinician</span>
-            <p class="clinician-bio">I am a Domestic Violence certified therapist who works with women and marginalized communities, offering affirming care grounded in values of empowerment and authenticity.</p>
-        </div>
-
-        <div class="clinician-profile">
-            <img src="https://photos.psychologytoday.com/b456e848-0076-4723-ba3c-cb68501a88d4/1/320x400.jpeg" class="clinician-img">
+        <div class="clinician-card">
+            <div class="img-container">
+                <img src="https://photos.psychologytoday.com/b456e848-0076-4723-ba3c-cb68501a88d4/1/320x400.jpeg" class="clinician-img">
+            </div>
             <h3 class="clinician-name">Bryce Shimazaki</h3>
             <span class="clinician-title">CSW | Clinician</span>
-            <p class="clinician-bio">I view therapy as a collaborative partnership. Together, we’ll honor your survival skills while building new patterns that align with your values and authentic life.</p>
+            <p class="clinician-bio">Collaborative therapy honoring survival skills while building patterns aligned with your values.</p>
         </div>
 
-        <div class="clinician-profile">
-            <div class="photo-placeholder">Photo Pending</div>
-            <h3 class="clinician-name">Megan Thomson</h3>
-            <span class="clinician-title">CMHC, NCC | Clinician</span>
-            <p class="clinician-bio">Therapy is an empowering process of discovery. I support adults and teenagers navigating PTSD, anxiety, and trauma through evidence-based, somatic-focused care.</p>
+        <div class="clinician-card">
+            <div class="img-container"><span style="color:#bbb; font-weight:600; text-transform:uppercase; font-size:0.7rem;">Eric Pribyl</span></div>
+            <h3 class="clinician-name">Eric Pribyl</h3>
+            <span class="clinician-title">LCSW | Clinician</span>
+            <p class="clinician-bio">Accountability and compassion for survivors and perpetrators of violence, and LGBTQIA+ communities.</p>
         </div>
 
-        <div class="clinician-profile">
-            <div class="photo-placeholder">Photo Pending</div>
+        <div class="clinician-card">
+            <div class="img-container"><span style="color:#bbb; font-weight:600; text-transform:uppercase; font-size:0.7rem;">Liz Hoffmann</span></div>
             <h3 class="clinician-name">Elizabeth Hoffmann</h3>
             <span class="clinician-title">LCSW | Clinician</span>
-            <p class="clinician-bio">I specialize in Narcissistic Abuse and Divorce healing, providing a structured, compassionate environment for survivors to process their experiences and build resilience.</p>
+            <p class="clinician-bio">Helping survivors process high-conflict relationships and Narcissistic Abuse.</p>
         </div>
 
-        <div class="clinician-profile">
-            <div class="photo-placeholder">Photo Pending</div>
+        <div class="clinician-card">
+            <div class="img-container"><span style="color:#bbb; font-weight:600; text-transform:uppercase; font-size:0.7rem;">Ellen Seely</span></div>
+            <h3 class="clinician-name">Ellen Seely</h3>
+            <span class="clinician-title">CSW | Clinician</span>
+            <p class="clinician-bio">Affirming care for marginalized communities grounded in autonomy and authenticity.</p>
+        </div>
+
+        <div class="clinician-card">
+            <div class="img-container"><span style="color:#bbb; font-weight:600; text-transform:uppercase; font-size:0.7rem;">Megan Thomson</span></div>
+            <h3 class="clinician-name">Megan Thomson</h3>
+            <span class="clinician-title">CMHC, NCC | Clinician</span>
+            <p class="clinician-bio">Supporting adults and teens navigating PTSD and domestic violence with somatic care.</p>
+        </div>
+
+        <div class="clinician-card">
+            <div class="img-container"><span style="color:#bbb; font-weight:600; text-transform:uppercase; font-size:0.7rem;">Erika</span></div>
             <h3 class="clinician-name">Erika</h3>
             <span class="clinician-title">Clinician</span>
-            <p class="clinician-bio">Professional biography coming soon. Committed to providing a secure and respectful clinical space for individual growth and healing.</p>
+            <p class="clinician-bio">Bio coming soon. Dedicated to safe, cycle-breaking clinical care.</p>
         </div>
 
-        <div class="clinician-profile">
-            <div class="photo-placeholder">Photo Pending</div>
+        <div class="clinician-card">
+            <div class="img-container"><span style="color:#bbb; font-weight:600; text-transform:uppercase; font-size:0.7rem;">Rebecca Symes</span></div>
             <h3 class="clinician-name">Rebecca Symes</h3>
             <span class="clinician-title">ACMHC | Clinician</span>
-            <p class="clinician-bio">Professional biography coming soon. Dedicated to trauma-informed practice and helping clients navigate their journey toward intentional living.</p>
+            <p class="clinician-bio">Bio coming soon. Trauma-informed care focusing on stability and individual agency.</p>
         </div>
 
     </div>
 </section>
 
 <section class="group-section" id="groups">
-    <span class="section-tag">Group Healing</span>
+    <span class="section-tag">Community Healing</span>
     <div class="group-grid">
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front"><h3>LGBTQIA+ Support</h3></div>
                 <div class="flip-card-back">
-                    <p>Community and connection for LGBTQIA+ folks in Utah looking for a safe, affirming place to process daily experiences and rewire for safety.</p>
+                    <p>Community and connection for LGBTQIA+ folks in Utah. A safe, affirming space to rewire for safety and authentic living.</p>
                     <a href="mailto:ravenlotusandgrey@gmail.com" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
         </div>
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="flip-card-front"><h3>PTSD and Trauma</h3></div>
+                <div class="flip-card-front"><h3>PTSD Recovery</h3></div>
                 <div class="flip-card-back">
-                    <p>Identify controlling tactics and learn safe boundaries while processing the physiological effects of trauma. Moving from survival to thriving.</p>
+                    <p>Identify controlling tactics and learn safe boundaries while processing the physiological effects of trauma.</p>
                     <a href="mailto:ravenlotusandgrey@gmail.com" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
@@ -208,7 +226,7 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front"><h3>"Just Breathe"</h3></div>
                 <div class="flip-card-back">
-                    <p>A safe place for survivors of DV, sexual violence, and religious trauma to share with others who understand the shared dynamics of survival.</p>
+                    <p>A safe place for survivors of DV and childhood trauma to find support in shared dynamics and healing.</p>
                     <a href="mailto:ravenlotusandgrey@gmail.com" class="inquire-btn">Email Inquiry</a>
                 </div>
             </div>
@@ -216,9 +234,8 @@
     </div>
 </section>
 
-<section class="insurance-section">
-    <span class="section-tag">Access</span>
-    <h2 style="font-family:'Playfair Display', serif; font-size:2.2rem; font-style:italic;">Insurance & Assistance</h2>
+<section id="insurance" style="text-align: center;">
+    <span class="section-tag">Insurance</span>
     <div class="ins-grid">
         <div class="ins-tag">Aetna</div><div class="ins-tag">BCBS</div><div class="ins-tag">Cigna</div><div class="ins-tag">Optum</div>
         <div class="ins-tag">PEHP</div><div class="ins-tag">Molina</div><div class="ins-tag">SelectHealth</div><div class="ins-tag">UHC/UMR</div>
