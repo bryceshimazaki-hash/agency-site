@@ -35,29 +35,30 @@
 
         /* --- ACCORDION UI --- */
         .resource-container { max-width: 1000px; margin: 0 auto 8rem; padding: 0 5%; }
-        
         .accordion-item { background: var(--white); border: 1px solid var(--rlg-mist); margin-bottom: 0.5rem; border-radius: 4px; overflow: hidden; }
         .accordion-header { 
             width: 100%; padding: 1.5rem 2rem; background: var(--white); border: none;
-            text-align: left; font-family: 'Playfair Display', serif; font-size: 1.2rem;
+            text-align: left; font-family: 'Playfair Display', serif; font-size: 1.25rem;
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-            transition: var(--transition);
+            transition: var(--transition); color: var(--rlg-slate);
         }
         .accordion-header:hover { background: var(--rlg-mist); }
         .accordion-content { display: none; padding: 2rem; border-top: 1px solid var(--rlg-mist); background: #fafafa; }
         
         .resource-entry { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee; }
         .resource-entry:last-child { border-bottom: none; }
-        .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1rem; display: block; }
-        .resource-info { font-size: 0.85rem; color: var(--rlg-moss); font-weight: 600; margin: 0.3rem 0; display: block; }
+        .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1.05rem; display: block; }
+        .resource-info { font-size: 0.85rem; color: var(--rlg-moss); font-weight: 600; margin: 0.4rem 0; display: block; }
         .resource-desc { font-size: 0.9rem; color: #666; }
 
         /* --- WHEELS SECTION --- */
-        .wheel-box { background: var(--white); padding: 2rem; border-radius: 8px; border: 1px solid var(--rlg-moss); margin-top: 2rem; }
-        
-        .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.7rem; z-index: 2000; }
+        .wheel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .wheel-box { background: var(--white); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--rlg-moss); text-align: center; }
+
+        .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 
         footer { padding: 4rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.7rem; }
+        @media (max-width: 768px) { .wheel-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -71,114 +72,112 @@
 </nav>
 
 <header>
-    <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--rlg-moss);">SLC Community Archive</span>
+    <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--rlg-moss);">Comprehensive Community Support</span>
     <h1>Resources & Support</h1>
 </header>
 
-<a href="https://www.google.com" class="safe-exit">QUICK EXIT</a>
+<a href="https://www.weather.com" class="safe-exit">QUICK EXIT</a>
 
 <div class="resource-container">
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('crisis')">Crisis & Suicide Prevention <span>+</span></button>
         <div id="crisis" class="accordion-content">
-            <div class="resource-entry">
-                <span class="resource-name">National Suicide Prevention Hotline</span>
-                <span class="resource-info">1-800-273-8255</span>
-                <p class="resource-desc">24/7 free and confidential emotional support.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Utah Domestic Violence LINKline</span>
-                <span class="resource-info">1-800-897-5465</span>
-                <p class="resource-desc">Statewide 24/7 free/confidential support.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Trevor Project</span>
-                <span class="resource-info">1-866-488-7386 | Text START to 678678</span>
-                <p class="resource-desc">LGBTQ+ community crisis support.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">SafeUT Crisis Chat</span>
-                <span class="resource-info">1-833-372-3388</span>
-                <p class="resource-desc">Real-time emotional support for students and families.</p>
-            </div>
+            <div class="resource-entry"><span class="resource-name">National Suicide Prevention Hotline</span><span class="resource-info">1-800-273-8255</span><p class="resource-desc">24/7 free and confidential emotional support.</p></div>
+            <div class="resource-entry"><span class="resource-name">Utah Domestic Violence LINKline</span><span class="resource-info">1-800-897-5465</span><p class="resource-desc">Statewide 24/7 free support for victims of domestic violence.</p></div>
+            <div class="resource-entry"><span class="resource-name">National Domestic Violence Hotline</span><span class="resource-info">1-800-799-SAFE (7233) | Text START to 88788</span><p class="resource-desc">Confidential support, legal help, and virtual safety planning.</p></div>
+            <div class="resource-entry"><span class="resource-name">SafeUT Crisis Chat</span><span class="resource-info">1-833-372-3388</span><p class="resource-desc">24/7 support for students and families via licensed counselors.</p></div>
+            <div class="resource-entry"><span class="resource-name">Trevor Project (LGBTQ+)</span><span class="resource-info">1-866-488-7386</span><p class="resource-desc">Dedicated crisis support for LGBTQ+ youth.</p></div>
+            <div class="resource-entry"><span class="resource-name">Rape Recovery Crisis Line</span><span class="resource-info">1-888-421-1100</span><p class="resource-desc">Utah 24hr Sexual Violence Helpline.</p></div>
+            <div class="resource-entry"><span class="resource-name">National Human Trafficking Hotline</span><span class="resource-info">1-888-373-7888</span><p class="resource-desc">24/7 support in English, Spanish, and 200+ languages.</p></div>
         </div>
     </div>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('shelter')">Shelter & Housing <span>+</span></button>
         <div id="shelter" class="accordion-content">
-            <div class="resource-entry">
-                <span class="resource-name">Peace House</span>
-                <span class="resource-info">435-658-4739</span>
-                <p class="resource-desc">Emergency shelter and victim advocacy for those leaving DV situations.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">YWCA Utah</span>
-                <span class="resource-info">801-537-8600</span>
-                <p class="resource-desc">Comprehensive services including emergency shelter and transitional housing for women.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">The Road Home</span>
-                <span class="resource-info">801-359-4142</span>
-                <p class="resource-desc">Emergency shelter and housing programs in Salt Lake County.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Smart Move SLC</span>
-                <span class="resource-info">801-860-4342</span>
-                <p class="resource-desc">Free moving assistance specifically for victims of Domestic Violence.</p>
-            </div>
+            <div class="resource-entry"><span class="resource-name">Peace House</span><span class="resource-info">435-658-4739 (Park City)</span><p class="resource-desc">Emergency 24/7 shelter and victim advocacy for those leaving DV situations.</p></div>
+            <div class="resource-entry"><span class="resource-name">YWCA Utah</span><span class="resource-info">801-537-8600</span><p class="resource-desc">Emergency shelter, transitional housing, and Candy Cane Lane assistance.</p></div>
+            <div class="resource-entry"><span class="resource-name">Rescue Mission of SLC (Women/Children)</span><span class="resource-info">801-521-5925 | 1165 S State Street</span><p class="resource-desc">Emergency shelter, food, clothing, and job placement.</p></div>
+            <div class="resource-entry"><span class="resource-name">Smart Move SLC</span><span class="resource-info">801-860-4342</span><p class="resource-desc">Free 24/7 moving assistance specifically for victims of Domestic Violence.</p></div>
+            <div class="resource-entry"><span class="resource-name">HEAT Program (DWS)</span><span class="resource-info">jobs.utah.gov/housing/scso/seal/heat.html</span><p class="resource-desc">Utility assistance for low-income households.</p></div>
+            <div class="resource-entry"><span class="resource-name">Crossroads Urban Center</span><span class="resource-info">801-364-7765</span><p class="resource-desc">Utility assistance (up to $200) for households with shut-off notices.</p></div>
         </div>
     </div>
 
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('legal')">Legal Assistance <span>+</span></button>
+        <button class="accordion-header" onclick="toggleAccordion('mh')">Mental Health & Therapy <span>+</span></button>
+        <div id="mh" class="accordion-content">
+            <div class="resource-entry"><span class="resource-name">Emotional Health Relief Hotline</span><span class="resource-info">833-442-2211</span><p class="resource-desc">Navigation tool to find immediate or long-term mental health options.</p></div>
+            <div class="resource-entry"><span class="resource-name">The Sharing Place</span><span class="resource-info">801-466-6730</span><p class="resource-desc">Grief and bereavement support groups for children and adults.</p></div>
+            <div class="resource-entry"><span class="resource-name">Utah Homicide Survivors</span><span class="resource-info">801-500-9077</span><p class="resource-desc">Bereavement support and legal assistance for civil issues related to homicide.</p></div>
+            <div class="resource-entry"><span class="resource-name">Multicultural Counseling Center</span><span class="resource-info">801-915-0359</span><p class="resource-desc">Specialized counseling for diverse cultural backgrounds.</p></div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('legal')">Legal Aid & Victim Advocacy <span>+</span></button>
         <div id="legal" class="accordion-content">
-            <div class="resource-entry">
-                <span class="resource-name">Legal Aid Society of Salt Lake</span>
-                <span class="resource-info">801-328-8849</span>
-                <p class="resource-desc">Representing low-income victims in obtaining protective orders and stalking injunctions.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Timpanogos Legal Center</span>
-                <span class="resource-info">801-649-8895</span>
-                <p class="resource-desc">Free legal document assistance and consultations for DV victims.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Crime Victim Reparations (UOVC)</span>
-                <span class="resource-info">801-238-2360</span>
-                <p class="resource-desc">Financial assistance for costs related to being a victim of a crime.</p>
-            </div>
+            <div class="resource-entry"><span class="resource-name">Legal Aid Society of Salt Lake</span><span class="resource-info">801-328-8849</span><p class="resource-desc">Affordable representation for protective orders, custody, and divorce.</p></div>
+            <div class="resource-entry"><span class="resource-name">Timpanogos Legal Center</span><span class="resource-info">801-649-8895</span><p class="resource-desc">Free legal document assistance and Document Clinics for DV victims.</p></div>
+            <div class="resource-entry"><span class="resource-name">Tuesday Night Bar</span><span class="resource-info">801-297-7037</span><p class="resource-desc">Free brief consultations from the Utah State Bar.</p></div>
+            <div class="resource-entry"><span class="resource-name">SLC PD Victim Advocates</span><span class="resource-info">801-580-7969</span><p class="resource-desc">Immediate recovery assistance and resources for crime victims.</p></div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('children')">Children & Parenting <span>+</span></button>
+        <div id="children" class="accordion-content">
+            <div class="resource-entry"><span class="resource-name">The Family Support Center</span><span class="resource-info">Nurturing Parenting Course</span><p class="resource-desc">Free trauma-informed parenting courses to empower families.</p></div>
+            <div class="resource-entry"><span class="resource-name">The Children's Center Utah</span><span class="resource-info">childrenscenterutah.org</span><p class="resource-desc">Expert treatment for trauma and attachment challenges in children under 7.</p></div>
+            <div class="resource-entry"><span class="resource-name">Autism Speaks</span><span class="resource-info">autismspeaks.org</span><p class="resource-desc">Parent's Guide to Autism and support resources.</p></div>
         </div>
     </div>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('animals')">Animal & Pet Resources <span>+</span></button>
         <div id="animals" class="accordion-content">
-            <div class="resource-entry">
-                <span class="resource-name">Ruff Haven</span>
-                <span class="resource-info">801-251-6765</span>
-                <p class="resource-desc">Crisis animal sheltering for individuals in transition or crisis.</p>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Nuzzles & Co (Purple Paw Program)</span>
-                <span class="resource-info">nuzzlesandco.org</span>
-                <p class="resource-desc">Free boarding for pets while owners are leaving domestic violence situations.</p>
-            </div>
+            <div class="resource-entry"><span class="resource-name">Ruff Haven</span><span class="resource-info">801-251-6765</span><p class="resource-desc">Crisis animal sheltering and free pet medical assistance for those in transition.</p></div>
+            <div class="resource-entry"><span class="resource-name">Nuzzles & Co (Purple Paw Program)</span><span class="resource-info">nuzzlesandco.org</span><p class="resource-desc">Free boarding for pets while victims are leaving domestic violence situations.</p></div>
+            <div class="resource-entry"><span class="resource-name">Utah Pet Partners</span><span class="resource-info">801-706-1383</span><p class="resource-desc">Therapy animal certification and well-being partnerships.</p></div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('aging')">Aging & Adult Services <span>+</span></button>
+        <div id="aging" class="accordion-content">
+            <div class="resource-entry"><span class="resource-name">Utah Dept of Human Services</span><span class="resource-info">1-800-371-7897</span><p class="resource-desc">Reporting neglect, exploitation, or abuse of adults and the elderly.</p></div>
+            <div class="resource-entry"><span class="resource-name">Neighbors Helping Neighbors</span><span class="resource-info">801-585-9505</span><p class="resource-desc">Services helping individuals 65+ maintain independence at home.</p></div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('essential')">Essential Needs & Employment <span>+</span></button>
+        <div id="essential" class="accordion-content">
+            <div class="resource-entry"><span class="resource-name">DWS Employment Resources</span><span class="resource-info">jobs.utah.gov</span><p class="resource-desc">Assistance finding jobs, training, and temporary economic aid.</p></div>
+            <div class="resource-entry"><span class="resource-name">Suited for Good</span><span class="resource-info">suitedforgood.com</span><p class="resource-desc">Interview clothing assistance for men.</p></div>
+            <div class="resource-entry"><span class="resource-name">Fourth Street Clinic</span><span class="resource-info">801-364-0058</span><p class="resource-desc">Health care for individuals experiencing homelessness.</p></div>
+            <div class="resource-entry"><span class="resource-name">Eye Care 4 Kids</span><span class="resource-info">801-255-8525</span><p class="resource-desc">Free professional eye exams and glasses for children in low-income communities.</p></div>
         </div>
     </div>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('edu')">Educational Info & Wheels <span>+</span></button>
         <div id="edu" class="accordion-content">
-            <p style="margin-bottom: 2rem;">Understanding the dynamics of power and control is a vital step in the healing process.</p>
-            <div class="wheel-box">
-                <span class="resource-name">Power & Control Wheel</span>
-                <p class="resource-desc">A visual tool used to understand the overall pattern of abusive and violent behaviors used by an abuser.</p>
-            </div>
-            <div class="wheel-box">
-                <span class="resource-name">Equality Wheel</span>
-                <p class="resource-desc">A tool used to describe the qualities of a healthy, non-violent, and equitable relationship.</p>
+            <p style="margin-bottom: 2rem;">Visual tools to help identify patterns and build healthy foundations.</p>
+            <div class="wheel-grid">
+                <div class="wheel-box">
+                    <span class="resource-name">Power & Control Wheel</span>
+                    <p class="resource-desc">Identifies subtle pattern of tactics used by an abuser to maintain control.</p>
+                </div>
+                <div class="wheel-box">
+                    <span class="resource-name">Equality Wheel</span>
+                    <p class="resource-desc">Qualities of a non-violent and equitable relationship based on mutual respect.</p>
+                </div>
+                <div class="wheel-box">
+                    <span class="resource-name">Cycles of Abuse</span>
+                    <p class="resource-desc">The predictable stages of tension, incident, and reconciliation.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -196,13 +195,13 @@
     }
 </script>
 
-<footer>
-    <address style="font-style: normal; margin-bottom: 2rem;">
+<footer style="background: var(--rlg-slate); color: #ccc; padding: 5rem 10%; text-align: center;">
+    <address style="font-style: normal; line-height: 2; margin-bottom: 2rem;">
         <strong>Raven, Lotus & Grey</strong><br>
         231 East 400 South, Suite 370, SLC, UT 84111<br>
         Main Office: 801-839-5734
     </address>
-    &copy; 2026 Specialized Clinical Services
+    &copy; 2026 Specialized Trauma-Informed Clinical Services
 </footer>
 
 </body>
