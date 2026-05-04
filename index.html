@@ -25,21 +25,29 @@
             scroll-behavior: smooth;
         }
 
-        /* --- GLASS NAV --- */
+        /* --- SOLID NAV (Fixes Logo Background Issue) --- */
         nav {
             padding: 1rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(15px);
+            background: var(--white); 
             border-bottom: 1px solid rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
         }
         .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-img { height: 42px; width: auto; }
         .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
-        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        /* --- HERO: BEACH/WAVE --- */
+        /* --- QUICK EXIT BUTTONS --- */
+        .safe-exit-nav { color: #b33a3a !important; font-weight: 700 !important; }
+        .safe-exit-float {
+            position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white;
+            padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* --- HERO --- */
         .hero {
             height: 75vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
@@ -71,20 +79,13 @@
             transition: var(--transition); text-align: center;
         }
         .img-container { 
-            width: 100%; height: 350px; overflow: hidden; margin-bottom: 2rem; 
+            width: 100%; height: 350px; overflow: hidden; margin-bottom: 1.5rem; 
             background: #fdfcfb; display: flex; align-items: center; justify-content: center;
         }
         .clinician-img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .clinician-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--rlg-slate); margin-bottom: 0.4rem; }
         .clinician-title { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; color: var(--rlg-moss); display: block; margin-bottom: 1.5rem; }
         .read-bio-btn { background: none; border: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--rlg-slate); cursor: pointer; border-bottom: 2px solid var(--rlg-moss); padding-bottom: 2px; }
-
-        /* --- MODAL --- */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(47, 53, 59, 0.9); backdrop-filter: blur(5px); }
-        .modal-content { background-color: var(--rlg-cream); margin: 5% auto; padding: 3rem; border-radius: 8px; width: 80%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; }
-        .close-modal { position: absolute; right: 2rem; top: 1.5rem; font-size: 2rem; cursor: pointer; color: var(--rlg-slate); }
-        .modal-bio-text { font-size: 1rem; color: #444; line-height: 1.8; }
-        .modal-bio-text p { margin-bottom: 1.5rem; }
 
         /* --- GROUPS: FLIP CARDS --- */
         .group-section { background-color: var(--rlg-mist); padding: 9rem 10%; }
@@ -96,11 +97,24 @@
         .flip-card-front { background: var(--white); border: 1px solid rgba(0,0,0,0.05); }
         .flip-card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--rlg-slate); }
         .flip-card-back { background: var(--rlg-slate); color: white; transform: rotateY(180deg); text-align: center; }
+        .flip-card-back p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem; }
+        .inquire-btn { background: var(--rlg-moss); color: white; padding: 10px 20px; text-decoration: none; border-radius: 2px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
 
-        footer { padding: 5rem 10%; background: var(--rlg-slate); color: #888; text-align: center; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
+        /* --- MODAL --- */
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(47, 53, 59, 0.9); backdrop-filter: blur(5px); }
+        .modal-content { background-color: var(--rlg-cream); margin: 5% auto; padding: 3rem; border-radius: 8px; width: 80%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; }
+        .close-modal { position: absolute; right: 2rem; top: 1.5rem; font-size: 2rem; cursor: pointer; color: var(--rlg-slate); }
+        .modal-bio-text { font-size: 1rem; color: #444; line-height: 1.8; }
+
+        /* --- INSURANCE --- */
+        .insurance-section { text-align: center; padding: 8rem 10%; background: var(--white); }
+        .ins-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 3rem; }
+        .ins-tag { border: 1px solid #eee; padding: 1rem; font-size: 0.75rem; font-weight: 600; color: #888; }
+
+        footer { padding: 5rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.65rem; text-transform: uppercase; }
 
         @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2rem); } }
-        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.5rem; } .hero p { font-size: 1rem; } }
+        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -114,13 +128,16 @@
         <a href="#clinicians">Team</a>
         <a href="#groups">Groups</a>
         <a href="resources.html">Resources</a>
+        <a href="https://www.weather.com" class="safe-exit-nav">Quick Exit</a>
     </div>
 </nav>
+
+<a href="https://www.weather.com" class="safe-exit-float">Quick Exit</a>
 
 <header class="hero">
     <div class="hero-content">
         <h1>You Matter.</h1>
-        <p>Healing from domestic violence is complex—but you don’t have to do it alone. I combine lived experience, training, advocacy, and court reform work to walk with survivors as they reclaim safety, strength, and hope.</p>
+        <p>Healing from domestic violence is complex—but you don’t have to do it alone. I combine lived experience, training, advocacy, and court reform work to walk with survivors as they reclaim safety, strength, and hope. Together, we heal without judgment, rewire for safety, and make your story truly your own.</p>
         <a href="https://ravenlotusandgrey.clientsecure.me/" class="hero-btn">Consultation</a>
     </div>
 </header>
@@ -139,49 +156,42 @@
             <span class="clinician-title">CMHC, NCC | Clinical Director</span>
             <button class="read-bio-btn" onclick="openModal('modal-amy')">Read Bio</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><img src="https://photos.psychologytoday.com/b456e848-0076-4723-ba3c-cb68501a88d4/1/320x400.jpeg" class="clinician-img"></div>
             <h3 class="clinician-name">Bryce Shimazaki</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <button class="read-bio-btn" onclick="openModal('modal-bryce')">Read Bio</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600;">Eric Pribyl</span></div>
             <h3 class="clinician-name">Eric Pribyl</h3>
             <span class="clinician-title">LCSW | Clinician</span>
             <button class="read-bio-btn" onclick="openModal('modal-eric')">Read Bio</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600;">Liz Hoffmann</span></div>
             <h3 class="clinician-name">Elizabeth Hoffmann</h3>
             <span class="clinician-title">LCSW | Clinician</span>
             <button class="read-bio-btn" onclick="openModal('modal-liz')">Read Bio</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600;">Ellen Seely</span></div>
             <h3 class="clinician-name">Ellen Seely</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <button class="read-bio-btn" onclick="openModal('modal-ellen')">Read Bio</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600;">Megan Thomson</span></div>
             <h3 class="clinician-name">Megan Thomson</h3>
             <span class="clinician-title">CMHC, NCC | Clinician</span>
             <button class="read-bio-btn" onclick="openModal('modal-megan')">Read Bio</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600;">Erika</span></div>
             <h3 class="clinician-name">Erika</h3>
             <span class="clinician-title">Clinician</span>
             <button class="read-bio-btn">Bio Pending</button>
         </div>
-
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600;">Rebecca Symes</span></div>
             <h3 class="clinician-name">Rebecca Symes</h3>
@@ -191,58 +201,50 @@
     </div>
 </section>
 
-<div id="modal-amy" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-amy')">&times;</span>
-        <h2 class="clinician-name">Amy Perry</h2>
-        <div class="modal-bio-text">
-            <p>I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. I bring both professional expertise and lived experience as a partner, parent, and co-parent.</p>
-            <p>I support clients leaving unsafe relationships and navigating the legal system, integrating somatic experiencing, DBT, and EMDR to help clients process trauma and move toward a more stable, self-directed life.</p>
+<section class="group-section" id="groups">
+    <span class="section-tag">Therapeutic Groups</span>
+    <div class="group-grid">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><h3>LGBTQIA+ Support</h3></div>
+                <div class="flip-card-back">
+                    <p>Connection and understanding for the LGBTQIA+ community in Utah. A safe, affirming space to rewire for safety and authentic living.</p>
+                    <a href="mailto:ravenlotusandgrey@gmail.com" class="inquire-btn">Email Inquiry</a>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><h3>PTSD Recovery</h3></div>
+                <div class="flip-card-back">
+                    <p>Identify controlling tactics and learn safe boundaries while processing the physiological effects of trauma.</p>
+                    <a href="mailto:ravenlotusandgrey@gmail.com" class="inquire-btn">Email Inquiry</a>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><h3>"Just Breathe"</h3></div>
+                <div class="flip-card-back">
+                    <p>A safe place for survivors of DV and childhood trauma to find support in shared dynamics and healing.</p>
+                    <a href="mailto:ravenlotusandgrey@gmail.com" class="inquire-btn">Email Inquiry</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<div id="modal-bryce" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-bryce')">&times;</span>
-        <h2 class="clinician-name">Bryce Shimazaki</h2>
-        <div class="modal-bio-text">
-            <p>I view therapy as a collaborative partnership: You set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many struggles began as survival skills.</p>
-            <p>Using evidence-based practices such as DBT, ACT, and mindfulness, I help clients develop emotional regulation and a stronger sense of agency in their path toward intentional living.</p>
-        </div>
+<section id="insurance" class="insurance-section">
+    <span class="section-tag">Access</span>
+    <h2 style="font-family:'Playfair Display', serif; font-size:2rem;">Insurance Accepted</h2>
+    <div class="ins-grid">
+        <div class="ins-tag">Optum Medicaid</div><div class="ins-tag">Health Choice</div><div class="ins-tag">PEHP</div><div class="ins-tag">Molina</div>
+        <div class="ins-tag">UHC / UMR / WMI</div><div class="ins-tag">Cigna</div><div class="ins-tag">SelectHealth</div><div class="ins-tag">BCBS</div>
     </div>
-</div>
+</section>
 
-<div id="modal-eric" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-eric')">&times;</span>
-        <h2 class="clinician-name">Eric Pribyl</h2>
-        <div class="modal-bio-text">
-            <p>Healing from trauma is about reclaiming a sense of safety in your own skin. I work with individuals ages 7+ with a focus on supporting the queer community—especially trans and gender-diverse folks.</p>
-            <p>I specialize in working with both survivors and perpetrators of domestic violence, offering a space rooted in accountability and compassion.</p>
-        </div>
-    </div>
-</div>
-
-<div id="modal-ellen" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-ellen')">&times;</span>
-        <h2 class="clinician-name">Ellen Seely</h2>
-        <div class="modal-bio-text">
-            <p>I am a Domestic Violence certified therapist offering affirming, inclusive care grounded in empowerment and authenticity. My approach addresses the underlying root causes of distress while centering on personal autonomy.</p>
-        </div>
-    </div>
-</div>
-
-<div id="modal-megan" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-megan')">&times;</span>
-        <h2 class="clinician-name">Megan Thomson</h2>
-        <div class="modal-bio-text">
-            <p>I am passionate about working with adults and teenagers who are ready to learn, heal, and grow. I support clients navigating PTSD, anxiety, depression, and trauma using DBT, CBT, and somatic approaches.</p>
-        </div>
-    </div>
-</div>
+<div id="modal-amy" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-amy')">&times;</span><h2 class="clinician-name">Amy Perry</h2><div class="modal-bio-text"><p>I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. I bring professional expertise and lived experience as a partner, parent, and co-parent. I support clients leaving unsafe relationships and navigating the legal system, integrating somatic experiencing, DBT, and EMDR.</p></div></div></div>
+<div id="modal-bryce" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-bryce')">&times;</span><h2 class="clinician-name">Bryce Shimazaki</h2><div class="modal-bio-text"><p>I view therapy as a collaborative partnership. I provide clinical tools to help you set the direction. My approach is rooted in the belief that many struggles began as survival skills. Using evidence-based practices such as DBT, ACT, and mindfulness, I help clients develop emotional regulation and agency.</p></div></div></div>
 
 <script>
     function openModal(id) { document.getElementById(id).style.display = "block"; }
@@ -252,8 +254,8 @@
 
 <footer style="background: var(--rlg-slate); color: #ccc; padding: 5rem 10%; text-align: center;">
     <address style="font-style: normal; line-height: 2;">
-        Raven, Lotus & Grey | 231 East 400 South, Suite 370, Salt Lake City, UT 84111<br>
-        Serving the Greater Salt Lake Metro Area | 801-839-5734
+        Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
+        Main Office: 801-839-5734
     </address>
     &copy; 2026 Raven, Lotus & Grey
 </footer>
