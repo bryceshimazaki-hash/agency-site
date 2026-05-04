@@ -41,20 +41,19 @@
             transition: var(--transition); color: var(--rlg-slate);
         }
         .accordion-header:hover { background: var(--rlg-mist); }
-        .accordion-content { display: none; padding: 2rem; border-top: 1px solid var(--rlg-mist); background: #fafafa; }
+        .accordion-content { display: none; padding: 2.5rem; border-top: 1px solid var(--rlg-mist); background: #fafafa; }
         
         .resource-entry { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee; }
         .resource-entry:last-child { border-bottom: none; }
         .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1.05rem; display: block; }
         .resource-info { font-size: 0.85rem; color: var(--rlg-moss); font-weight: 600; margin: 0.4rem 0; display: block; }
         .resource-desc { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
-        .resource-link { font-size: 0.8rem; font-weight: 600; color: var(--rlg-moss); text-decoration: none; text-transform: lowercase; }
-        .resource-link:hover { text-decoration: underline; }
+        .resource-link { font-size: 0.8rem; font-weight: 600; color: var(--rlg-moss); text-decoration: none; }
 
         .educational-visual { margin: 2rem 0; text-align: center; }
         .educational-visual img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
-        .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.75rem; z-index: 2000; }
 
         footer { padding: 4rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.7rem; }
     </style>
@@ -73,7 +72,7 @@
     <h1>Resources & Support</h1>
 </header>
 
-<a href="https://www.weather.com" class="safe-exit">QUICK EXIT</a>
+<a href="https://www.google.com" class="safe-exit">QUICK EXIT</a>
 
 <div class="resource-container">
 
@@ -81,19 +80,30 @@
         <button class="accordion-header" onclick="toggleAccordion('crisis')">Crisis & Suicide Prevention <span>+</span></button>
         <div id="crisis" class="accordion-content">
             <div class="resource-entry"><span class="resource-name">National Suicide Prevention Hotline</span><span class="resource-info">1-800-273-8255</span><p class="resource-desc">24/7 free and confidential emotional support.</p></div>
-            <div class="resource-entry"><span class="resource-name">Utah Domestic Violence LINKline</span><span class="resource-info">1-800-897-5465</span><p class="resource-desc">Statewide 24/7 support.</p></div>
+            <div class="resource-entry"><span class="resource-name">UNI Warmline</span><span class="resource-info">801-587-1055</span><p class="resource-desc">For individuals seeking support and engagement.</p></div>
+            <div class="resource-entry"><span class="resource-name">Utah Domestic Violence LINKline</span><span class="resource-info">1-800-897-5465</span><p class="resource-desc">Statewide 24/7 support for victims.</p></div>
             <div class="resource-entry"><span class="resource-name">National Domestic Violence Hotline</span><span class="resource-info">1-800-799-7233 | Text START to 88788</span><a href="https://www.thehotline.org/" class="resource-link">thehotline.org</a></div>
-            <div class="resource-entry"><span class="resource-name">SafeUT Crisis Chat</span><span class="resource-info">1-833-372-3388</span><a href="https://safeut.org/" class="resource-link">safeut.org</a></div>
+            <div class="resource-entry"><span class="resource-name">SafeUT Crisis Chat & Tip Line</span><span class="resource-info">1-833-372-3388</span><a href="https://safeut.org/" class="resource-link">safeut.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Trevor Project</span><span class="resource-info">1-866-488-7386 | Text START to 678678</span><a href="https://www.thetrevorproject.org/" class="resource-link">thetrevorproject.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Trans Peer Support Lifeline</span><span class="resource-info">1-877-565-8860</span><a href="https://translifeline.org/" class="resource-link">translifeline.org</a></div>
+            <div class="resource-entry"><span class="resource-name">RAINN (Sexual Assault Hotline)</span><span class="resource-info">1-800-656-HOPE</span><a href="https://www.rainn.org/" class="resource-link">rainn.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Rape Recovery Crisis Line</span><span class="resource-info">1-888-421-1100</span><p class="resource-desc">Utah 24hr Sexual Violence Helpline.</p></div>
+            <div class="resource-entry"><span class="resource-name">Utah Warm Line</span><span class="resource-info">1-833-773-2588</span><p class="resource-desc">Peer support from those who have been there before.</p></div>
+            <div class="resource-entry"><span class="resource-name">National Human Trafficking Hotline</span><span class="resource-info">1-888-373-7888 | Text 233733</span><p class="resource-desc">24/7 support in 200+ languages.</p></div>
         </div>
     </div>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('shelter')">Shelter & Housing <span>+</span></button>
         <div id="shelter" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Peace House</span><span class="resource-info">435-658-4739</span><p class="resource-desc">Emergency shelter and victim advocacy.</p></div>
+            <div class="resource-entry"><span class="resource-name">Peace House</span><span class="resource-info">435-658-4739 (Park City)</span><p class="resource-desc">Emergency 24/7 shelter and victim advocacy.</p></div>
             <div class="resource-entry"><span class="resource-name">YWCA Utah</span><span class="resource-info">801-537-8600</span><a href="https://www.ywcautah.org/" class="resource-link">ywcautah.org</a></div>
-            <div class="resource-entry"><span class="resource-name">Rescue Mission of Salt Lake</span><span class="resource-info">801-521-5925 (Women) | 801-355-1302 (Men)</span><a href="https://rescuesaltlake.org/" class="resource-link">rescuesaltlake.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Rescue Mission of Salt Lake (Women/Children)</span><span class="resource-info">801-521-5925</span><a href="https://rescuesaltlake.org/" class="resource-link">rescuesaltlake.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Rescue Mission of Salt Lake (Men)</span><span class="resource-info">801-355-1302</span><p class="resource-desc">Shelter, food, and clothing open 365 days a year.</p></div>
+            <div class="resource-entry"><span class="resource-name">VOA Center for Women and Children</span><span class="resource-info">801-261-9177</span><a href="https://www.voaut.org/cwc" class="resource-link">voaut.org/cwc</a></div>
             <div class="resource-entry"><span class="resource-name">Smart Move SLC</span><span class="resource-info">801-860-4342</span><a href="https://www.smartmoveslc.com/" class="resource-link">smartmoveslc.com</a></div>
+            <div class="resource-entry"><span class="resource-name">HEAT (DWS)</span><a href="https://jobs.utah.gov/housing/scso/seal/heat.html" class="resource-link">Utility Assistance</a></div>
+            <div class="resource-entry"><span class="resource-name">Crossroads Urban Center</span><span class="resource-info">801-364-7765</span><p class="resource-desc">Utility assistance for shut-off notices.</p></div>
         </div>
     </div>
 
@@ -101,17 +111,29 @@
         <button class="accordion-header" onclick="toggleAccordion('legal')">Legal Aid & Victim Advocacy <span>+</span></button>
         <div id="legal" class="accordion-content">
             <div class="resource-entry"><span class="resource-name">Legal Aid Society of Salt Lake</span><span class="resource-info">801-328-8849</span><a href="https://www.legalaidsocietyofsaltlake.org/" class="resource-link">legalaidsocietyofsaltlake.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Family Justice Center</span><span class="resource-info">801-236-3370</span><a href="https://slcfamilyjusticecenter.org/" class="resource-link">slcfamilyjusticecenter.org</a></div>
             <div class="resource-entry"><span class="resource-name">Timpanogos Legal Center</span><span class="resource-info">801-649-8895</span><a href="https://www.timplegal.org/" class="resource-link">timplegal.org</a></div>
             <div class="resource-entry"><span class="resource-name">Crime Victim Reparations (UOVC)</span><span class="resource-info">801-238-2360</span><a href="https://crimevictim.utah.gov/" class="resource-link">crimevictim.utah.gov</a></div>
+            <div class="resource-entry"><span class="resource-name">SLC PD Victim Advocates</span><span class="resource-info">801-580-7969</span><p class="resource-desc">Immediate recovery assistance for crime victims.</p></div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion('animals')">Animal Resources <span>+</span></button>
+        <div id="animals" class="accordion-content">
+            <div class="resource-entry"><span class="resource-name">Ruff Haven</span><span class="resource-info">801-251-6765</span><a href="https://www.ruffhaven.org/" class="resource-link">ruffhaven.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Nuzzles & Co (Purple Paw Program)</span><a href="https://nuzzlesandco.org/purple-paw-program/" class="resource-link">nuzzlesandco.org</a><p class="resource-desc">Free boarding for pets while leaving DV.</p></div>
+            <div class="resource-entry"><span class="resource-name">Utah Pet Partners</span><span class="resource-info">801-706-1383</span><p class="resource-desc">Therapy animal certification and support.</p></div>
         </div>
     </div>
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('children')">Children & Parenting <span>+</span></button>
         <div id="children" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">The Family Support Center</span><a href="https://www.familysupportcenter.org/" class="resource-link">familysupportcenter.org</a><p class="resource-desc">Offers "Nurturing Parenting" trauma-informed courses.</p></div>
-            <div class="resource-entry"><span class="resource-name">The Children's Center Utah</span><a href="https://childrenscenterutah.org/" class="resource-link">childrenscenterutah.org</a><p class="resource-desc">Experts in treating trauma for children under 7.</p></div>
-            <div class="resource-entry"><span class="resource-name">Autism Speaks</span><a href="https://www.autismspeaks.org/" class="resource-link">autismspeaks.org</a></div>
+            <div class="resource-entry"><span class="resource-name">The Family Support Center</span><a href="https://www.familysupportcenter.org/" class="resource-link">familysupportcenter.org</a><p class="resource-desc">Free "Nurturing Parenting" course.</p></div>
+            <div class="resource-entry"><span class="resource-name">The Children's Center Utah</span><a href="https://childrenscenterutah.org/" class="resource-link">childrenscenterutah.org</a><p class="resource-desc">Mental health care for children under 7.</p></div>
+            <div class="resource-entry"><span class="resource-name">Mothers of Sexually Abused Children (MOSAC)</span><a href="https://www.mosac.net/" class="resource-link">mosac.net</a></div>
+            <div class="resource-entry"><span class="resource-name">Candy Cane Lane</span><a href="https://www.ywcautah.org/get-involved/candy-cane-lane/" class="resource-link">Christmas Assistance</a></div>
         </div>
     </div>
 
@@ -120,7 +142,7 @@
         <div id="edu" class="accordion-content">
             <div class="resource-entry">
                 <span class="resource-name">Power & Control Wheel</span>
-                <p class="resource-desc">Pattern of tactics used by an abuser to maintain control.</p>
+                <p class="resource-desc">Pattern of tactics used by an abuser to maintain control over a victim.</p>
                 <div class="educational-visual">
                     
                 </div>
@@ -134,6 +156,7 @@
             </div>
             <div class="resource-entry">
                 <span class="resource-name">Cycle of Abuse</span>
+                <p class="resource-desc">Diagram describing the stages of tension and incident.</p>
                 <div class="educational-visual">
                     
 
@@ -145,20 +168,13 @@
     </div>
 
     <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('animals')">Animal Resources <span>+</span></button>
-        <div id="animals" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Ruff Haven</span><span class="resource-info">801-251-6765</span><a href="https://www.ruffhaven.org/" class="resource-link">ruffhaven.org</a></div>
-            <div class="resource-entry"><span class="resource-name">Nuzzles & Co (Purple Paw Program)</span><a href="https://nuzzlesandco.org/purple-paw-program/" class="resource-link">nuzzlesandco.org</a></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('essential')">Other Essential Needs <span>+</span></button>
         <div id="essential" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">DWS Employment Resources</span><span class="resource-info">801-526-9675</span><a href="https://jobs.utah.gov/" class="resource-link">jobs.utah.gov</a></div>
+            <div class="resource-entry"><span class="resource-name">Department of Workforce Services (DWS)</span><span class="resource-info">801-526-9675</span><a href="https://jobs.utah.gov/" class="resource-link">jobs.utah.gov</a></div>
             <div class="resource-entry"><span class="resource-name">Suited for Good</span><a href="https://www.suitedforgood.com/" class="resource-link">suitedforgood.com</a><p class="resource-desc">Interview clothing assistance for men.</p></div>
             <div class="resource-entry"><span class="resource-name">Fourth Street Clinic</span><span class="resource-info">801-364-0058</span><a href="https://fourthstreetclinic.org/" class="resource-link">fourthstreetclinic.org</a></div>
             <div class="resource-entry"><span class="resource-name">Eye Care 4 Kids</span><span class="resource-info">801-255-8525</span><a href="https://eyecare4kids.org/" class="resource-link">eyecare4kids.org</a></div>
+            <div class="resource-entry"><span class="resource-name">Central City Community Health</span><span class="resource-info">801-539-8617</span><a href="https://www.chc-ut.org/central-city-clinic" class="resource-link">chc-ut.org</a></div>
         </div>
     </div>
 
