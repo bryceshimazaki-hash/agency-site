@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources & Support | Raven, Lotus & Grey</title>
+    <title>Raven, Lotus & Grey | Resource Directory & Educational Tools</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap');
 
         :root {
             --rlg-slate: #2F353B;      
@@ -13,11 +13,11 @@
             --rlg-cream: #F9F8F6;      
             --rlg-mist: #EAECE9;       
             --white: #ffffff;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--rlg-cream); color: var(--rlg-slate); line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--rlg-cream); color: var(--rlg-slate); line-height: 1.8; scroll-behavior: smooth; }
 
         nav {
             padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
@@ -25,38 +25,39 @@
         }
         .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-img { height: 42px; width: auto; }
-        .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; color: var(--rlg-slate); }
-        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+        .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
+        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 
-        header { padding: 6rem 10% 3rem; text-align: center; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem; }
-
-        .resource-container { max-width: 1000px; margin: 0 auto 8rem; padding: 0 5%; }
-        .accordion-item { background: var(--white); border: 1px solid var(--rlg-mist); margin-bottom: 0.5rem; border-radius: 4px; overflow: hidden; }
-        .accordion-header { 
-            width: 100%; padding: 1.5rem 2rem; background: var(--white); border: none;
-            text-align: left; font-family: 'Playfair Display', serif; font-size: 1.25rem;
-            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-            transition: var(--transition); color: var(--rlg-slate);
+        .safe-exit-float {
+            position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white;
+            padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .accordion-header:hover { background: var(--rlg-mist); }
-        .accordion-content { display: none; padding: 2.5rem; border-top: 1px solid var(--rlg-mist); background: #fafafa; }
+
+        header.resources-hero {
+            background: var(--rlg-slate);
+            color: var(--rlg-cream);
+            padding: 6rem 5% 4rem;
+            text-align: center;
+        }
+        header.resources-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; margin-bottom: 1rem; }
+        header.resources-hero p { font-size: 1rem; font-weight: 300; letter-spacing: 0.05em; max-width: 700px; margin: 0 auto; opacity: 0.8; }
+
+        section.resources-section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
+        .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
+        .resource-card { background: var(--white); border: 1px solid var(--rlg-mist); border-radius: 6px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+        .resource-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 400; }
+        .resource-card p { font-size: 0.9rem; color: #555; margin-bottom: 1.5rem; line-height: 1.6; }
         
-        .resource-entry { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #eee; }
-        .resource-entry:last-child { border-bottom: none; }
-        .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1.1rem; display: block; margin-bottom: 4px; }
-        .resource-info { font-size: 0.85rem; color: var(--rlg-moss); font-weight: 600; margin: 5px 0; display: block; }
-        .resource-desc { font-size: 0.95rem; color: #555; margin-bottom: 12px; }
-        
-        .resource-link { font-size: 0.85rem; font-weight: 600; color: var(--rlg-moss); text-decoration: underline; text-underline-offset: 3px; }
+        /* Educational Visual Containers */
+        .visual-container { width: 100%; height: 300px; background: #fdfcfb; border-radius: 4px; overflow: hidden; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--rlg-mist); }
+        .visual-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; }
 
-        /* LIVE IMAGE STYLING */
-        .educational-visual { margin: 2rem 0; text-align: center; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
-        .educational-visual img { max-width: 100%; height: auto; border-radius: 4px; }
+        .resource-link { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--rlg-slate); text-decoration: none; border-bottom: 2px solid var(--rlg-moss); padding-bottom: 2px; align-self: flex-start; transition: var(--transition); }
+        .resource-link:hover { color: var(--rlg-moss); }
 
-        .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-        footer { padding: 4rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.7rem; }
+        footer { padding: 5rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.65rem; text-transform: uppercase; }
+        @media (max-width: 768px) { header.resources-hero h1 { font-size: 2.2rem; } .resources-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -67,142 +68,60 @@
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </a>
     <div class="nav-links">
-        <a href="index.html">Home</a>
         <a href="index.html#clinicians">Team</a>
-        <a href="https://www.weather.com" style="color: #b33a3a; font-weight: 700;">Quick Exit</a>
+        <a href="index.html#groups">Groups</a>
+        <a href="resources.html">Resources</a>
     </div>
 </nav>
 
-<header>
-    <h1>Resources & Support</h1>
+<a href="https://www.weather.com" class="safe-exit-float">Quick Exit</a>
+
+<header class="resources-hero">
+    <h1>Clinical Tools & Resources</h1>
+    <p>Educational framework materials and directory references utilized during advocacy, stabilization, and cycle recovery paths.</p>
 </header>
 
-<a href="https://www.weather.com" class="safe-exit">QUICK EXIT</a>
-
-<div class="resource-container">
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('advocacy')">Victim Advocacy <span>+</span></button>
-        <div id="advocacy" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Salt Lake City PD Victim Advocates</span><span class="resource-info">801-580-7969</span><p class="resource-desc">Address the immediate needs of victims, assists in the process of recovery from crime and provides information and resources.</p></div>
-            <div class="resource-entry"><span class="resource-name">Murray City PD Victim Advocates</span><span class="resource-info">801-284-4203</span><p class="resource-desc">Assists in the process of recovery from crime and provides information and resources.</p></div>
-            <div class="resource-entry"><span class="resource-name">Draper City PD Victim Advocates</span><span class="resource-info">801-576-6355</span><p class="resource-desc">Immediate needs assistance for crime victims.</p></div>
-            <div class="resource-entry"><span class="resource-name">Midvale City PD Victim Advocates</span><span class="resource-info">385-468-9365</span><p class="resource-desc">Immediate needs assistance and resource provision.</p></div>
-            <div class="resource-entry"><span class="resource-name">West Valley City PD Victim Advocates</span><span class="resource-info">801-963-3223</span><p class="resource-desc">Immediate needs assistance and resource provision.</p></div>
-            <div class="resource-entry"><span class="resource-name">Peace House</span><span class="resource-info">435-658-4739</span><p class="resource-desc">Main office located in PC. Provides victim advocacy and emergency 24/7 victim advocacy.</p><a href="https://peacehouse.org/" class="resource-link">visit peacehouse.org</a></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('edu')">Educational Info & Wheels <span>+</span></button>
-        <div id="edu" class="accordion-content">
-            <div class="resource-entry">
-                <span class="resource-name">Power & Control Wheel</span>
-                <p class="resource-desc">Domestic violence isn’t just physical and/or sexual, how many of these inner power and control behaviors has your abuser done to you?</p>
-                <div class="educational-visual">
-                    <img src="https://www.thehotline.org/wp-content/uploads/sites/3/2020/12/PCW-English-Plain-scaled.jpg" alt="Power and Control Wheel Diagram">
+<section class="resources-section">
+    <div class="resources-grid">
+        <div class="resource-card">
+            <div>
+                <div class="visual-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Power_and_control_wheel.jpg" alt="Power and Control Wheel Diagram" class="visual-img">
                 </div>
-                <a href="https://www.thehotline.org/identify-abuse/power-and-control-wheel/" class="resource-link">Source: National Domestic Violence Hotline</a>
+                <h3>The Power & Control Wheel</h3>
+                <p>An essential educational blueprint developed by the Domestic Abuse Intervention Project (DAIP) to illustrate the pattern of non-physical behaviors patterns used by an abusive partner to establish and maintain dominance.</p>
             </div>
-            <div class="resource-entry">
-                <span class="resource-name">Equality Wheel</span>
-                <p class="resource-desc">Defining healthy, unhealthy, and abusive relationships through the lens of equality.</p>
-                <div class="educational-visual">
-                    <img src="https://wellness.utah.edu/wp-content/uploads/sites/11/2023/04/Equality-Wheel.png" alt="Equality Wheel Diagram">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/d/d3/Power_and_control_wheel.jpg" target="_blank" class="resource-link">View Full Diagram</a>
+        </div>
+
+        <div class="resource-card">
+            <div>
+                <div class="visual-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Equality_wheel_for_non-violent_relationships.jpg" alt="Equality Wheel Diagram" class="visual-img">
                 </div>
+                <h3>The Equality Wheel</h3>
+                <p>The positive alternative layout highlighting the structural keys defining healthy, respectful, and non-violent collaborative partnerships. Centers on accountability, honesty, and shared empowerment frameworks.</p>
             </div>
-            <div class="resource-entry">
-                <span class="resource-name">Cycle of Abuse</span>
-                <p class="resource-desc">Diagram describing the predictable stages of tension, incident, and reconciliation.</p>
-                <div class="educational-visual">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cycle_of_Abuse.png/640px-Cycle_of_Abuse.png" alt="Cycle of Abuse Diagram">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/e/e5/Equality_wheel_for_non-violent_relationships.jpg" target="_blank" class="resource-link">View Full Diagram</a>
+        </div>
+
+        <div class="resource-card">
+            <div>
+                <div class="visual-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Cycle_of_Abuse.png" alt="Cycle of Abuse Diagram" class="visual-img">
                 </div>
+                <h3>The Cycle of Abuse Diagram</h3>
+                <p>A structured mapping detailing the behavioral phases identifying relational abuse patterns—moving systematically from tension building and crisis incidents to reconciliation stages and calm operational blocks.</p>
             </div>
+            <a href="https://upload.wikimedia.org/wikipedia/commons/a/ad/Cycle_of_Abuse.png" target="_blank" class="resource-link">View Full Diagram</a>
         </div>
     </div>
+</section>
 
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('crisis')">Crisis & Suicide Prevention <span>+</span></button>
-        <div id="crisis" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">National Suicide Prevention Hotline</span><span class="resource-info">1-800-273-8255</span><a href="https://988lifeline.org/" class="resource-link">988lifeline.org</a></div>
-            <div class="resource-entry"><span class="resource-name">UNI Warmline</span><span class="resource-info">801-587-1055</span><p class="resource-desc">For individuals who are not in crisis, but seeking support, engagement, or encouragement.</p></div>
-            <div class="resource-entry"><span class="resource-name">Utah Domestic Violence LINKline</span><span class="resource-info">1-800-897-5465</span><p class="resource-desc">24/7 free/confidental support.</p></div>
-            <div class="resource-entry"><span class="resource-name">Trevor Project</span><span class="resource-info">1-866-488-7386</span><a href="https://www.thetrevorproject.org/" class="resource-link">thetrevorproject.org</a></div>
-            <div class="resource-entry"><span class="resource-name">Rape Recovery Crisis Line</span><span class="resource-info">1-888-421-1100</span><p class="resource-desc">Utah 24hr Sexual Violence Helpline.</p></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('shelter')">Shelter & Housing <span>+</span></button>
-        <div id="shelter" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Rescue Mission of Salt Lake</span><span class="resource-info">801.521.5925 (Women) | 801.355.1302 (Men)</span><a href="https://rescuesaltlake.org/" class="resource-link">rescuesaltlake.org</a></div>
-            <div class="resource-entry"><span class="resource-name">YWCA Utah</span><span class="resource-info">801-537-8600</span><a href="https://www.ywcautah.org/" class="resource-link">ywcautah.org</a></div>
-            <div class="resource-entry"><span class="resource-name">VOA Center for Women and Children</span><span class="resource-info">801.261.9177</span><a href="https://www.voaut.org/cwc" class="resource-link">voaut.org/cwc</a></div>
-            <div class="resource-entry"><span class="resource-name">Smart Move SLC</span><span class="resource-info">801-860-4342</span><a href="https://www.smartmoveslc.com/" class="resource-link">smartmoveslc.com</a></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('legal')">Legal Aid <span>+</span></button>
-        <div id="legal" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Legal Aid Society of Salt Lake</span><span class="resource-info">801-328-8849</span><a href="https://www.legalaidsocietyofsaltlake.org/" class="resource-link">legalaidsocietyofsaltlake.org</a></div>
-            <div class="resource-entry"><span class="resource-name">Timpanogos Legal Center</span><span class="resource-info">801-649-8895</span><a href="https://www.timplegal.org/" class="resource-link">timplegal.org</a></div>
-            <div class="resource-entry"><span class="resource-name">Utah Homicide Survivors</span><span class="resource-info">801-500-9077</span><p class="resource-desc">Legal assistance with civil issues related to homicide cases.</p></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('animals')">Animals <span>+</span></button>
-        <div id="animals" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Ruff Haven</span><span class="resource-info">801-251-6765</span><a href="https://www.ruffhaven.org/" class="resource-link">ruffhaven.org</a><p class="resource-desc">Emergency animal shelter and free pet medical help.</p></div>
-            <div class="resource-entry"><span class="resource-name">Nuzzles & Co (Purple Paw Program)</span><a href="https://www.nuzzlesandco.org/purple-paw-program/" class="resource-link">nuzzlesandco.org</a><p class="resource-desc">Safe pet sheltering for those leaving DV.</p></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('aging')">Aging Services <span>+</span></button>
-        <div id="aging" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">Utah Department of Human Services (Aging)</span><span class="resource-info">1-800-371-7897</span><a href="https://daas.utah.gov/" class="resource-link">daas.utah.gov</a></div>
-            <div class="resource-entry"><span class="resource-name">Neighbors Helping Neighbors</span><span class="resource-info">801-585-9505</span><p class="resource-desc">Independence support for individuals 65+.</p></div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion('essential')">Other Essential Needs <span>+</span></button>
-        <div id="essential" class="accordion-content">
-            <div class="resource-entry"><span class="resource-name">DWS Employment Resources</span><span class="resource-info">801-526-9675</span><a href="https://jobs.utah.gov/" class="resource-link">jobs.utah.gov</a></div>
-            <div class="resource-entry"><span class="resource-name">Suited for Good</span><a href="https://www.suitedforgood.com/" class="resource-link">suitedforgood.com</a><p class="resource-desc">Interview clothing assistance for men.</p></div>
-            <div class="resource-entry"><span class="resource-name">Fourth Street Clinic</span><span class="resource-info">801-364-0058</span><a href="https://fourthstreetclinic.org/" class="resource-link">fourthstreetclinic.org</a></div>
-        </div>
-    </div>
-
-</div>
-
-<script>
-    function toggleAccordion(id) {
-        var content = document.getElementById(id);
-        var allContent = document.getElementsByClassName('accordion-content');
-        for (var i = 0; i < allContent.length; i++) {
-            if (allContent[i].id !== id) {
-                allContent[i].style.display = "none";
-                allContent[i].previousElementSibling.querySelector('span').innerText = "+";
-            }
-        }
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            document.querySelector('[onclick="toggleAccordion(\''+id+'\')"] span').innerText = "+";
-        } else {
-            content.style.display = "block";
-            document.querySelector('[onclick="toggleAccordion(\''+id+'\')"] span').innerText = "-";
-        }
-    }
-</script>
-
-<footer>
-    <address style="font-style: normal; margin-bottom: 2rem;">
-        <strong>Raven, Lotus & Grey</strong><br>
-        231 East 400 South, Suite 370, SLC, UT 84111<br>
-        Main Office: 801-839-5734
+<footer style="background: var(--rlg-slate); color: #ccc; padding: 5rem 10%; text-align: center;">
+    <address style="font-style: normal; line-height: 2;">
+        Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
+        Main Office: 801-839-5734 | ravenlotusandgrey@gmail.com
     </address>
     &copy; 2026 Specialized Clinical Services
 </footer>
