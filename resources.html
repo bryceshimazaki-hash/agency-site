@@ -50,12 +50,37 @@
         
         .resource-link { font-size: 0.85rem; font-weight: 600; color: var(--rlg-moss); text-decoration: underline; text-underline-offset: 3px; }
 
-        .educational-visual { margin: 2rem 0; text-align: center; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
-        .educational-visual img { max-width: 100%; height: auto; border-radius: 4px; max-height: 550px; }
+        /* HORIZONTAL SIDE-BY-SIDE GALLERY SYSTEM */
+        .wheels-gallery { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+        .gallery-card { flex: 1; background: #fff; padding: 15px; border-radius: 6px; border: 1px solid #eee; text-align: center; }
+        .gallery-card p { font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; color: var(--rlg-slate); text-transform: uppercase; }
+        
+        .thumbnail-container { width: 100%; height: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in; background: #fdfcfb; border-radius: 4px; border: 1px solid var(--rlg-mist); position: relative; }
+        .thumbnail-container img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease; }
+        .thumbnail-container:hover img { transform: scale(1.04); }
+        
+        /* Hint text that displays on hover */
+        .thumbnail-container::after { content: "Click to enlarge"; position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(47, 53, 59, 0.8); color: #fff; font-size: 0.65rem; text-transform: uppercase; padding: 4px 0; opacity: 0; transition: var(--transition); letter-spacing: 0.05em; }
+        .thumbnail-container:hover::after { opacity: 1; }
+
+        /* IMAGE VIEWER MODAL STRUCTURE */
+        .image-viewer-modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(47, 53, 59, 0.95); backdrop-filter: blur(4px); justify-content: center; align-items: center; cursor: zoom-out; }
+        .viewer-content { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 4px; box-shadow: 0 4px 30px rgba(0,0,0,0.4); animation: zoomIn 0.2s ease; }
+        .close-viewer { position: absolute; top: 2rem; right: 3rem; color: #fff; font-size: 3rem; font-weight: 300; cursor: pointer; }
+
+        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         .safe-exit { position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 
         footer { padding: 4rem 10%; background: var(--rlg-slate); color: #ccc; text-align: center; font-size: 0.7rem; }
+
+        /* RESPONSIVE: Collapses back to a vertical stack safely on mobile screens */
+        @media (max-width: 768px) {
+            .wheels-gallery { flex-direction: column; }
+            .gallery-card { margin-bottom: 1rem; }
+            .thumbnail-container { height: 260px; }
+            .close-viewer { right: 1.5rem; top: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -95,25 +120,28 @@
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion('edu')">Educational Info & Wheels <span>+</span></button>
         <div id="edu" class="accordion-content">
-            <div class="resource-entry">
-                <span class="resource-name">Power & Control Wheel</span>
-                <p class="resource-desc">Domestic violence isn’t just physical and/or sexual, how many of these inner power and control behaviors has your abuser done to you?</p>
-                <div class="educational-visual">
-                    <img src="https://www.thehotline.org/wp-content/uploads/media/2020/10/power-and-control-wheel-cropped.png" alt="Power and Control Wheel Diagram">
+            <p class="resource-desc" style="margin-bottom: 0.5rem;">Click on any diagram below to enlarge it to full screen layout.</p>
+            
+            <div class="wheels-gallery">
+                <div class="gallery-card">
+                    <p>Power & Control</p>
+                    <div class="thumbnail-container" onclick="viewImage('https://www.thehotline.org/wp-content/uploads/media/2020/10/power-and-control-wheel-cropped.png')">
+                        <img src="https://www.thehotline.org/wp-content/uploads/media/2020/10/power-and-control-wheel-cropped.png" alt="Power and Control Wheel Diagram">
+                    </div>
                 </div>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Equality Wheel</span>
-                <p class="resource-desc">Defining healthy, unhealthy, and abusive relationships through the lens of equality.</p>
-                <div class="educational-visual">
-                    <img src="Equality-wheel.png" alt="Equality Wheel Diagram">
+                
+                <div class="gallery-card">
+                    <p>Equality Framework</p>
+                    <div class="thumbnail-container" onclick="viewImage('Equality-wheel.png')">
+                        <img src="Equality-wheel.png" alt="Equality Wheel Diagram">
+                    </div>
                 </div>
-            </div>
-            <div class="resource-entry">
-                <span class="resource-name">Cycle of Abuse</span>
-                <p class="resource-desc">Diagram describing the predictable stages of tension, incident, and reconciliation.</p>
-                <div class="educational-visual">
-                    <img src="cycle-of-abuse.png" alt="Cycle of Abuse Diagram">
+                
+                <div class="gallery-card">
+                    <p>Cycle of Abuse</p>
+                    <div class="thumbnail-container" onclick="viewImage('cycle-of-abuse.png')">
+                        <img src="cycle-of-abuse.png" alt="Cycle of Abuse Diagram">
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,6 +204,11 @@
 
 </div>
 
+<div id="imageViewer" class="image-viewer-modal" onclick="closeViewer()">
+    <span class="close-viewer">&times;</span>
+    <img class="viewer-content" id="viewerTarget" alt="Enlarged Educational Framework Diagram">
+</div>
+
 <script>
     function toggleAccordion(id) {
         var content = document.getElementById(id);
@@ -193,6 +226,15 @@
             content.style.display = "block";
             document.querySelector('[onclick="toggleAccordion(\''+id+'\')"] span').innerText = "-";
         }
+    }
+
+    // Modal Image Viewer Functions
+    function viewImage(src) {
+        document.getElementById('viewerTarget').src = src;
+        document.getElementById('imageViewer').style.display = "flex";
+    }
+    function closeViewer() {
+        document.getElementById('imageViewer').style.display = "none";
     }
 </script>
 
