@@ -18,7 +18,6 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Swapped flat stark color for a gentle, slow fluid gradient to clear out digital sterility */
         body { 
             font-family: 'Inter', sans-serif; 
             background: linear-gradient(180deg, var(--rlg-cream) 0%, #F4F5F2 50%, var(--rlg-cream) 100%);
@@ -59,32 +58,45 @@
         .hero-btn { display: inline-block; padding: 1.2rem 3rem; background: var(--white); color: var(--rlg-slate); text-decoration: none; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: var(--transition); }
         .hero-btn:hover { background: var(--rlg-slate); color: var(--white); transform: translateY(-2px); }
 
-        section { padding: 9rem 5% 8rem; }
+        /* Integrated the agency logo as a massive, ultra-faint floating vector water mark background texture */
+        section#clinicians { 
+            padding: 9rem 5% 8rem; 
+            background-image: url('logo.png');
+            background-repeat: no-repeat;
+            background-position: center 35%;
+            background-size: 650px;
+            /* Keeps the logo watermark exceptionally soft and gentle for crisis pacing context */
+            opacity: 0.99; 
+        }
+
         .section-header { text-align: center; margin-bottom: 5rem; position: relative; }
         .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 400; color: var(--rlg-slate); }
         .section-header::after { content: ""; display: block; width: 40px; height: 1px; background: var(--rlg-moss); margin: 1.5rem auto 0; opacity: 0.6; }
 
         .clinician-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem 2.5rem; max-width: 1400px; margin: 0 auto; }
         
-        /* Elevated clinician cards with soft ambient drop-shadows and micro-interaction movement */
+        /* Updated containers with translucent white and backdrop blur (Glassmorphism) to layer softly over the logo watermark */
         .clinician-card { 
             width: calc(25% - 2.5rem); 
             min-width: 280px; 
-            background: var(--white); 
+            background: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 1.75rem; 
             border-radius: 8px; 
             text-align: center; 
             box-shadow: 0 12px 40px rgba(47, 53, 59, 0.03);
-            border: 1px solid rgba(132, 141, 130, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             transition: var(--transition);
         }
         .clinician-card:hover {
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 20px 50px rgba(47, 53, 59, 0.07);
             border-color: rgba(132, 141, 130, 0.25);
         }
 
-        .img-container { width: 100%; height: 350px; overflow: hidden; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: center; background: #faf9f6; border-radius: 6px; }
+        .img-container { width: 100%; height: 350px; overflow: hidden; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: center; background: rgba(250, 249, 246, 0.8); border-radius: 6px; }
         .clinician-img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(10%); transition: var(--transition); }
         .clinician-card:hover .clinician-img { filter: grayscale(0%); }
         
@@ -94,13 +106,14 @@
         .read-bio-btn { background: none; border: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--rlg-slate); cursor: pointer; border-bottom: 2px solid var(--rlg-mist); padding-bottom: 4px; transition: var(--transition); letter-spacing: 0.05em; }
         .read-bio-btn:hover { border-color: var(--rlg-moss); color: var(--rlg-moss); }
 
-        /* Smoothed Group Therapy Layout blocks */
+        /* Smoothed Group Therapy Layout blocks with frosted glass aesthetics */
+        section#groups { padding: 9rem 5% 8rem; background: rgba(234, 236, 233, 0.4); border-top: 1px solid rgba(132, 141, 130, 0.1); border-bottom: 1px solid rgba(132, 141, 130, 0.1); }
         .group-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
         .group-card { width: 350px; height: 400px; perspective: 1000px; cursor: pointer; }
         .group-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); transform-style: preserve-3d; }
         .group-card:hover .group-card-inner { transform: rotateY(180deg); }
         .group-card-front, .group-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem; box-shadow: 0 10px 35px rgba(47, 53, 59, 0.03); }
-        .group-card-front { background-color: var(--white); border: 1px solid rgba(132, 141, 130, 0.15); }
+        .group-card-front { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); }
         .group-card-back { background-color: var(--rlg-slate); color: var(--rlg-cream); transform: rotateY(180deg); }
         .group-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1rem; font-weight: 400; }
         .group-inquire-btn { margin-top: 2rem; padding: 0.9rem 2rem; border: 1px solid var(--rlg-cream); color: var(--rlg-cream); text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; border-radius: 4px; transition: var(--transition); }
@@ -120,8 +133,8 @@
 
         footer { padding: 6rem 10%; background: var(--rlg-slate); color: #b1b5b9; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-moss); }
         
-        @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2.5rem); } }
-        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; } }
+        @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2.5rem); } section#clinicians { background-size: 450px; } }
+        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section#clinicians { padding: 6rem 5%; background-size: 320px; background-position: center 20%; } }
     </style>
 </head>
 <body>
@@ -211,7 +224,7 @@
     </div>
 </section>
 
-<section id="groups" style="background-color: rgba(234, 236, 233, 0.5); border-top: 1px solid rgba(132, 141, 130, 0.1); border-bottom: 1px solid rgba(132, 141, 130, 0.1);">
+<section id="groups">
     <div class="section-header"><h2>Specialized Group Therapy</h2><p style="font-size:0.95rem; color:#555; margin-top:0.5rem;">Healing happens in community. Join our guided clinical groups.</p></div>
     <div class="group-grid">
         <div class="group-card">
@@ -316,7 +329,7 @@
         <p class="bio-text">I am a therapist based in Salt Lake City, Utah, specializing in trauma and relational healing. I work with individuals navigating the impact of domestic violence and relationship trauma, as well as adoptees exploring identity, attachment, and belonging. I bring lived experience to my work and understand that both relational trauma and adoption-related experiences can deeply shape how you see yourself, connect with others, and move through the world.</p>
         <p class="bio-text">My work with survivors of domestic violence focuses on helping you process trauma responses, rebuild self-trust, strengthen boundaries, and restore a sense of safety and stability in your life. In my work with adoptees, I support you in exploring themes of identity formation, grief, connection, and belonging, with particular attention to attachment and narrative integration.</p>
         <p class="bio-text">My approach is trauma-informed, collaborative, and integrative. I draw from Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Internal Family Systems (IFS), mindfulness-based practices, and somatic awareness to support both emotional processing and embodied healing. I believe therapy is most effective when it feels like a safe partnership—one where you are respected as the expert of your own lived experience and supported in moving toward clarity, connection, and meaningful change.</p>
-        <p class="bio-text">Outside of my clinical work, I enjoy yoga, cooking, traveling, and spending time with my children and their Labrador retriever.</p>
+        <p class="bio-text">Outside of his clinical work, I enjoy yoga, cooking, traveling, and spending time with my children and their Labrador retriever.</p>
     </div>
 </div>
 
