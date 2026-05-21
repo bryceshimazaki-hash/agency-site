@@ -115,6 +115,11 @@
         .ins-tag { border: 1px solid rgba(132, 141, 130, 0.12); padding: 1.75rem; font-size: 0.85rem; line-height: 1.6; color: #555; text-align: left; border-radius: 6px; background: #faf9f6; transition: var(--transition); }
         .ins-tag:hover { border-color: var(--rlg-moss); background: var(--white); box-shadow: 0 5px 20px rgba(47, 53, 59, 0.02); }
 
+        /* INTERACTIVE ACCESSIBLE OFFICE MAP CONTAINER */
+        .office-location-container { background: rgba(234, 236, 233, 0.4); padding: 7rem 5% 6rem; border-top: 1px solid rgba(132, 141, 130, 0.15); text-align: center; }
+        .map-wrapper { max-width: 900px; margin: 2.5rem auto 0; border-radius: 8px; overflow: hidden; box-shadow: 0 12px 40px rgba(47, 53, 59, 0.05); border: 1px solid rgba(255, 255, 255, 0.6); height: 380px; }
+        .map-iframe { width: 100%; height: 100%; border: none; }
+
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(47, 53, 59, 0.7); backdrop-filter: blur(8px); }
         .modal-content { background-color: var(--rlg-cream); margin: 6% auto; padding: 4rem 3.5rem; border-radius: 12px; width: 85%; max-width: 800px; max-height: 78vh; overflow-y: auto; position: relative; box-shadow: 0 30px 70px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.5); }
         .close-modal { position: absolute; right: 2.5rem; top: 2rem; font-size: 2.2rem; cursor: pointer; color: var(--rlg-moss); font-weight: 300; transition: var(--transition); }
@@ -124,7 +129,7 @@
         footer { padding: 6rem 10%; background: var(--rlg-slate); color: #b1b5b9; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-moss); }
         
         @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2.5rem); } }
-        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; } }
+        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; } .office-location-container { padding: 5rem 5% 4rem; } .map-wrapper { height: 280px; } }
     </style>
 </head>
 <body>
@@ -147,7 +152,7 @@
     <div class="hero-content">
         <h1>You Matter.</h1>
         <p>Healing from domestic violence is complex—but you don’t have to do it alone. I combine lived experience, training, advocacy, and court reform work to walk with survivors as they reclaim safety, strength, and hope. Together, we heal without judgment, rewire for safety, and make your story truly your own.</p>
-        <a href="https://ravenlotusandgrey.clientsecure.me/" class="hero-btn">Consultation</a>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="hero-btn">Consultation</a>
     </div>
 </header>
 
@@ -254,6 +259,20 @@
     </div>
 </section>
 
+<div class="office-location-container" id="location">
+    <h3 style="font-family:'Playfair Display', serif; font-size:2rem; font-weight:400; color:var(--rlg-slate);">Our Salt Lake City Office</h3>
+    <p style="font-size:0.95rem; color:#555; margin-top:0.5rem;">Suite 370, 231 East 400 South, Salt Lake City, UT 84111</p>
+    <div class="map-wrapper">
+        <iframe 
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.905973977343!2d-111.88414442342502!3d40.76077363442125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87525f0e9726af63%3A0x6cf2e3a10ca986e3!2s231%20E%20400%20S%20%23370%2C%20Salt%20Lake%20City%2C%20UT%2084111!5e0!3m2!1sen!2sus!4v1716321900000!5m2!1sen!2sus" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
 <div id="modal-amy" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modal-amy')">&times;</span>
@@ -270,7 +289,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modal-eric')">&times;</span>
         <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Eric Pribyl</h2>
-        <p class="bio-text">I’m a Domestic Violence–certified therapist, and I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraots.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or seeking a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
+        <p class="bio-text">I’m a Domestic Violence–certified therapist, and I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or seeking a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
         <p class="bio-text">I work with individuals ages 7+ and focus especially on supporting the queer community—particularly trans and gender-diverse folks—as well as individuals working to stop using violence in all relationships. I specialize in working with both survivors and perpetrators of domestic violence, offering a therapeutic space rooted in accountability, compassion, and meaningful change. I also have experience working with personality disorders, particularly BPD and NPD.</p>
         <p class="bio-text">Clients often share that I bring a warmth and steadiness that helps them feel genuinely safe, seen, and valued. I strive to create an affirming environment where trust and authentic connection can grow. Through consistency, authenticity, and clinical insight, I support clients in processing their experiences and moving toward greater confidence, stability, and fulfillment.</p>
         <p class="bio-text">My approach is person-first and somatic-focused, meaning therapy adapts to you while honoring how your experiences live in both your mind and body. I integrate evidence-based modalities including Internal Family Systems (IFS), EMDR and EMDR 2.0, mindfulness, ACT, EFT, DBT, and TF-CBT. Together, we’ll focus on reducing dissociation, building internal awareness, and developing practical tools that support lasting change—not just survival.</p>
