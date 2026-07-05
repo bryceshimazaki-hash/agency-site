@@ -3,370 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Raven, Lotus & Grey | Trauma-Informed Healing Salt Lake City</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Keep your existing stylesheet link here -->
+    <link rel="stylesheet" href="style.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
-
-        :root {
-            --rlg-slate: #2F353B;      
-            --rlg-moss: #848D82;       
-            --rlg-cream: #F9F8F6;      
-            --rlg-mist: #EAECE9;       
-            --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        /* Mobile Group Cards Fix */
+        @media (max-width: 768px) {
+            .card-inner { transform: none !important; transition: none; }
+            .card-front { display: none; }
+            .card-back { transform: none !important; position: relative; backface-visibility: visible; }
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(180deg, var(--rlg-cream) 0%, #F4F5F2 50%, var(--rlg-cream) 100%);
-            color: var(--rlg-slate); 
-            line-height: 1.8; 
-            scroll-behavior: smooth; 
+        /* Clinician Photo Consistency */
+        .clinician-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: top center;
         }
-
-        nav {
-            padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(132, 141, 130, 0.15); position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 20px rgba(47, 53, 59, 0.02);
+        /* Hero Contrast Adjustment - adjust class name to match your hero overlay */
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.6); 
         }
-        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { height: 42px; width: auto; }
-        .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
-        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
-        .nav-links a:hover { color: var(--rlg-moss); }
-
-        .safe-exit-float {
-            position: fixed; bottom: 2rem; right: 2rem; background: #b33a3a; color: white;
-            padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 0.75rem; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: var(--transition);
-        }
-        .safe-exit-float:hover { transform: scale(1.03); background: #962e2e; }
-
-        .hero {
-            height: 75vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%;
-            background: linear-gradient(rgba(47, 53, 59, 0.25), rgba(47, 53, 59, 0.45)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover; background-position: center; color: white;
-            position: relative;
-        }
-        .hero-content { max-width: 850px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-        .hero p { font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.7; font-weight: 300; letter-spacing: 0.01em; opacity: 0.95; }
-        .hero-btn { display: inline-block; padding: 1.2rem 3rem; background: var(--white); color: var(--rlg-slate); text-decoration: none; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: var(--transition); }
-        .hero-btn:hover { background: var(--rlg-slate); color: var(--white); transform: translateY(-2px); }
-
-        section#clinicians { 
-            padding: 9rem 5% 8rem; 
-        }
-
-        .section-header { text-align: center; margin-bottom: 5rem; position: relative; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 400; color: var(--rlg-slate); }
-        .section-header::after { content: ""; display: block; width: 40px; height: 1px; background: var(--rlg-moss); margin: 1.5rem auto 0; opacity: 0.6; }
-
-        .clinician-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem 2.5rem; max-width: 1400px; margin: 0 auto; }
-        
-        .clinician-card { 
-            width: calc(25% - 2.5rem); 
-            min-width: 280px; 
-            background: rgba(255, 255, 255, 0.75); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 1.75rem; 
-            border-radius: 8px; 
-            text-align: center; 
-            box-shadow: 0 12px 40px rgba(47, 53, 59, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: var(--transition);
-        }
-        .clinician-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 50px rgba(47, 53, 59, 0.07);
-            border-color: rgba(132, 141, 130, 0.25);
-        }
-
-        .img-container { width: 100%; height: 350px; overflow: hidden; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: center; background: rgba(250, 249, 246, 0.8); border-radius: 6px; }
-        .clinician-img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(10%); transition: var(--transition); }
-        .clinician-card:hover .clinician-img { filter: grayscale(0%); }
-        
-        .clinician-email { display: block; font-size: 0.75rem; color: var(--rlg-moss); margin-bottom: 1.5rem; text-decoration: none; font-weight: 500; transition: var(--transition); letter-spacing: 0.02em; }
-        .clinician-email:hover { color: var(--rlg-slate); text-decoration: underline; }
-        
-        .read-bio-btn { background: none; border: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--rlg-slate); cursor: pointer; border-bottom: 2px solid var(--rlg-mist); padding-bottom: 4px; transition: var(--transition); letter-spacing: 0.05em; }
-        .read-bio-btn:hover { border-color: var(--rlg-moss); color: var(--rlg-moss); }
-
-        section#groups { padding: 9rem 5% 8rem; background: rgba(234, 236, 233, 0.4); border-top: 1px solid rgba(132, 141, 130, 0.1); border-bottom: 1px solid rgba(132, 141, 130, 0.1); }
-        .group-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
-        .group-card { width: 350px; height: 400px; perspective: 1000px; cursor: pointer; }
-        .group-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); transform-style: preserve-3d; }
-        .group-card:hover .group-card-inner { transform: rotateY(180deg); }
-        .group-card-front, .group-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem; box-shadow: 0 10px 35px rgba(47, 53, 59, 0.03); }
-        .group-card-front { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); }
-        .group-card-back { background-color: var(--rlg-slate); color: var(--rlg-cream); transform: rotateY(180deg); }
-        .group-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1rem; font-weight: 400; }
-        .group-inquire-btn { margin-top: 2rem; padding: 0.9rem 2rem; border: 1px solid var(--rlg-cream); color: var(--rlg-cream); text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; border-radius: 4px; transition: var(--transition); }
-        .group-inquire-btn:hover { background: var(--rlg-cream); color: var(--rlg-slate); transform: translateY(-1px); }
-
-        .ins-section { padding: 9rem 10% 8rem; background: var(--white); border-top: 1px solid rgba(132, 141, 130, 0.1); }
-        .ins-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
-        .ins-tag { border: 1px solid rgba(132, 141, 130, 0.12); padding: 1.75rem; font-size: 0.85rem; line-height: 1.6; color: #555; text-align: left; border-radius: 6px; background: #faf9f6; transition: var(--transition); }
-        .ins-tag:hover { border-color: var(--rlg-moss); background: var(--white); box-shadow: 0 5px 20px rgba(47, 53, 59, 0.02); }
-
-        /* INTERACTIVE ACCESSIBLE OFFICE MAP CONTAINER */
-        .office-location-container { background: rgba(234, 236, 233, 0.4); padding: 7rem 5% 6rem; border-top: 1px solid rgba(132, 141, 130, 0.15); text-align: center; }
-        .map-wrapper { max-width: 900px; margin: 2.5rem auto 0; border-radius: 8px; overflow: hidden; box-shadow: 0 12px 40px rgba(47, 53, 59, 0.05); border: 1px solid rgba(255, 255, 255, 0.6); height: 380px; }
-        .map-iframe { width: 100%; height: 100%; border: none; }
-
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(47, 53, 59, 0.7); backdrop-filter: blur(8px); }
-        .modal-content { background-color: var(--rlg-cream); margin: 6% auto; padding: 4rem 3.5rem; border-radius: 12px; width: 85%; max-width: 800px; max-height: 78vh; overflow-y: auto; position: relative; box-shadow: 0 30px 70px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.5); }
-        .close-modal { position: absolute; right: 2.5rem; top: 2rem; font-size: 2.2rem; cursor: pointer; color: var(--rlg-moss); font-weight: 300; transition: var(--transition); }
-        .close-modal:hover { color: var(--rlg-slate); }
-        .bio-text { margin-bottom: 1.75rem; font-size: 0.98rem; color: #444; line-height: 1.85; }
-
-        footer { padding: 6rem 10%; background: var(--rlg-slate); color: #b1b5b9; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-moss); }
-        
-        @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2.5rem); } }
-        @media (max-width: 768px) { .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; } .office-location-container { padding: 5rem 5% 4rem; } .map-wrapper { height: 280px; } }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html" class="nav-logo-container">
-        <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
-        <span class="nav-brand">Raven, Lotus & Grey</span>
+    <a href="index.html">
+        <img alt="Raven, Lotus & Grey Logo" src="logo.png">
+        <span>Raven, Lotus & Grey</span>
     </a>
     <div class="nav-links">
         <a href="#clinicians">Team</a>
         <a href="#groups">Groups</a>
+        <a href="#insurance">Insurance</a>
+        <a href="#location">Location</a>
         <a href="resources.html">Resources</a>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="nav-booking-btn">Book Consultation</a>
     </div>
 </nav>
 
-<a href="https://www.weather.com" class="safe-exit-float">Quick Exit</a>
+<!-- Quick Exit Button -->
+<div class="quick-exit-container" style="position: fixed; top: 10px; right: 10px; z-index: 9999; text-align: right;">
+    <button id="quick-exit-btn" class="quick-exit" style="background: red; color: white; padding: 10px 15px; border: none; cursor: pointer; font-weight: bold;">Quick Exit</button>
+    <span class="exit-warning" style="font-size: 0.75rem; color: #333; display: block; margin-top: 4px; background: rgba(255,255,255,0.9); padding: 2px;">
+        (Note: Browsing history can still be monitored)
+    </span>
+</div>
 
-<header class="hero">
-    <div class="hero-content">
+<header class="hero" id="home">
+    <div class="hero-overlay">
         <h1>You Matter.</h1>
         <p>Healing from domestic violence is complex—but you don’t have to do it alone. I combine lived experience, training, advocacy, and court reform work to walk with survivors as they reclaim safety, strength, and hope. Together, we heal without judgment, rewire for safety, and make your story truly your own.</p>
-        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="hero-btn">Consultation</a>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="btn">Consultation</a>
     </div>
 </header>
 
 <section id="clinicians">
-    <div class="section-header"><h2>Our Clinical Team</h2></div>
+    <h2>Our Clinical Team</h2>
     <div class="clinician-grid">
+        
         <div class="clinician-card">
-            <div class="img-container"><img src="https://photos.psychologytoday.com/982937db-e9ba-4d70-9fbe-e9649516ed43/2/320x400.jpeg" class="clinician-img" alt="Amy Perry"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Amy Perry</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">CMHC, NCC | Clinical Director</span>
-            <a href="mailto:amy@ravenlotusandgrey.com" class="clinician-email">amy@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-amy')">Read Bio</button>
-        </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="https://photos.psychologytoday.com/218e5680-c79c-4e23-a4c3-0cd0fef58b4c/1/320x400.jpeg" class="clinician-img" alt="Eric Pribyl"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Eric Pribyl</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">LCSW | Clinician</span>
-            <a href="mailto:eric@ravenlotusandgrey.com" class="clinician-email">eric@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-eric')">Read Bio</button>
-        </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="liz-hoffmann.png" class="clinician-img" alt="Elizabeth Hoffmann"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Elizabeth Hoffmann</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">LCSW | Clinician</span>
-            <a href="mailto:elizabeth@ravenlotusandgrey.com" class="clinician-email">elizabeth@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-elizabeth')">Read Bio</button>
-        </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="https://clearviewcounselingutah.com/wp-content/uploads/2021/08/Megan-Thomson-1280x1280.jpg" class="clinician-img" alt="Megan Thomson"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Megan Thomson</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">CMHC, NCC | Clinician</span>
-            <a href="mailto:megan@ravenlotusandgrey.com" class="clinician-email">megan@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-megan')">Read Bio</button>
+            <img src="AP.jpeg" alt="Amy Perry">
+            <h3>Amy Perry</h3>
+            <p>CMHC, NCC | Clinical Director</p>
+            <a href="mailto:amy@ravenlotusandgrey.com">amy@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-amy')">Read Bio</button>
         </div>
 
         <div class="clinician-card">
-            <div class="img-container"><img src="https://photos.psychologytoday.com/b456e848-0076-4723-ba3c-cb68501a88d4/1/320x400.jpeg" class="clinician-img" alt="Bryce Shimazaki"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Bryce Shimazaki</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">CSW | Clinician</span>
-            <a href="mailto:bryce@ravenlotusandgrey.com" class="clinician-email">bryce@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-bryce')">Read Bio</button>
+            <img src="EP.jpeg" alt="Eric Pribyl">
+            <h3>Eric Pribyl</h3>
+            <p>LCSW | Clinician</p>
+            <a href="mailto:eric@ravenlotusandgrey.com">eric@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-eric')">Read Bio</button>
         </div>
+
         <div class="clinician-card">
-            <div class="img-container"><img src="ellen-seely.png" class="clinician-img" alt="Ellen Seely"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Ellen Seely</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">CSW | Clinician</span>
-            <a href="mailto:ellen@ravenlotusandgrey.com" class="clinician-email">ellen@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-ellen')">Read Bio</button>
+            <img src="liz-hoffmann.png" alt="Elizabeth Hoffmann">
+            <h3>Elizabeth Hoffmann</h3>
+            <p>LCSW | Clinician</p>
+            <a href="mailto:elizabeth@ravenlotusandgrey.com">elizabeth@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-elizabeth')">Read Bio</button>
         </div>
+
         <div class="clinician-card">
-            <div class="img-container"><img src="https://photos.psychologytoday.com/1ce844db-0097-4918-9696-9c3f8d5fd5d0/1/320x400.jpeg" class="clinician-img" alt="Rebecca Symes"></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Rebecca Symes</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">ACMHC | Clinician</span>
-            <a href="mailto:rebecca@ravenlotusandgrey.com" class="clinician-email">rebecca@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-rebecca')">Read Bio</button>
+            <img src="MT.jpeg" alt="Megan Thomson">
+            <h3>Megan Thomson</h3>
+            <p>CMHC, NCC | Clinician</p>
+            <a href="mailto:megan@ravenlotusandgrey.com">megan@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-megan')">Read Bio</button>
         </div>
+
         <div class="clinician-card">
-            <div class="img-container"><span style="color:#ddd; font-weight:600; font-family:'Playfair Display', serif; font-style: italic;">Erika Vergueiro</span></div>
-            <h3 style="font-family:'Playfair Display', serif; font-size:1.7rem; margin-bottom:0.3rem;">Erika Vergueiro</h3>
-            <span style="font-size:0.65rem; font-weight:600; text-transform:uppercase; color:var(--rlg-moss); display:block; margin-bottom:0.75rem; letter-spacing:0.05em;">Clinician</span>
-            <a href="mailto:erika@ravenlotusandgrey.com" class="clinician-email">erika@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-pending')">Read Bio</button>
+            <img src="bryce.jpeg" alt="Bryce Shimazaki">
+            <h3>Bryce Shimazaki</h3>
+            <p>CSW | Clinician</p>
+            <a href="mailto:bryce@ravenlotusandgrey.com">bryce@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-bryce')">Read Bio</button>
         </div>
+
+        <div class="clinician-card">
+            <img src="ellen-seely.png" alt="Ellen Seely">
+            <h3>Ellen Seely</h3>
+            <p>CSW | Clinician</p>
+            <a href="mailto:ellen@ravenlotusandgrey.com">ellen@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-ellen')">Read Bio</button>
+        </div>
+
+        <div class="clinician-card">
+            <img src="RS.jpeg" alt="Rebecca Symes">
+            <h3>Rebecca Symes</h3>
+            <p>ACMHC | Clinician</p>
+            <a href="mailto:rebecca@ravenlotusandgrey.com">rebecca@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-rebecca')">Read Bio</button>
+        </div>
+
+        <!-- Erika's card hidden until photo is ready to avoid layout breaking -->
+        <!--
+        <div class="clinician-card">
+            <h3>Erika Vergueiro</h3>
+            <p>Clinician</p>
+            <a href="mailto:erika@ravenlotusandgrey.com">erika@ravenlotusandgrey.com</a>
+            <button onclick="openModal('modal-erika')">Read Bio</button>
+        </div>
+        -->
     </div>
 </section>
 
 <section id="groups">
-    <div class="section-header"><h2>Specialized Group Therapy</h2><p style="font-size:0.95rem; color:#555; margin-top:0.5rem;">Healing happens in community. Join our guided clinical groups.</p></div>
+    <h2>Specialized Group Therapy</h2>
+    <p>Healing happens in community. Join our guided clinical groups.</p>
     <div class="group-grid">
         <div class="group-card">
-            <div class="group-card-inner">
-                <div class="group-card-front"><h3>LGBTQIA+ Support</h3><p style="font-size:0.9rem; color:#555;">Navigating identity and safety in a supportive space.</p></div>
-                <div class="group-card-back"><p style="font-size:0.95rem; margin-bottom:1rem;">A clinical group specifically for the queer and trans community to process trauma and build resilience.</p><a href="mailto:ravenlotusandgrey@gmail.com" class="group-inquire-btn">Inquire Now</a></div>
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>LGBTQIA+ Support</h3>
+                    <p>Navigating identity and safety in a supportive space.</p>
+                </div>
+                <div class="card-back">
+                    <p>A clinical group specifically for the queer and trans community to process trauma and build resilience.</p>
+                    <a href="mailto:info@ravenlotusandgrey.com" class="btn">Inquire Now</a>
+                </div>
             </div>
         </div>
         <div class="group-card">
-            <div class="group-card-inner">
-                <div class="group-card-front"><h3>PTSD & Trauma</h3><p style="font-size:0.9rem; color:#555;">Evidence-based recovery and embodied safety.</p></div>
-                <div class="group-card-back"><p style="font-size:0.95rem; margin-bottom:1rem;">Focused on somatic tools and cognitive processing for those managing complex trauma histories.</p><a href="mailto:ravenlotusandgrey@gmail.com" class="group-inquire-btn">Inquire Now</a></div>
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>PTSD & Trauma</h3>
+                    <p>Evidence-based recovery and embodied safety.</p>
+                </div>
+                <div class="card-back">
+                    <p>Focused on somatic tools and cognitive processing for those managing complex trauma histories.</p>
+                    <a href="mailto:info@ravenlotusandgrey.com" class="btn">Inquire Now</a>
+                </div>
             </div>
         </div>
         <div class="group-card">
-            <div class="group-card-inner">
-                <div class="group-card-front"><h3>Just Breathe</h3><p style="font-size:0.9rem; color:#555;">Women's support for domestic violence recovery.</p></div>
-                <div class="group-card-back"><p style="font-size:0.95rem; margin-bottom:1rem;">A dedicated group for women to reclaim their voice and safety after interpersonal violence.</p><a href="mailto:ravenlotusandgrey@gmail.com" class="group-inquire-btn">Inquire Now</a></div>
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>Just Breathe</h3>
+                    <p>Women's support for domestic violence recovery.</p>
+                </div>
+                <div class="card-back">
+                    <p>A dedicated group for women to reclaim their voice and safety after interpersonal violence.</p>
+                    <a href="mailto:info@ravenlotusandgrey.com" class="btn">Inquire Now</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="ins-section" id="insurance">
-    <div class="section-header"><h2>In-Network Insurance</h2></div>
-    <div class="ins-grid">
-        <div class="ins-tag"><strong>Aetna</strong></div>
-        <div class="ins-tag"><strong>BCBS:</strong> Utah Focal Point, Utah High-Performance, Utah MedAdvantage, Utah Participating, Utah BlueOption, Utah Savewell, Utah Individual and Family, Utah ValueCare</div>
-        <div class="ins-tag"><strong>Cigna:</strong> Includes 3rd party plans Amerihealth, GEHP, Angel etc.</div>
-        <div class="ins-tag"><strong>EMI & WMI</strong></div>
-        <div class="ins-tag"><strong>Molina:</strong> Commercial and Medicaid</div>
-        <div class="ins-tag"><strong>Optum Medicaid</strong></div>
-        <div class="ins-tag"><strong>PEHP</strong></div>
-        <div class="ins-tag"><strong>Select Health:</strong> Care plan, choice plan, med plan and value plan, SelectShare plan, Qualified, Access, Accountability and Signature</div>
-        <div class="ins-tag"><strong>University of Utah:</strong> Healthy Preferred, Healthy Premier, U Health Plus, and Healthy U Behavioral Health (NOT UNI-BHN/HMHI)</div>
-        <div class="ins-tag"><strong>UHC / UMR / Optum / Utah Medicaid / Health Choice / Triwest / Tricare</strong></div>
-    </div>
+<section id="insurance">
+    <h2>In-Network Insurance</h2>
+    <ul>
+        <li><strong>Aetna</strong></li>
+        <li><strong>BCBS:</strong> Utah Focal Point, Utah High-Performance, Utah MedAdvantage, Utah Participating, Utah BlueOption, Utah Savewell, Utah Individual and Family, Utah ValueCare</li>
+        <li><strong>Cigna:</strong> Includes 3rd party plans Amerihealth, GEHP, Angel etc.</li>
+        <li><strong>EMI & WMI</strong></li>
+        <li><strong>Molina:</strong> Commercial and Medicaid</li>
+        <li><strong>Optum Medicaid</strong></li>
+        <li><strong>PEHP</strong></li>
+        <li><strong>Select Health:</strong> Care plan, choice plan, med plan and value plan, SelectShare plan, Qualified, Access, Accountability and Signature</li>
+        <li><strong>University of Utah:</strong> Healthy Preferred, Healthy Premier, U Health Plus, and Healthy U Behavioral Health (NOT UNI-BHN/HMHI)</li>
+        <li><strong>UHC / UMR / Optum / Utah Medicaid / Health Choice / Triwest / Tricare</strong></li>
+    </ul>
 </section>
 
-<div class="office-location-container" id="location">
-    <h3 style="font-family:'Playfair Display', serif; font-size:2rem; font-weight:400; color:var(--rlg-slate);">Our Salt Lake City Office</h3>
-    <p style="font-size:0.95rem; color:#555; margin-top:0.5rem;">Suite 370, 231 East 400 South, Salt Lake City, UT 84111</p>
-    <div class="map-wrapper">
-        <iframe 
-            class="map-iframe"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.905973977343!2d-111.88414442342502!3d40.76077363442125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87525f0e9726af63%3A0x6cf2e3a10ca986e3!2s231%20E%20400%20S%20%23370%2C%20Salt%20Lake%20City%2C%20UT%2084111!5e0!3m2!1sen!2sus!4v1716321900000!5m2!1sen!2sus" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-</div>
+<section id="location">
+    <h3>Our Salt Lake City Office</h3>
+    <p>Suite 370, 231 East 400 South, Salt Lake City, UT 84111</p>
+</section>
 
-<div id="modal-amy" class="modal">
+<!-- Modals -->
+<div id="modal-amy" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-amy')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Amy Perry</h2>
-        <p class="bio-text">I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. With over eight years as a certified domestic violence counselor—and additional years immersed in advocacy, mentorship and support work—I bring both professional expertise and lived experience as a partner, parent, and co-parent. Clients often find that this combination allows for a deeper level of understanding, clarity, and connection as we navigate the complexities of their experiences together.</p>
-        <p class="bio-text">I support clients across a wide range of situations, including growing up in abusive environments, experiencing harm from a partner or parent, leaving unsafe relationships, and navigating the legal system—with or without children. My work also includes guiding clients through custody concerns, creating safety plans, and rebuilding stability and identity during and after crisis. I work closely with parents who are co-parenting with an unsafe individual, helping them develop practical skills to support and protect their children. When appropriate, I also work directly with children affected by these dynamics.</p>
-        <p class="bio-text">My approach is grounded in empowerment, honesty, and practical support. I integrate modalities such as somatic experiencing, Dialectical Behavior Therapy (DBT), EMDR (including both 1.0 and 2.0), solution-focused therapy, healthy communication, and psychoeducation to help clients process trauma and move toward a more stable, self-directed life.</p>
-        <p class="bio-text">In addition to clinical work, I have been involved in efforts to improve domestic violence policy and response systems, including contributing to legislative work in Utah and collaborating with courts and advocacy organizations. These experiences strengthen my ability to support clients who are navigating and impacted by those systems.</p>
-        <p class="bio-text">My work is driven by a commitment to increasing awareness and understanding of domestic violence and trauma. I strive to create a space where clients feel seen, supported, and empowered to move forward. By integrating professional training with thoughtful use of lived experience, I aim to foster meaningful connection, build resilience, and support lasting change—both in individual lives and in the broader communities we share.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Amy Perry</h2>
+        <p>I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. With over eight years as a certified domestic violence counselor—and additional years immersed in advocacy, mentorship and support work—I bring both professional expertise and lived experience as a partner, parent, and co-parent. Clients often find that this combination allows for a deeper level of understanding, clarity, and connection as we navigate the complexities of their experiences together.</p>
+        <p>I support clients across a wide range of situations, including growing up in abusive environments, experiencing harm from a partner or parent, leaving unsafe relationships, and navigating the legal system—with or without children. My work also includes guiding clients through custody concerns, creating safety plans, and rebuilding stability and identity during and after crisis. I work closely with parents who are co-parenting with an unsafe individual, helping them develop practical skills to support and protect their children. When appropriate, I also work directly with children affected by these dynamics.</p>
+        <p>My approach is grounded in empowerment, honesty, and practical support. I integrate modalities such as somatic experiencing, Dialectical Behavior Therapy (DBT), EMDR (including both 1.0 and 2.0), solution-focused therapy, healthy communication, and psychoeducation to help clients process trauma and move toward a more stable, self-directed life.</p>
+        <p>In addition to clinical work, I have been involved in efforts to improve domestic violence policy and response systems, including contributing to legislative work in Utah and collaborating with courts and advocacy organizations. These experiences strengthen my ability to support clients who are navigating and impacted by those systems.</p>
+        <p>My work is driven by a commitment to increasing awareness and understanding of domestic violence and trauma. I strive to create a space where clients feel seen, supported, and empowered to move forward. By integrating professional training with thoughtful use of lived experience, I aim to foster meaningful connection, build resilience, and support lasting change—both in individual lives and in the broader communities we share.</p>
     </div>
 </div>
 
-<div id="modal-eric" class="modal">
+<div id="modal-eric" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-eric')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Eric Pribyl</h2>
-        <p class="bio-text">I’m a Domestic Violence–certified therapist, and I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or seeking a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
-        <p class="bio-text">I work with individuals ages 7+ and focus especially on supporting the queer community—particularly trans and gender-diverse folks—as well as individuals working to stop using violence in all relationships. I specialize in working with both survivors and perpetrators of domestic violence, offering a therapeutic space rooted in accountability, compassion, and meaningful change. I also have experience working with personality disorders, particularly BPD and NPD.</p>
-        <p class="bio-text">Clients often share that I bring a warmth and steadiness that helps them feel genuinely safe, seen, and valued. I strive to create an affirming environment where trust and authentic connection can grow. Through consistency, authenticity, and clinical insight, I support clients in processing their experiences and moving toward greater confidence, stability, and fulfillment.</p>
-        <p class="bio-text">My approach is person-first and somatic-focused, meaning therapy adapts to you while honoring how your experiences live in both your mind and body. I integrate evidence-based modalities including Internal Family Systems (IFS), EMDR and EMDR 2.0, mindfulness, ACT, EFT, DBT, and TF-CBT. Together, we’ll focus on reducing dissociation, building internal awareness, and developing practical tools that support lasting change—not just survival.</p>
-        <p class="bio-text">Taking the first step toward therapy is an act of profound courage. Whether you’re seeking to break a cycle, heal a wound, or simply find your footing again, I’m here to walk that path with you.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Eric Pribyl</h2>
+        <p>I’m a Domestic Violence–certified therapist, and I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or seeking a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
+        <p>I work with individuals ages 7+ and focus especially on supporting the queer community—particularly trans and gender-diverse folks—as well as individuals working to stop using violence in all relationships. I specialize in working with both survivors and perpetrators of domestic violence, offering a therapeutic space rooted in accountability, compassion, and meaningful change. I also have experience working with personality disorders, particularly BPD and NPD.</p>
+        <p>Clients often share that I bring a warmth and steadiness that helps them feel genuinely safe, seen, and valued. I strive to create an affirming environment where trust and authentic connection can grow. Through consistency, authenticity, and clinical insight, I support clients in processing their experiences and moving toward greater confidence, stability, and fulfillment.</p>
+        <p>My approach is person-first and somatic-focused, meaning therapy adapts to you while honoring how your experiences live in both your mind and body. I integrate evidence-based modalities including Internal Family Systems (IFS), EMDR and EMDR 2.0, mindfulness, ACT, EFT, DBT, and TF-CBT. Together, we’ll focus on reducing dissociation, building internal awareness, and developing practical tools that support lasting change—not just survival.</p>
+        <p>Taking the first step toward therapy is an act of profound courage. Whether you’re seeking to break a cycle, heal a wound, or simply find your footing again, I’m here to walk that path with you.</p>
     </div>
 </div>
 
-<div id="modal-bryce" class="modal">
+<div id="modal-bryce" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-bryce')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Bryce Shimazaki</h2>
-        <p class="bio-text">I’m a mental health clinician with four years of experience supporting diverse populations across school, community, and domestic violence settings. I work with individuals navigating trauma, depression, anxiety, and major life transitions, offering a safe and supportive space grounded in dignity, advocacy, and empowerment.</p>
-        <p class="bio-text">I see therapy as a collaborative partnership—you set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many struggles began as survival skills. Together, we’ll honor how you’ve protected yourself while building new patterns that align with your values, helping you move from survival toward a more intentional, authentic life.</p>
-        <p class="bio-text">I use evidence-based practices such as DBT, ACT, CBT, mindfulness, and psychoeducation to support emotional regulation, psychological flexibility, and a stronger sense of agency. My work is trauma-informed and considers not only individual experiences but also the systems and relationships that shape them.</p>
-        <p class="bio-text">I’m committed to ongoing growth and to creating a secure, respectful space—whether in person or via telehealth—where you can break cycles, build resilience, and move forward with confidence.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Bryce Shimazaki</h2>
+        <p>I’m a mental health clinician with four years of experience supporting diverse populations across school, community, and domestic violence settings. I work with individuals navigating trauma, depression, anxiety, and major life transitions, offering a safe and supportive space grounded in dignity, advocacy, and empowerment.</p>
+        <p>I see therapy as a collaborative partnership—you set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many struggles began as survival skills. Together, we’ll honor how you’ve protected yourself while building new patterns that align with your values, helping you move from survival toward a more intentional, authentic life.</p>
+        <p>I use evidence-based practices such as DBT, ACT, CBT, mindfulness, and psychoeducation to support emotional regulation, psychological flexibility, and a stronger sense of agency. My work is trauma-informed and considers not only individual experiences but also the systems and relationships that shape them.</p>
+        <p>I’m committed to ongoing growth and to creating a secure, respectful space—whether in person or via telehealth—where you can break cycles, build resilience, and move forward with confidence.</p>
     </div>
 </div>
 
-<div id="modal-megan" class="modal">
+<div id="modal-megan" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-megan')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Megan Thomson</h2>
-        <p class="bio-text">Therapy is often described as a difficult and raw process—and at times, it truly is. But it can also be energizing, motivating, and even enjoyable. There are moments in therapy where you may feel empowered by new insights and begin discovering truths about who you are and what you’re capable of becoming.</p>
-        <p class="bio-text">I’m passionate about working with adults and teenagers (12+) who are ready to learn, heal, and grow—both mentally and physically. I commonly support clients navigating PTSD, anxiety, depression, domestic violence, ADHD, trauma, OCD, and eating disorders, with a strong focus on individual therapeutic work.</p>
-        <p class="bio-text">My approach integrates evidence-based modalities such as Dialectical Behavior Therapy (DBT), Cognitive Behavioral Therapy (CBT), and Acceptance and Commitment Therapy (ACT), along with psychoeducation, somatic approaches, person-centered therapy, and traditional talk therapy. I focus on methods that translate effectively into the online space, ensuring our work together is both practical and impactful.</p>
-        <p class="bio-text">I value ongoing learning and actively seek new tools and perspectives to bring into sessions. At the same time, I believe some of the most meaningful insights come directly from the work we do together. Therapy is a collaborative process, and I strive to build a natural, authentic connection with each client.</p>
-        <p class="bio-text">While therapy can be challenging, you don’t have to go through it alone. I provide a safe, supportive, and non-judgmental space where you can explore what matters most to you—and I'll be there with you every step of the way.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Megan Thomson</h2>
+        <p>Therapy is often described as a difficult and raw process—and at times, it truly is. But it can also be energizing, motivating, and even enjoyable. There are moments in therapy where you may feel empowered by new insights and begin discovering truths about who you are and what you’re capable of becoming.</p>
+        <p>I’m passionate about working with adults and teenagers (12+) who are ready to learn, heal, and grow—both mentally and physically. I commonly support clients navigating PTSD, anxiety, depression, domestic violence, ADHD, trauma, OCD, and eating disorders, with a strong focus on individual therapeutic work.</p>
+        <p>My approach integrates evidence-based modalities such as Dialectical Behavior Therapy (DBT), Cognitive Behavioral Therapy (CBT), and Acceptance and Commitment Therapy (ACT), along with psychoeducation, somatic approaches, person-centered therapy, and traditional talk therapy. I focus on methods that translate effectively into the online space, ensuring our work together is both practical and impactful.</p>
+        <p>I value ongoing learning and actively seek new tools and perspectives to bring into sessions. At the same time, I believe some of the most meaningful insights come directly from the work we do together. Therapy is a collaborative process, and I strive to build a natural, authentic connection with each client.</p>
+        <p>While therapy can be challenging, you don’t have to go through it alone. I provide a safe, supportive, and non-judgmental space where you can explore what matters most to you—and I'll be there with you every step of the way.</p>
     </div>
 </div>
 
-<div id="modal-ellen" class="modal">
+<div id="modal-ellen" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-ellen')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Ellen Seely</h2>
-        <p class="bio-text">I’m a Domestic Violence–certified therapist who works with women, queer communities, people who use drugs, and individuals ages 16+. I offer affirming, inclusive care grounded in empowerment, autonomy, and authenticity. With a strong background in public health and harm reduction, I bring specialized experience in sexual health, social justice, and supporting marginalized communities.</p>
-        <p class="bio-text">Over the past several years, I’ve taught sexual health programs to youth and young adults, facilitated groups for queer youth and adults, provided case management for individuals living with HIV/AIDS, Hepatitis C, and other communicable infections, and offered compassionate, nonjudgmental support to people navigating stigma, trauma, and complex life challenges.</p>
-        <p class="bio-text">My therapeutic approach integrates solution-focused therapy, Emotionally Focused Therapy (EFT), Cognitive Behavioral Therapy (CBT), somatic experiencing, sound healing, and other trauma-informed modalities. My work is rooted in the belief that lasting change comes from addressing the underlying root causes of distress. I use a trauma-focused, harm reduction lens that centers personal autonomy, dignity, and client-defined success.</p>
-        <p class="bio-text">Known for my warmth, direct communication style, and collaborative approach, I strive to create spaces where clients can show up as their full, authentic selves. I’m deeply committed to fostering trust, connection, and empowerment, and I bring a strong dedication to advocacy, equity, and community into my work. I value diverse perspectives and remain open to ongoing learning and growth as a clinician.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Ellen Seely</h2>
+        <p>I’m a Domestic Violence–certified therapist who works with women, queer communities, people who use drugs, and individuals ages 16+. I offer affirming, inclusive care grounded in empowerment, autonomy, and authenticity. With a strong background in public health and harm reduction, I bring specialized experience in sexual health, social justice, and supporting marginalized communities.</p>
+        <p>Over the past several years, I’ve taught sexual health programs to youth and young adults, facilitated groups for queer youth and adults, provided case management for individuals living with HIV/AIDS, Hepatitis C, and other communicable infections, and offered compassionate, nonjudgmental support to people navigating stigma, trauma, and complex life challenges.</p>
+        <p>My therapeutic approach integrates solution-focused therapy, Emotionally Focused Therapy (EFT), Cognitive Behavioral Therapy (CBT), somatic experiencing, sound healing, and other trauma-informed modalities. My work is rooted in the belief that lasting change comes from addressing the underlying root causes of distress. I use a trauma-focused, harm reduction lens that centers personal autonomy, dignity, and client-defined success.</p>
+        <p>Known for my warmth, direct communication style, and collaborative approach, I strive to create spaces where clients can show up as their full, authentic selves. I’m deeply committed to fostering trust, connection, and empowerment, and I bring a strong dedication to advocacy, equity, and community into my work. I value diverse perspectives and remain open to ongoing learning and growth as a clinician.</p>
     </div>
 </div>
 
-<div id="modal-rebecca" class="modal">
+<div id="modal-rebecca" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-rebecca')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Rebecca Symes</h2>
-        <p class="bio-text">I am a therapist based in Salt Lake City, Utah, specializing in trauma and relational healing. I work with individuals navigating the impact of domestic violence and relationship trauma, as well as adoptees exploring identity, attachment, and belonging. I bring lived experience to my work and understand that both relational trauma and adoption-related experiences can deeply shape how you see yourself, connect with others, and move through the world.</p>
-        <p class="bio-text">My work with survivors of domestic violence focuses on helping you process trauma responses, rebuild self-trust, strengthen boundaries, and restore a sense of safety and stability in your life. In my work with adoptees, I support you in exploring themes of identity formation, grief, connection, and belonging, with particular attention to attachment and narrative integration.</p>
-        <p class="bio-text">My approach is trauma-informed, collaborative, and integrative. I draw from Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Internal Family Systems (IFS), mindfulness-based practices, and somatic awareness to support both emotional processing and embodied healing. I believe therapy is most effective when it feels like a safe partnership—one where you are respected as the expert of your own lived experience and supported in moving toward clarity, connection, and meaningful change.</p>
-        <p class="bio-text">Outside of his clinical work, I enjoy yoga, cooking, traveling, and spending time with my children and their Labrador retriever.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Rebecca Symes</h2>
+        <p>I am a therapist based in Salt Lake City, Utah, specializing in trauma and relational healing. I work with individuals navigating the impact of domestic violence and relationship trauma, as well as adoptees exploring identity, attachment, and belonging. I bring lived experience to my work and understand that both relational trauma and adoption-related experiences can deeply shape how you see yourself, connect with others, and move through the world.</p>
+        <p>My work with survivors of domestic violence focuses on helping you process trauma responses, rebuild self-trust, strengthen boundaries, and restore a sense of safety and stability in your life. In my work with adoptees, I support you in exploring themes of identity formation, grief, connection, and belonging, with particular attention to attachment and narrative integration.</p>
+        <p>My approach is trauma-informed, collaborative, and integrative. I draw from Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Internal Family Systems (IFS), mindfulness-based practices, and somatic awareness to support both emotional processing and embodied healing. I believe therapy is most effective when it feels like a safe partnership—one where you are respected as the expert of your own lived experience and supported in moving toward clarity, connection, and meaningful change.</p>
+        <p>Outside of her clinical work, I enjoy yoga, cooking, traveling, and spending time with my children and their Labrador retriever.</p>
     </div>
 </div>
 
-<div id="modal-elizabeth" class="modal">
+<div id="modal-elizabeth" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-elizabeth')">&times;</span>
-        <h2 style="font-family:'Playfair Display', serif; margin-bottom:1.5rem; font-size:2.2rem;">Elizabeth Hoffmann</h2>
-        <p class="bio-text">I am a Domestic Violence certified therapist who is person-centered, compassionate, and flexible, drawing from a range of evidence-based practices to meet your unique needs. I integrate modalities such as EMDR 1.0 and 2.0, somatic therapy, DBT, solution-focused techniques, and psychoeducation. I have specialized experience working with women impacted by trauma, domestic violence, narcissistic abuse, grief, and other forms of interpersonal harm.</p>
-        <p class="bio-text">I believe each person already holds the capacity for healing and growth. I like to help you access that inner strength, better understand your experiences, and develop new ways of coping that feel empowering and sustainable.</p>
-        <p class="bio-text">I strive to create a space that feels safe, nonjudgmental, and genuine—where you can speak openly and be fully heard. My style is warm, direct, and supportive, and I am honored to walk alongside you as you begin or continue your healing journey. It’s never too late to reach out for help and start creating meaningful change.</p>
+        <span class="close-btn">&times;</span>
+        <h2>Elizabeth Hoffmann</h2>
+        <p>I am a Domestic Violence certified therapist who is person-centered, compassionate, and flexible, drawing from a range of evidence-based practices to meet your unique needs. I integrate modalities such as EMDR 1.0 and 2.0, somatic therapy, DBT, solution-focused techniques, and psychoeducation. I have specialized experience working with women impacted by trauma, domestic violence, narcissistic abuse, grief, and other forms of interpersonal harm.</p>
+        <p>I believe each person already holds the capacity for healing and growth. I like to help you access that inner strength, better understand your experiences, and develop new ways of coping that feel empowering and sustainable.</p>
+        <p>I strive to create a space that feels safe, nonjudgmental, and genuine—where you can speak openly and be fully heard. My style is warm, direct, and supportive, and I am honored to walk alongside you as you begin or continue your healing journey. It’s never too late to reach out for help and start creating meaningful change.</p>
     </div>
 </div>
 
-<div id="modal-pending" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('modal-pending')">&times;</span><h2 style="font-family:'Playfair Display', serif; margin-bottom:1rem;">Clinician Bio</h2><p class="bio-text">Professional biography pending. Please contact our office for more information regarding this clinician's specialties.</p></div></div>
+<footer>
+    <address>
+        Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
+        Main Office: <a href="tel:+18018395734">801-839-5734</a> | <a href="mailto:info@ravenlotusandgrey.com">info@ravenlotusandgrey.com</a>
+    </address>
+    <p>© 2026 Specialized Clinical Services</p>
+</footer>
 
 <script>
-    function openModal(id) { document.getElementById(id).style.display = "block"; }
-    function closeModal(id) { document.getElementById(id).style.display = "none"; }
-    window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none"; } }
-</script>
+    // Quick Exit Logic
+    function quickExit() {
+        window.location.replace('https://weather.com');
+    }
+    
+    const quickExitBtn = document.getElementById('quick-exit-btn');
+    if (quickExitBtn) {
+        quickExitBtn.addEventListener('click', quickExit);
+    }
 
-<footer style="background: var(--rlg-slate); color: #ccc; padding: 5rem 10%; text-align: center;">
-    <address style="font-style: normal; line-height: 2;">
-        Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
-        Main Office: 801-839-5734 | ravenlotusandgrey@gmail.com
-    </address>
-    &copy; 2026 Specialized Clinical Services
-</footer>
+    // Modal Logic
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; 
+            modal.setAttribute("aria-hidden", "false");
+        }
+    }
+
+    function closeModal(modal) {
+        if (modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; 
+            modal.setAttribute("aria-hidden", "true");
+        }
+    }
+
+    // Unified Click Handler
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target);
+        }
+        if (event.target.classList.contains('close-btn')) {
+            const modal = event.target.closest('.modal');
+            closeModal(modal);
+        }
+    });
+
+    // Escape Key Handler (Modals & Quick Exit)
+    let escapeTimeout;
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const openModalEl = document.querySelector('.modal[style*="display: block"]');
+            if (openModalEl) {
+                closeModal(openModalEl);
+                return; 
+            }
+            if (escapeTimeout) {
+                quickExit();
+            } else {
+                escapeTimeout = setTimeout(() => { escapeTimeout = null; }, 500);
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
