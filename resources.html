@@ -6,225 +6,346 @@
     <meta name="referrer" content="no-referrer">
     <title>Resources | Raven, Lotus & Grey</title>
     <link rel="icon" type="image/png" href="logo.png">
-    
     <style>
-        /* ==========================================================================
-           Base Styles & Typography
-           ========================================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+        :root {
+            --rlg-slate: #2F353B;
+            --rlg-moss: #848D82;
+            --rlg-cream: #F9F8F6;
+            --rlg-mist: #EAECE9;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333333;
-            background-color: #f4f7f6;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, var(--rlg-cream) 0%, #F4F5F2 50%, var(--rlg-cream) 100%);
+            color: var(--rlg-slate);
+            line-height: 1.8;
+            scroll-behavior: smooth;
         }
-        h1, h2, h3 { color: #2d3748; margin-bottom: 1rem; }
-        a { color: #2b6cb0; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        ul { margin-left: 2rem; margin-bottom: 1rem; }
 
-        /* ==========================================================================
-           Navigation
-           ========================================================================== */
+        /* Navigation (shared with index.html) */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            background-color: #ffffff; padding: 1rem 5%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky; top: 0; z-index: 1000;
+            padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(132, 141, 130, 0.15); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 20px rgba(47, 53, 59, 0.02);
         }
-        nav a { display: flex; align-items: center; gap: 10px; color: #2d3748; font-weight: 600; }
-        nav img { height: 40px; width: auto; }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-        .nav-links a { font-weight: 500; }
-        .nav-links a:hover { text-decoration: none; color: #2b6cb0; }
+        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 42px; width: auto; }
+        .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
+        .nav-links a:hover { color: var(--rlg-moss); }
+        .nav-links a.current { color: var(--rlg-moss); border-bottom: 1px solid var(--rlg-moss); padding-bottom: 4px; }
+        .nav-booking-btn {
+            margin-left: 2rem !important; background: var(--rlg-slate); color: var(--white) !important;
+            padding: 0.7rem 1.4rem; border-radius: 4px; letter-spacing: 0.1em !important;
+        }
+        .nav-booking-btn:hover { background: var(--rlg-moss); color: var(--white) !important; }
 
-        /* ==========================================================================
-           Buttons
-           ========================================================================== */
-        button, .btn, .nav-booking-btn {
-            display: inline-block; background-color: #2d3748; color: #ffffff;
-            padding: 0.6rem 1.2rem; border: none; border-radius: 4px;
-            cursor: pointer; font-size: 1rem; font-weight: 500; text-align: center;
-            transition: background-color 0.2s;
+        /* Quick Exit */
+        .safe-exit-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 2000; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+        .safe-exit-note { font-size: 0.65rem; color: var(--rlg-slate); background: rgba(255,255,255,0.92); padding: 3px 10px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .safe-exit-float {
+            border: none; cursor: pointer; font-family: 'Inter', sans-serif; background: #b33a3a; color: white;
+            padding: 1rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition);
         }
-        button:hover, .btn:hover, .nav-booking-btn:hover {
-            background-color: #4a5568; text-decoration: none; color: #ffffff;
-        }
+        .safe-exit-float:hover { transform: scale(1.03); background: #962e2e; }
 
-        /* ==========================================================================
-           Resources Page Specific Styles
-           ========================================================================== */
-        .resources-container { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        header { padding: 4rem 5% 0; max-width: 1200px; margin: 0 auto; }
-        header h1 { text-align: center; margin-top: 2rem; }
-        
+        /* Page header */
+        .resources-hero { padding: 6rem 10% 3rem; text-align: center; }
+        .resources-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 400; color: var(--rlg-slate); }
+        .resources-hero h1::after { content: ""; display: block; width: 40px; height: 1px; background: var(--rlg-moss); margin: 1.5rem auto 0; opacity: 0.6; }
+        .resources-hero p { max-width: 680px; margin: 1.75rem auto 0; color: #555; font-size: 1rem; line-height: 1.8; }
+
+        .resources-container { padding: 1rem 5% 7rem; max-width: 1100px; margin: 0 auto; }
+
         .resource-category {
-            background: #ffffff; padding: 2rem; border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 8px; padding: 2.75rem;
+            margin-bottom: 2.5rem; box-shadow: 0 12px 40px rgba(47, 53, 59, 0.03); transition: var(--transition);
         }
-        .resource-item div { border-bottom: 1px solid #edf2f7; padding: 1rem 0; }
-        .resource-item div:last-child { border-bottom: none; }
-        .resource-item span:first-child {
-            font-weight: 700; display: block; font-size: 1.1rem; color: #2d3748;
+        .resource-category:hover { border-color: rgba(132, 141, 130, 0.2); }
+        .resource-category h2 {
+            font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.6rem; color: var(--rlg-slate);
+            margin-bottom: 1.75rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(132, 141, 130, 0.15);
         }
-        .resource-item span:nth-child(2) {
-            font-weight: 600; color: #2b6cb0; display: block; margin-bottom: 0.5rem;
-        }
-        .diagram-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+
+        .resource-item { border-bottom: 1px solid rgba(132, 141, 130, 0.1); padding: 1.4rem 0; }
+        .resource-item:first-child { padding-top: 0; }
+        .resource-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .resource-name { font-weight: 600; font-size: 1.05rem; color: var(--rlg-slate); display: block; margin-bottom: 0.4rem; }
+        .resource-phone { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--white); background: var(--rlg-moss); padding: 0.3rem 0.7rem; border-radius: 3px; margin-bottom: 0.6rem; }
+        .resource-desc { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+        .resource-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--rlg-slate); text-decoration: none; border-bottom: 2px solid var(--rlg-mist); padding-bottom: 3px; transition: var(--transition); }
+        .resource-link:hover { color: var(--rlg-moss); border-color: var(--rlg-moss); }
+
+        /* Diagrams */
+        .diagram-note { text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 2.5rem; }
+        .diagram-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
         .diagram-item { text-align: center; }
-        .diagram-item img {
-            max-width: 100%; height: auto; border: 1px solid #e2e8f0; border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s;
-        }
-        .diagram-item img:hover { transform: scale(1.02); }
+        .diagram-item p { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 1rem; color: var(--rlg-slate); }
+        .diagram-item img { max-width: 100%; height: auto; border-radius: 6px; border: 1px solid rgba(132, 141, 130, 0.15); box-shadow: 0 8px 25px rgba(47, 53, 59, 0.05); cursor: pointer; transition: var(--transition); }
+        .diagram-item img:hover { transform: translateY(-3px); box-shadow: 0 16px 35px rgba(47, 53, 59, 0.1); }
+        .diagram-caption { display: block; font-size: 0.7rem; color: #888; margin-top: 0.75rem; letter-spacing: 0.02em; }
 
-        /* ==========================================================================
-           Footer
-           ========================================================================== */
-        footer {
-            background-color: #2d3748; color: #ffffff; text-align: center;
-            padding: 3rem 5%; margin-top: 4rem;
+        /* Image enlarge modal */
+        .image-modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(47, 53, 59, 0.92); backdrop-filter: blur(6px); z-index: 3000;
+            justify-content: center; align-items: center;
         }
-        footer address { font-style: normal; margin-bottom: 1rem; }
-        footer a { color: #90cdf4; }
-        footer p { font-size: 0.875rem; color: #a0aec0; }
+        .image-modal-overlay img { max-width: 90%; max-height: 85vh; border-radius: 6px; box-shadow: 0 30px 70px rgba(0,0,0,0.4); }
+        .image-modal-close { position: absolute; top: 2rem; right: 2.5rem; color: #fff; font-size: 2.2rem; cursor: pointer; font-weight: 300; transition: var(--transition); }
+        .image-modal-close:hover { color: var(--rlg-moss); }
 
-        /* ==========================================================================
-           Mobile Responsive Overrides
-           ========================================================================== */
-        @media (max-width: 768px) {
+        /* Footer */
+        footer { padding: 6rem 10%; background: var(--rlg-slate); color: #b1b5b9; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-moss); }
+        footer address { font-style: normal; line-height: 2; margin-bottom: 1rem; }
+        footer a { color: #b1b5b9; text-decoration: underline; }
+        footer a:hover { color: var(--white); }
+
+        @media (max-width: 900px) {
             nav { flex-direction: column; gap: 1rem; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .nav-links { flex-wrap: wrap; justify-content: center; row-gap: 0.75rem; }
+            .nav-links a { margin-left: 1rem; }
+            .nav-booking-btn { margin-left: 1rem !important; }
+        }
+        @media (max-width: 768px) {
+            .resources-hero { padding: 4rem 5% 2rem; }
+            .resources-container { padding: 1rem 5% 5rem; }
+            .resource-category { padding: 2rem; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html">
-        <img alt="Raven, Lotus & Grey Logo" src="logo.png">
-        <span>Raven, Lotus & Grey</span>
+    <a href="index.html" class="nav-logo-container">
+        <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
+        <span class="nav-brand">Raven, Lotus & Grey</span>
     </a>
     <div class="nav-links">
-        <a href="index.html">Home</a>
         <a href="index.html#clinicians">Team</a>
-        <button id="nav-quick-exit" class="quick-exit" style="background: red; color: white; border: none; cursor: pointer; padding: 5px 10px;">Quick Exit</button>
+        <a href="index.html#groups">Groups</a>
+        <a href="index.html#insurance">Insurance</a>
+        <a href="index.html#location">Location</a>
+        <a href="resources.html" class="current">Resources</a>
+        <a href="https://clientsecure.me/widget-redirect?scopeId=57efbf01-3578-45d1-959e-c361cdd3eb7b&scopeGlobal=true&applicationId=7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b&channel=client_portal&appearance=%7B%22fullScreen%22%3Atrue%7D" class="nav-booking-btn">Book Consultation</a>
     </div>
 </nav>
 
-<div class="quick-exit-container" style="position: fixed; top: 10px; right: 10px; z-index: 9999; text-align: right;">
-    <button id="float-quick-exit" class="quick-exit" style="background: red; color: white; padding: 10px 15px; border: none; cursor: pointer; font-weight: bold;">Quick Exit</button>
+<div class="safe-exit-container">
+    <span class="safe-exit-note">Note: Browsing history can still be monitored</span>
+    <button id="quick-exit-btn" class="safe-exit-float" aria-label="Quickly leave this site to a neutral webpage">Quick Exit</button>
 </div>
 
-<header>
+<header class="resources-hero">
     <h1>Resources & Support</h1>
+    <p>A curated list of local and national organizations offering advocacy, crisis support, shelter, legal aid, and more. If you are in immediate danger, please call 911.</p>
 </header>
 
 <div class="resources-container">
 
     <div class="resource-category">
+        <h2>Local Victim Advocates</h2>
         <div class="resource-item">
-            <div><span>Salt Lake City PD Victim Advocates</span><span>801-580-7969</span><p>Address the immediate needs of victims, assists in the process of recovery from crime and provides information and resources.</p></div>
-            <div><span>Murray City PD Victim Advocates</span><span>801-284-4203</span><p>Assists in the process of recovery from crime and provides information and resources.</p></div>
-            <div><span>Draper City PD Victim Advocates</span><span>801-576-6355</span><p>Immediate needs assistance for crime victims.</p></div>
-            <div><span>Midvale City PD Victim Advocates</span><span>385-468-9365</span><p>Immediate needs assistance and resource provision.</p></div>
-            <div><span>West Valley City PD Victim Advocates</span><span>801-963-3223</span><p>Immediate needs assistance and resource provision.</p></div>
-            <div><span>Peace House</span><span>435-658-4739</span><p>Main office located in PC. Provides victim advocacy and emergency 24/7 victim advocacy.</p><a href="https://peacehouse.org/">visit peacehouse.org</a></div>
+            <span class="resource-name">Salt Lake City PD Victim Advocates</span>
+            <span class="resource-phone">801-580-7969</span>
+            <p class="resource-desc">Addresses the immediate needs of victims, assists in the process of recovery from crime, and provides information and resources.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Murray City PD Victim Advocates</span>
+            <span class="resource-phone">801-284-4203</span>
+            <p class="resource-desc">Assists in the process of recovery from crime and provides information and resources.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Draper City PD Victim Advocates</span>
+            <span class="resource-phone">801-576-6355</span>
+            <p class="resource-desc">Immediate needs assistance for crime victims.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Midvale City PD Victim Advocates</span>
+            <span class="resource-phone">385-468-9365</span>
+            <p class="resource-desc">Immediate needs assistance and resource provision.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">West Valley City PD Victim Advocates</span>
+            <span class="resource-phone">801-963-3223</span>
+            <p class="resource-desc">Immediate needs assistance and resource provision.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Peace House</span>
+            <span class="resource-phone">435-658-4739</span>
+            <p class="resource-desc">Main office located in Park City. Provides victim advocacy and emergency 24/7 support.</p>
+            <a href="https://peacehouse.org/" class="resource-link">Visit peacehouse.org</a>
         </div>
     </div>
 
-    <div class="resource-category diagrams">
-        <div>
-            <p>Click on any diagram below to enlarge it to full screen layout.</p>
-            
-            <div class="diagram-grid">
-                <div class="diagram-item">
-                    <p>Power & Control</p>
-                    <div>
-                        <img alt="Power and Control Wheel Diagram" src="power-and-control-wheel.png">
-                        <small style="display: block; font-size: 0.75rem; color: #666; margin-top: 8px;">
-                            Developed by the Domestic Abuse Intervention Programs (DAIP), Duluth, MN.
-                        </small>
-                    </div>
-                </div>
-                
-                <div class="diagram-item">
-                    <p>Equality Framework</p>
-                    <div>
-                        <img alt="Equality Wheel Diagram" src="Equality-wheel.png">
-                        <small style="display: block; font-size: 0.75rem; color: #666; margin-top: 8px;">
-                            Developed by the Domestic Abuse Intervention Programs (DAIP), Duluth, MN.
-                        </small>
-                    </div>
-                </div>
-                
-                <div class="diagram-item">
-                    <p>Cycle of Abuse</p>
-                    <div>
-                        <img alt="Cycle of Abuse Diagram" src="cycle-of-abuse.png">
-                        <small style="display: block; font-size: 0.75rem; color: #666; margin-top: 8px;">
-                            Concept developed by Dr. Lenore E. Walker (1979).
-                        </small>
-                    </div>
-                </div>
+    <div class="resource-category">
+        <h2>Understanding the Patterns</h2>
+        <p class="diagram-note">Click any diagram below to view it full screen.</p>
+        <div class="diagram-grid">
+            <div class="diagram-item">
+                <p>Power & Control</p>
+                <img alt="Power and Control Wheel Diagram" src="power-and-control-wheel.png">
+                <small class="diagram-caption">Developed by the Domestic Abuse Intervention Programs (DAIP), Duluth, MN.</small>
+            </div>
+            <div class="diagram-item">
+                <p>Equality Framework</p>
+                <img alt="Equality Wheel Diagram" src="Equality-wheel.png">
+                <small class="diagram-caption">Developed by the Domestic Abuse Intervention Programs (DAIP), Duluth, MN.</small>
+            </div>
+            <div class="diagram-item">
+                <p>Cycle of Abuse</p>
+                <img alt="Cycle of Abuse Diagram" src="cycle-of-abuse.png">
+                <small class="diagram-caption">Concept developed by Dr. Lenore E. Walker (1979).</small>
             </div>
         </div>
     </div>
 
     <div class="resource-category">
+        <h2>Crisis & Safety Lines</h2>
         <div class="resource-item">
-            <div><span>National Suicide Prevention Hotline</span><span>1-800-273-8255</span><a href="https://988lifeline.org/">988lifeline.org</a></div>
-            <div><span>UNI Warmline</span><span>801-587-1055</span><p>For individuals who are not in crisis, but seeking support, engagement, or encouragement.</p></div>
-            <div><span>Utah Domestic Violence LINKline</span><span>1-800-897-5465</span><p>24/7 free/confidental support.</p></div>
-            <div><span>Trevor Project</span><span>1-866-488-7386</span><a href="https://www.thetrevorproject.org/">thetrevorproject.org</a></div>
-            <div><span>Rape Recovery Crisis Line</span><span>1-888-421-1100</span><p>Utah 24hr Sexual Violence Helpline.</p></div>
+            <span class="resource-name">National Suicide Prevention Hotline</span>
+            <span class="resource-phone">1-800-273-8255</span>
+            <p class="resource-desc"></p>
+            <a href="https://988lifeline.org/" class="resource-link">988lifeline.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">UNI Warmline</span>
+            <span class="resource-phone">801-587-1055</span>
+            <p class="resource-desc">For individuals who are not in crisis, but seeking support, engagement, or encouragement.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Utah Domestic Violence LINKline</span>
+            <span class="resource-phone">1-800-897-5465</span>
+            <p class="resource-desc">24/7 free, confidential support.</p>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Trevor Project</span>
+            <span class="resource-phone">1-866-488-7386</span>
+            <p class="resource-desc"></p>
+            <a href="https://www.thetrevorproject.org/" class="resource-link">thetrevorproject.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Rape Recovery Crisis Line</span>
+            <span class="resource-phone">1-888-421-1100</span>
+            <p class="resource-desc">Utah 24hr Sexual Violence Helpline.</p>
         </div>
     </div>
 
     <div class="resource-category">
+        <h2>Shelter & Housing</h2>
         <div class="resource-item">
-            <div><span>Rescue Mission of Salt Lake</span><span>801.521.5925 (Women) | 801.355.1302 (Men)</span><a href="https://rescuesaltlake.org/">rescuesaltlake.org</a></div>
-            <div><span>YWCA Utah</span><span>801-537-8600</span><a href="https://www.ywcautah.org/">ywcautah.org</a></div>
-            <div><span>VOA Center for Women and Children</span><span>801.261.9177</span><a href="https://www.voaut.org/cwc">voaut.org/cwc</a></div>
-            <div><span>Smart Move SLC</span><span>801-860-4342</span><a href="https://www.smartmoveslc.com/">smartmoveslc.com</a></div>
+            <span class="resource-name">Rescue Mission of Salt Lake</span>
+            <span class="resource-phone">801-521-5925 (Women) | 801-355-1302 (Men)</span>
+            <p class="resource-desc"></p>
+            <a href="https://rescuesaltlake.org/" class="resource-link">rescuesaltlake.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">YWCA Utah</span>
+            <span class="resource-phone">801-537-8600</span>
+            <p class="resource-desc"></p>
+            <a href="https://www.ywcautah.org/" class="resource-link">ywcautah.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">VOA Center for Women and Children</span>
+            <span class="resource-phone">801-261-9177</span>
+            <p class="resource-desc"></p>
+            <a href="https://www.voaut.org/cwc" class="resource-link">voaut.org/cwc</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Smart Move SLC</span>
+            <span class="resource-phone">801-860-4342</span>
+            <p class="resource-desc"></p>
+            <a href="https://www.smartmoveslc.com/" class="resource-link">smartmoveslc.com</a>
         </div>
     </div>
 
     <div class="resource-category">
+        <h2>Legal Assistance</h2>
         <div class="resource-item">
-            <div><span>Legal Aid Society of Salt Lake</span><span>801-328-8849</span><a href="https://www.legalaidsocietyofsaltlake.org/">legalaidsocietyofsaltlake.org</a></div>
-            <div><span>Timpanogos Legal Center</span><span>801-649-8895</span><a href="https://www.timplegal.org/">timplegal.org</a></div>
-            <div><span>Utah Homicide Survivors</span><span>801-500-9077</span><p>Legal assistance with civil issues related to homicide cases.</p></div>
+            <span class="resource-name">Legal Aid Society of Salt Lake</span>
+            <span class="resource-phone">801-328-8849</span>
+            <p class="resource-desc"></p>
+            <a href="https://www.legalaidsocietyofsaltlake.org/" class="resource-link">legalaidsocietyofsaltlake.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Timpanogos Legal Center</span>
+            <span class="resource-phone">801-649-8895</span>
+            <p class="resource-desc"></p>
+            <a href="https://www.timplegal.org/" class="resource-link">timplegal.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Utah Homicide Survivors</span>
+            <span class="resource-phone">801-500-9077</span>
+            <p class="resource-desc">Legal assistance with civil issues related to homicide cases.</p>
         </div>
     </div>
 
     <div class="resource-category">
+        <h2>Pet Safety During Crisis</h2>
         <div class="resource-item">
-            <div><span>Ruff Haven</span><span>801-251-6765</span><a href="https://www.ruffhaven.org/">ruffhaven.org</a><p>Emergency animal shelter and free pet medical help.</p></div>
-            <div><span>Nuzzles & Co (Purple Paw Program)</span><a href="https://www.nuzzlesandco.org/purple-paw-program/">nuzzlesandco.org</a><p>Safe pet sheltering for those leaving DV.</p></div>
+            <span class="resource-name">Ruff Haven</span>
+            <span class="resource-phone">801-251-6765</span>
+            <p class="resource-desc">Emergency animal shelter and free pet medical help.</p>
+            <a href="https://www.ruffhaven.org/" class="resource-link">ruffhaven.org</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Nuzzles & Co (Purple Paw Program)</span>
+            <p class="resource-desc">Safe pet sheltering for those leaving domestic violence.</p>
+            <a href="https://www.nuzzlesandco.org/purple-paw-program/" class="resource-link">nuzzlesandco.org</a>
         </div>
     </div>
 
     <div class="resource-category">
+        <h2>Older Adult Support</h2>
         <div class="resource-item">
-            <div><span>Utah Department of Human Services (Aging)</span><span>1-800-371-7897</span><a href="https://daas.utah.gov/">daas.utah.gov</a></div>
-            <div><span>Neighbors Helping Neighbors</span><span>801-585-9505</span><p>Independence support for individuals 65+.</p></div>
+            <span class="resource-name">Utah Department of Human Services (Aging)</span>
+            <span class="resource-phone">1-800-371-7897</span>
+            <p class="resource-desc"></p>
+            <a href="https://daas.utah.gov/" class="resource-link">daas.utah.gov</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Neighbors Helping Neighbors</span>
+            <span class="resource-phone">801-585-9505</span>
+            <p class="resource-desc">Independence support for individuals 65+.</p>
         </div>
     </div>
 
     <div class="resource-category">
+        <h2>Employment & Basic Needs</h2>
         <div class="resource-item">
-            <div><span>DWS Employment Resources</span><span>801-526-9675</span><a href="https://jobs.utah.gov/">jobs.utah.gov</a></div>
-            <div><span>Suited for Good</span><a href="https://www.suitedforgood.com/">suitedforgood.com</a><p>Interview clothing assistance for men.</p></div>
-            <div><span>Fourth Street Clinic</span><span>801-364-0058</span><a href="https://fourthstreetclinic.org/">fourthstreetclinic.org</a></div>
+            <span class="resource-name">DWS Employment Resources</span>
+            <span class="resource-phone">801-526-9675</span>
+            <p class="resource-desc"></p>
+            <a href="https://jobs.utah.gov/" class="resource-link">jobs.utah.gov</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Suited for Good</span>
+            <p class="resource-desc">Interview clothing assistance for men.</p>
+            <a href="https://www.suitedforgood.com/" class="resource-link">suitedforgood.com</a>
+        </div>
+        <div class="resource-item">
+            <span class="resource-name">Fourth Street Clinic</span>
+            <span class="resource-phone">801-364-0058</span>
+            <p class="resource-desc"></p>
+            <a href="https://fourthstreetclinic.org/" class="resource-link">fourthstreetclinic.org</a>
         </div>
     </div>
 
 </div>
 
-<div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center;">
-    <span class="close-btn" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
-    <img id="enlarged-img" src="" alt="Enlarged Educational Framework Diagram" style="max-width:90%; max-height:90%;">
+<div id="image-modal" class="image-modal-overlay">
+    <span class="image-modal-close">&times;</span>
+    <img id="enlarged-img" src="" alt="Enlarged educational framework diagram">
 </div>
 
 <footer>
@@ -232,52 +353,37 @@
         Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
         Main Office: <a href="tel:+18018395734">801-839-5734</a> | <a href="mailto:info@ravenlotusandgrey.com">info@ravenlotusandgrey.com</a>
     </address>
-    <p>© 2026 Specialized Clinical Services</p>
+    &copy; 2026 Specialized Clinical Services
 </footer>
 
 <script>
-    // Quick Exit Logic
     function quickExit() {
-        window.location.replace('https://weather.com');
+        window.location.replace("https://www.weather.com");
     }
-    
-    document.getElementById('nav-quick-exit')?.addEventListener('click', quickExit);
-    document.getElementById('float-quick-exit')?.addEventListener('click', quickExit);
+    const quickExitBtn = document.getElementById("quick-exit-btn");
+    if (quickExitBtn) { quickExitBtn.addEventListener("click", quickExit); }
 
-    // Escape Key Handler for Quick Exit
-    let escapeTimeout;
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            const openModalEl = document.getElementById('image-modal');
-            if (openModalEl && openModalEl.style.display === "flex") {
-                openModalEl.style.display = "none";
-                return; 
-            }
-            if (escapeTimeout) {
-                quickExit();
-            } else {
-                escapeTimeout = setTimeout(() => { escapeTimeout = null; }, 500);
-            }
-        }
-    });
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("enlarged-img");
+    const closeBtn = document.querySelector(".image-modal-close");
 
-    // Simple Image Enlarge Logic
-    const diagrams = document.querySelectorAll('.diagram-item img');
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('enlarged-img');
-    const closeBtn = document.querySelector('#image-modal .close-btn');
-
-    diagrams.forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', function() {
-            modal.style.display = 'flex';
+    document.querySelectorAll(".diagram-item img").forEach(img => {
+        img.addEventListener("click", function() {
+            modal.style.display = "flex";
             modalImg.src = this.src;
+            modalImg.alt = this.alt;
         });
     });
+    closeBtn?.addEventListener("click", () => { modal.style.display = "none"; });
+    modal?.addEventListener("click", (e) => { if (e.target !== modalImg) { modal.style.display = "none"; } });
 
-    closeBtn?.addEventListener('click', () => modal.style.display = 'none');
-    modal?.addEventListener('click', (e) => {
-        if (e.target !== modalImg) modal.style.display = 'none';
+    let escapeTimeout;
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            if (modal && modal.style.display === "flex") { modal.style.display = "none"; return; }
+            if (escapeTimeout) { quickExit(); }
+            else { escapeTimeout = setTimeout(() => { escapeTimeout = null; }, 500); }
+        }
     });
 </script>
 
