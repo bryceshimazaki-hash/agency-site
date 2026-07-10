@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Local and national resources for domestic violence advocacy, crisis support, shelter, legal aid, and more from Raven, Lotus & Grey in Salt Lake City.">
+    <meta property="og:title" content="Resources & Support | Raven, Lotus & Grey">
+    <meta property="og:description" content="A curated list of local and national organizations offering advocacy, crisis support, shelter, legal aid, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bryceshimazaki-hash.github.io/agency-site/resources.html">
+    <meta property="og:image" content="https://bryceshimazaki-hash.github.io/agency-site/logo.png">
     <title>Resources & Support | Raven, Lotus & Grey</title>
     <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
-
         :root {
             --rlg-slate: #2F353B;
             --rlg-moss: #848D82;
+            --rlg-moss-text: #5A6357;
             --rlg-cream: #F9F8F6;
             --rlg-mist: #EAECE9;
             --white: #ffffff;
@@ -27,6 +35,14 @@
             line-height: 1.8;
         }
 
+        /* Skip link */
+        .skip-link {
+            position: absolute; top: -60px; left: 1rem; background: var(--rlg-slate); color: var(--white);
+            padding: 0.75rem 1.25rem; border-radius: 4px; z-index: 5000; text-decoration: none;
+            font-size: 0.8rem; font-weight: 600; transition: top 0.2s ease;
+        }
+        .skip-link:focus { top: 1rem; }
+
         nav {
             padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
@@ -38,13 +54,22 @@
         .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
-        .nav-links a:hover { color: var(--rlg-moss); }
-        .nav-links a.current { color: var(--rlg-moss); border-bottom: 1px solid var(--rlg-moss); padding-bottom: 4px; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--rlg-moss-text); }
+        .nav-links a.current { color: var(--rlg-moss-text); border-bottom: 1px solid var(--rlg-moss-text); padding-bottom: 4px; }
         .nav-booking-btn {
             margin-left: 2rem !important; background: var(--rlg-slate); color: var(--white) !important;
             padding: 0.7rem 1.4rem; border-radius: 4px; letter-spacing: 0.1em !important;
         }
-        .nav-booking-btn:hover { background: var(--rlg-moss); color: var(--white) !important; }
+        .nav-booking-btn:hover, .nav-booking-btn:focus-visible { background: var(--rlg-moss-text); color: var(--white) !important; }
+
+        .nav-toggle {
+            display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 20px;
+            background: none; border: none; cursor: pointer; padding: 0; z-index: 1100;
+        }
+        .nav-toggle span { display: block; height: 2px; width: 100%; background: var(--rlg-slate); border-radius: 2px; transition: var(--transition); }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
         .safe-exit-float {
             position: fixed; bottom: 2rem; right: 2rem; border: none; cursor: pointer; font-family: 'Inter', sans-serif;
@@ -54,6 +79,7 @@
         .safe-exit-float:hover { transform: scale(1.03); background: #962e2e; }
 
         .resources-hero { padding: 6rem 10% 3rem; text-align: center; }
+        .resources-hero:focus { outline: none; }
         .resources-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 400; color: var(--rlg-slate); }
         .resources-hero h1::after { content: ""; display: block; width: 40px; height: 1px; background: var(--rlg-moss); margin: 1.5rem auto 0; opacity: 0.6; }
         .resources-hero p { max-width: 680px; margin: 1.75rem auto 0; color: #555; font-size: 1rem; line-height: 1.8; }
@@ -71,7 +97,7 @@
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
             transition: var(--transition); color: var(--rlg-slate);
         }
-        .accordion-header:hover { color: var(--rlg-moss); }
+        .accordion-header:hover, .accordion-header:focus-visible { color: var(--rlg-moss-text); }
         .accordion-header:focus-visible { outline: 2px solid var(--rlg-moss); outline-offset: -2px; }
         .accordion-icon { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 300; color: var(--rlg-moss); flex-shrink: 0; margin-left: 1rem; }
         .accordion-content { display: none; padding: 0.5rem 2.25rem 2.25rem; border-top: 1px solid rgba(132, 141, 130, 0.15); }
@@ -80,10 +106,10 @@
         .resource-entry:first-child { padding-top: 1.6rem; }
         .resource-entry:last-child { border-bottom: none; padding-bottom: 0; }
         .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1.05rem; display: block; margin-bottom: 0.4rem; }
-        .resource-info { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--white); background: var(--rlg-moss); padding: 0.3rem 0.7rem; border-radius: 3px; margin-bottom: 0.6rem; }
+        .resource-info { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--white); background: var(--rlg-moss-text); padding: 0.3rem 0.7rem; border-radius: 3px; margin-bottom: 0.6rem; }
         .resource-desc { font-size: 0.9rem; color: #666; margin-bottom: 0.4rem; }
         .resource-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--rlg-slate); text-decoration: none; border-bottom: 2px solid var(--rlg-mist); padding-bottom: 3px; transition: var(--transition); }
-        .resource-link:hover { color: var(--rlg-moss); border-color: var(--rlg-moss); }
+        .resource-link:hover, .resource-link:focus-visible { color: var(--rlg-moss-text); border-color: var(--rlg-moss-text); }
 
         .diagram-note { font-size: 0.9rem; color: #666; margin: 1.6rem 0 1.5rem; }
         .wheels-gallery { display: flex; gap: 1.5rem; }
@@ -94,7 +120,8 @@
             cursor: zoom-in; background: rgba(250, 249, 246, 0.8); border-radius: 6px; border: 1px solid rgba(132, 141, 130, 0.15);
             position: relative; transition: var(--transition);
         }
-        .thumbnail-container:hover { box-shadow: 0 12px 30px rgba(47, 53, 59, 0.08); }
+        .thumbnail-container:hover, .thumbnail-container:focus-visible { box-shadow: 0 12px 30px rgba(47, 53, 59, 0.08); }
+        .thumbnail-container:focus-visible { outline: 2px solid var(--rlg-moss); outline-offset: 2px; }
         .thumbnail-container img { max-width: 100%; max-height: 100%; object-fit: contain; transition: var(--transition); }
         .thumbnail-container:hover img { transform: scale(1.04); }
         .thumbnail-container::after {
@@ -102,7 +129,7 @@
             background: rgba(47, 53, 59, 0.8); color: #fff; font-size: 0.65rem; text-transform: uppercase;
             padding: 5px 0; opacity: 0; transition: var(--transition); letter-spacing: 0.08em;
         }
-        .thumbnail-container:hover::after { opacity: 1; }
+        .thumbnail-container:hover::after, .thumbnail-container:focus-visible::after { opacity: 1; }
         .diagram-caption { display: block; font-size: 0.7rem; color: #888; margin-top: 0.65rem; }
 
         .image-viewer-modal {
@@ -111,8 +138,12 @@
             align-items: center; cursor: zoom-out;
         }
         .viewer-content { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 4px; box-shadow: 0 4px 30px rgba(0,0,0,0.4); animation: zoomIn 0.2s ease; }
-        .close-viewer { position: absolute; top: 2rem; right: 3rem; color: #fff; font-size: 3rem; font-weight: 300; cursor: pointer; transition: var(--transition); }
-        .close-viewer:hover { color: var(--rlg-moss); }
+        .close-viewer {
+            position: absolute; top: 2rem; right: 3rem; color: #fff; font-size: 3rem; font-weight: 300;
+            cursor: pointer; transition: var(--transition); background: none; border: none; line-height: 1; padding: 0.25rem;
+        }
+        .close-viewer:hover, .close-viewer:focus-visible { color: var(--rlg-moss); }
+        .close-viewer:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
         @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         footer { padding: 6rem 10%; background: var(--rlg-slate); color: #b1b5b9; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-moss); }
@@ -121,10 +152,15 @@
         footer a:hover { color: var(--white); }
 
         @media (max-width: 900px) {
-            nav { flex-direction: column; gap: 1rem; }
-            .nav-links { flex-wrap: wrap; justify-content: center; row-gap: 0.75rem; }
-            .nav-links a { margin-left: 1rem; }
-            .nav-booking-btn { margin-left: 1rem !important; }
+            .nav-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
+                background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem 5% 2rem;
+                box-shadow: 0 10px 30px rgba(47,53,59,0.08); border-bottom: 1px solid rgba(132,141,130,0.15);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { margin-left: 0; margin-bottom: 1.25rem; text-align: center; }
+            .nav-booking-btn { margin-left: 0 !important; text-align: center; }
         }
         @media (max-width: 768px) {
             .resources-hero { padding: 4rem 5% 2rem; }
@@ -138,12 +174,17 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <nav>
     <a href="index.html" class="nav-logo-container">
         <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
         <a href="index.html#clinicians">Team</a>
         <a href="index.html#groups">Groups</a>
         <a href="index.html#insurance">Insurance</a>
@@ -155,7 +196,7 @@
 
 <button id="quick-exit-btn" class="safe-exit-float" aria-label="Quickly leave this site to a neutral webpage">Quick Exit</button>
 
-<header class="resources-hero">
+<header class="resources-hero" id="main-content" tabindex="-1">
     <h1>Resources & Support</h1>
     <p>A curated list of local and national organizations offering advocacy, crisis support, shelter, legal aid, and more. If you are in immediate danger, please call 911.</p>
 </header>
@@ -181,25 +222,25 @@
             Educational Info & Wheels <span class="accordion-icon">+</span>
         </button>
         <div id="edu" class="accordion-content" role="region" aria-hidden="true">
-            <p class="diagram-note">Click any diagram below to view it full screen.</p>
+            <p class="diagram-note">Select any diagram below to view it full screen.</p>
             <div class="wheels-gallery">
                 <div class="gallery-card">
                     <p>Power & Control</p>
-                    <div class="thumbnail-container" onclick="viewImage('power.jpeg', 'Power and Control Wheel Diagram')">
+                    <div class="thumbnail-container" tabindex="0" role="button" aria-label="Enlarge Power and Control Wheel diagram" onclick="viewImage('power.jpeg', 'Power and Control Wheel Diagram', this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); viewImage('power.jpeg', 'Power and Control Wheel Diagram', this);}">
                         <img src="power.jpeg" alt="Power and Control Wheel Diagram">
                     </div>
                     <small class="diagram-caption">Developed by the Domestic Abuse Intervention Programs (DAIP), Duluth, MN.</small>
                 </div>
                 <div class="gallery-card">
                     <p>Equality Framework</p>
-                    <div class="thumbnail-container" onclick="viewImage('Equality-wheel.png', 'Equality Wheel Diagram')">
+                    <div class="thumbnail-container" tabindex="0" role="button" aria-label="Enlarge Equality Wheel diagram" onclick="viewImage('Equality-wheel.png', 'Equality Wheel Diagram', this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); viewImage('Equality-wheel.png', 'Equality Wheel Diagram', this);}">
                         <img src="Equality-wheel.png" alt="Equality Wheel Diagram">
                     </div>
                     <small class="diagram-caption">Developed by the Domestic Abuse Intervention Programs (DAIP), Duluth, MN.</small>
                 </div>
                 <div class="gallery-card">
                     <p>Cycle of Abuse</p>
-                    <div class="thumbnail-container" onclick="viewImage('cycle-of-abuse.png', 'Cycle of Abuse Diagram')">
+                    <div class="thumbnail-container" tabindex="0" role="button" aria-label="Enlarge Cycle of Abuse diagram" onclick="viewImage('cycle-of-abuse.png', 'Cycle of Abuse Diagram', this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); viewImage('cycle-of-abuse.png', 'Cycle of Abuse Diagram', this);}">
                         <img src="cycle-of-abuse.png" alt="Cycle of Abuse Diagram">
                     </div>
                     <small class="diagram-caption">Concept developed by Dr. Lenore E. Walker (1979).</small>
@@ -277,9 +318,9 @@
 
 </div>
 
-<div id="imageViewer" class="image-viewer-modal" onclick="closeViewer()">
-    <span class="close-viewer">&times;</span>
-    <img class="viewer-content" id="viewerTarget" alt="">
+<div id="imageViewer" class="image-viewer-modal" role="dialog" aria-modal="true" aria-hidden="true" onclick="if(event.target===this){closeViewer();}">
+    <button class="close-viewer" id="viewer-close-btn" onclick="closeViewer()" aria-label="Close image viewer">&times;</button>
+    <img class="viewer-content" id="viewerTarget" src="" alt="" onclick="closeViewer()">
 </div>
 
 <footer>
@@ -287,10 +328,29 @@
         Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
         Main Office: <a href="tel:+18018395734">801-839-5734</a> | <a href="mailto:info@ravenlotusandgrey.com">info@ravenlotusandgrey.com</a>
     </address>
-    &copy; 2026 Specialized Clinical Services
+    &copy; 2026 Raven, Lotus & Grey
 </footer>
 
 <script>
+    /* ---------- Mobile nav toggle ---------- */
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinksEl = document.getElementById("nav-links");
+    if (navToggle && navLinksEl) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = navLinksEl.classList.toggle("open");
+            navToggle.classList.toggle("open", isOpen);
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+        navLinksEl.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinksEl.classList.remove("open");
+                navToggle.classList.remove("open");
+                navToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    }
+
+    /* ---------- Accordion ---------- */
     function toggleAccordion(btn, id) {
         const content = document.getElementById(id);
         const isOpen = content.classList.contains('open');
@@ -313,26 +373,50 @@
         }
     }
 
-    function viewImage(src, altText) {
+    /* ---------- Image viewer with focus management ---------- */
+    let lastFocusedImgTrigger = null;
+
+    function viewImage(src, altText, triggerEl) {
+        lastFocusedImgTrigger = triggerEl || document.activeElement;
         const img = document.getElementById('viewerTarget');
         img.src = src;
         img.alt = altText || '';
-        document.getElementById('imageViewer').style.display = 'flex';
-    }
-    function closeViewer() {
-        document.getElementById('imageViewer').style.display = 'none';
+        const modal = document.getElementById('imageViewer');
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+        document.getElementById('viewer-close-btn').focus();
     }
 
+    function closeViewer() {
+        const modal = document.getElementById('imageViewer');
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        if (lastFocusedImgTrigger) {
+            lastFocusedImgTrigger.focus();
+            lastFocusedImgTrigger = null;
+        }
+    }
+
+    /* ---------- Quick exit ---------- */
     function quickExit() {
         window.location.replace('https://www.weather.com');
     }
     document.getElementById('quick-exit-btn')?.addEventListener('click', quickExit);
 
+    /* ---------- Keyboard handling: focus trap, escape, quick-exit ---------- */
     let escapeTimeout;
     document.addEventListener('keydown', function(event) {
+        const viewer = document.getElementById('imageViewer');
+        const viewerOpen = viewer && viewer.style.display === 'flex';
+
+        if (viewerOpen && event.key === 'Tab') {
+            event.preventDefault();
+            document.getElementById('viewer-close-btn').focus();
+            return;
+        }
+
         if (event.key === 'Escape') {
-            const viewer = document.getElementById('imageViewer');
-            if (viewer && viewer.style.display === 'flex') { closeViewer(); return; }
+            if (viewerOpen) { closeViewer(); return; }
             if (escapeTimeout) { quickExit(); }
             else { escapeTimeout = setTimeout(() => { escapeTimeout = null; }, 500); }
         }
