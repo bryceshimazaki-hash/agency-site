@@ -84,9 +84,12 @@
             border-bottom: 1px solid rgba(132, 141, 130, 0.15); position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 2px 20px rgba(47, 53, 59, 0.02);
         }
-        .nav-logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-container { display: flex; align-items: center; gap: 14px; text-decoration: none; }
         .logo-img { height: 42px; width: auto; }
-        .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
+        .nav-divider { width: 1px; height: 32px; background: rgba(47, 53, 59, 0.15); flex-shrink: 0; }
+        .nav-brand-group { display: flex; flex-direction: column; line-height: 1.2; }
+        .nav-brand { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.05rem; color: var(--rlg-slate); letter-spacing: 0.01em; }
+        .nav-tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.62rem; color: var(--rlg-moss-text); letter-spacing: 0.03em; margin-top: 1px; }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
         .nav-links a:hover, .nav-links a:focus-visible { color: var(--rlg-moss-text); }
@@ -225,6 +228,9 @@
             .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; }
             .office-location-container { padding: 5rem 5% 4rem; } .map-wrapper { height: 280px; }
         }
+        @media (max-width: 600px) {
+            .nav-tagline, .nav-divider { display: none; }
+        }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
@@ -252,7 +258,11 @@
 <nav>
     <a href="index.html" class="nav-logo-container">
         <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
-        <span class="nav-brand">Raven, Lotus & Grey</span>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-brand-group">
+            <span class="nav-brand">Raven, Lotus & Grey</span>
+            <span class="nav-tagline">Trauma-Informed Therapy</span>
+        </span>
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
