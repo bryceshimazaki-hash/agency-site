@@ -15,6 +15,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Raven, Lotus & Grey",
+        "image": "https://bryceshimazaki-hash.github.io/agency-site/logo.png",
+        "url": "https://bryceshimazaki-hash.github.io/agency-site/",
+        "telephone": "+18018395734",
+        "email": "info@ravenlotusandgrey.com",
+        "description": "Trauma-informed clinical practice in Salt Lake City specializing in domestic violence recovery, PTSD, and relational trauma therapy.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "231 East 400 South, Suite 370",
+            "addressLocality": "Salt Lake City",
+            "addressRegion": "UT",
+            "postalCode": "84111",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.76077363442125,
+            "longitude": -111.88414442342502
+        },
+        "sameAs": [
+            "https://www.psychologytoday.com/us/therapists/raven-lotus-grey-salt-lake-city-ut/1708269",
+            "https://maps.google.com/?cid=8307513080412740282"
+        ]
+    }
+    </script>
     <style>
         :root {
             --rlg-slate: #2F353B;
@@ -111,8 +140,8 @@
         .clinician-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(47, 53, 59, 0.07); border-color: rgba(132, 141, 130, 0.25); }
 
         .img-container { width: 100%; height: 350px; overflow: hidden; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: center; background: rgba(250, 249, 246, 0.8); border-radius: 6px; }
-        .clinician-img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(10%); transition: var(--transition); }
-        .clinician-card:hover .clinician-img { filter: grayscale(0%); }
+        .clinician-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: grayscale(35%) contrast(1.03) brightness(1.02); transition: var(--transition); }
+        .clinician-card:hover .clinician-img { filter: grayscale(0%); transform: scale(1.04); }
 
         .clinician-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; margin-bottom: 0.3rem; }
         .clinician-title { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; color: var(--rlg-moss-text); display: block; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
@@ -167,6 +196,13 @@
         footer address { font-style: normal; line-height: 2; margin-bottom: 1rem; }
         footer a { color: #b1b5b9; text-decoration: underline; }
         footer a:hover { color: var(--white); }
+        .trust-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0 2.5rem; }
+        .trust-badge {
+            display: inline-block; border: 1px solid rgba(177, 181, 185, 0.35); padding: 0.65rem 1.3rem;
+            border-radius: 50px; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+            font-weight: 600; color: #b1b5b9; text-decoration: none !important; transition: var(--transition);
+        }
+        .trust-badge:hover { border-color: var(--rlg-moss); color: var(--white); }
 
         @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2.5rem); } }
         @media (max-width: 900px) {
@@ -184,6 +220,24 @@
             .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; }
             .office-location-container { padding: 5rem 5% 4rem; } .map-wrapper { height: 280px; }
         }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal:nth-child(1) { transition-delay: 0s; }
+        .reveal:nth-child(2) { transition-delay: 0.06s; }
+        .reveal:nth-child(3) { transition-delay: 0.12s; }
+        .reveal:nth-child(4) { transition-delay: 0.18s; }
+        .reveal:nth-child(5) { transition-delay: 0.24s; }
+        .reveal:nth-child(6) { transition-delay: 0.3s; }
+        .reveal:nth-child(7) { transition-delay: 0.36s; }
+        .reveal:nth-child(8) { transition-delay: 0.42s; }
     </style>
 </head>
 <body>
@@ -219,58 +273,58 @@
 </header>
 
 <section id="clinicians">
-    <div class="section-header"><h2>Our Clinical Team</h2></div>
+    <div class="section-header reveal"><h2>Our Clinical Team</h2></div>
     <div class="clinician-grid">
-        <div class="clinician-card">
-            <div class="img-container"><img src="AP.jpeg" class="clinician-img" alt="Amy Perry"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="AP.jpeg" class="clinician-img" loading="lazy" alt="Amy Perry"></div>
             <h3 class="clinician-name">Amy Perry</h3>
             <span class="clinician-title">CMHC, NCC | Clinical Director</span>
             <a href="mailto:amy@ravenlotusandgrey.com" class="clinician-email">amy@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-amy', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="EP.jpeg" class="clinician-img" alt="Eric Pribyl"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="EP.jpeg" class="clinician-img" loading="lazy" alt="Eric Pribyl"></div>
             <h3 class="clinician-name">Eric Pribyl</h3>
             <span class="clinician-title">LCSW | Clinician</span>
             <a href="mailto:eric@ravenlotusandgrey.com" class="clinician-email">eric@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-eric', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="liz-hoffmann.png" class="clinician-img" alt="Elizabeth Hoffmann"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="liz-hoffmann.png" class="clinician-img" loading="lazy" alt="Elizabeth Hoffmann"></div>
             <h3 class="clinician-name">Elizabeth Hoffmann</h3>
             <span class="clinician-title">LCSW | Clinician</span>
             <a href="mailto:elizabeth@ravenlotusandgrey.com" class="clinician-email">elizabeth@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-elizabeth', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="MT.jpeg" class="clinician-img" alt="Megan Thomson"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="MT.jpeg" class="clinician-img" loading="lazy" alt="Megan Thomson"></div>
             <h3 class="clinician-name">Megan Thomson</h3>
             <span class="clinician-title">CMHC, NCC | Clinician</span>
             <a href="mailto:megan@ravenlotusandgrey.com" class="clinician-email">megan@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-megan', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="bryce.jpeg" class="clinician-img" alt="Bryce Shimazaki"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="bryce.jpeg" class="clinician-img" loading="lazy" alt="Bryce Shimazaki"></div>
             <h3 class="clinician-name">Bryce Shimazaki</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <a href="mailto:bryce@ravenlotusandgrey.com" class="clinician-email">bryce@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-bryce', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="ellen-seely.png" class="clinician-img" alt="Ellen Seely"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="ellen-seely.png" class="clinician-img" loading="lazy" alt="Ellen Seely"></div>
             <h3 class="clinician-name">Ellen Seely</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <a href="mailto:ellen@ravenlotusandgrey.com" class="clinician-email">ellen@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-ellen', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
-            <div class="img-container"><img src="RS.jpeg" class="clinician-img" alt="Rebecca Symes"></div>
+        <div class="clinician-card reveal">
+            <div class="img-container"><img src="RS.jpeg" class="clinician-img" loading="lazy" alt="Rebecca Symes"></div>
             <h3 class="clinician-name">Rebecca Symes</h3>
             <span class="clinician-title">ACMHC | Clinician</span>
             <a href="mailto:rebecca@ravenlotusandgrey.com" class="clinician-email">rebecca@ravenlotusandgrey.com</a>
             <button class="read-bio-btn" onclick="openModal('modal-rebecca', this)">Read Bio</button>
         </div>
-        <div class="clinician-card">
+        <div class="clinician-card reveal">
             <div class="img-container"><span style="color:#ddd; font-weight:600; font-family:'Playfair Display', serif; font-style: italic;">Erika Vergueiro</span></div>
             <h3 class="clinician-name">Erika Vergueiro</h3>
             <span class="clinician-title">Clinician</span>
@@ -281,22 +335,22 @@
 </section>
 
 <section id="groups">
-    <div class="section-header"><h2>Specialized Group Therapy</h2></div>
+    <div class="section-header reveal"><h2>Specialized Group Therapy</h2></div>
     <p class="section-subhead">Healing happens in community. Join our guided clinical groups.</p>
     <div class="group-grid" style="margin-top: 5rem;">
-        <div class="group-card">
+        <div class="group-card reveal">
             <div class="group-card-inner">
                 <div class="group-card-front"><h3>LGBTQIA+ Support</h3><p style="font-size:0.9rem; color:#555;">Navigating identity and safety in a supportive space.</p></div>
                 <div class="group-card-back"><p style="font-size:0.95rem; margin-bottom:1rem;">A clinical group specifically for the queer and trans community to process trauma and build resilience.</p><a href="mailto:info@ravenlotusandgrey.com" class="group-inquire-btn">Inquire Now</a></div>
             </div>
         </div>
-        <div class="group-card">
+        <div class="group-card reveal">
             <div class="group-card-inner">
                 <div class="group-card-front"><h3>PTSD & Trauma</h3><p style="font-size:0.9rem; color:#555;">Evidence-based recovery and embodied safety.</p></div>
                 <div class="group-card-back"><p style="font-size:0.95rem; margin-bottom:1rem;">Focused on somatic tools and cognitive processing for those managing complex trauma histories.</p><a href="mailto:info@ravenlotusandgrey.com" class="group-inquire-btn">Inquire Now</a></div>
             </div>
         </div>
-        <div class="group-card">
+        <div class="group-card reveal">
             <div class="group-card-inner">
                 <div class="group-card-front"><h3>Just Breathe</h3><p style="font-size:0.9rem; color:#555;">Women's support for domestic violence recovery.</p></div>
                 <div class="group-card-back"><p style="font-size:0.95rem; margin-bottom:1rem;">A dedicated group for women to reclaim their voice and safety after interpersonal violence.</p><a href="mailto:info@ravenlotusandgrey.com" class="group-inquire-btn">Inquire Now</a></div>
@@ -306,22 +360,22 @@
 </section>
 
 <section class="ins-section" id="insurance">
-    <div class="section-header"><h2>In-Network Insurance</h2></div>
+    <div class="section-header reveal"><h2>In-Network Insurance</h2></div>
     <div class="ins-grid">
-        <div class="ins-tag"><strong>Aetna</strong></div>
-        <div class="ins-tag"><strong>BCBS:</strong> Utah Focal Point, Utah High-Performance, Utah MedAdvantage, Utah Participating, Utah BlueOption, Utah Savewell, Utah Individual and Family, Utah ValueCare</div>
-        <div class="ins-tag"><strong>Cigna:</strong> Includes 3rd party plans Amerihealth, GEHP, Angel etc.</div>
-        <div class="ins-tag"><strong>EMI & WMI</strong></div>
-        <div class="ins-tag"><strong>Molina:</strong> Commercial and Medicaid</div>
-        <div class="ins-tag"><strong>Optum Medicaid</strong></div>
-        <div class="ins-tag"><strong>PEHP</strong></div>
-        <div class="ins-tag"><strong>Select Health:</strong> Care plan, choice plan, med plan and value plan, SelectShare plan, Qualified, Access, Accountability and Signature</div>
-        <div class="ins-tag"><strong>University of Utah:</strong> Healthy Preferred, Healthy Premier, U Health Plus, and Healthy U Behavioral Health (NOT UNI-BHN/HMHI)</div>
-        <div class="ins-tag"><strong>UHC / UMR / Optum / Utah Medicaid / Health Choice / Triwest / Tricare</strong></div>
+        <div class="ins-tag reveal"><strong>Aetna</strong></div>
+        <div class="ins-tag reveal"><strong>BCBS:</strong> Utah Focal Point, Utah High-Performance, Utah MedAdvantage, Utah Participating, Utah BlueOption, Utah Savewell, Utah Individual and Family, Utah ValueCare</div>
+        <div class="ins-tag reveal"><strong>Cigna:</strong> Includes 3rd party plans Amerihealth, GEHP, Angel etc.</div>
+        <div class="ins-tag reveal"><strong>EMI & WMI</strong></div>
+        <div class="ins-tag reveal"><strong>Molina:</strong> Commercial and Medicaid</div>
+        <div class="ins-tag reveal"><strong>Optum Medicaid</strong></div>
+        <div class="ins-tag reveal"><strong>PEHP</strong></div>
+        <div class="ins-tag reveal"><strong>Select Health:</strong> Care plan, choice plan, med plan and value plan, SelectShare plan, Qualified, Access, Accountability and Signature</div>
+        <div class="ins-tag reveal"><strong>University of Utah:</strong> Healthy Preferred, Healthy Premier, U Health Plus, and Healthy U Behavioral Health (NOT UNI-BHN/HMHI)</div>
+        <div class="ins-tag reveal"><strong>UHC / UMR / Optum / Utah Medicaid / Health Choice / Triwest / Tricare</strong></div>
     </div>
 </section>
 
-<div class="office-location-container" id="location">
+<div class="office-location-container reveal" id="location">
     <h3>Our Salt Lake City Office</h3>
     <p>Suite 370, 231 East 400 South, Salt Lake City, UT 84111</p>
     <div class="map-wrapper">
@@ -428,10 +482,30 @@
         Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
         Main Office: <a href="tel:+18018395734">801-839-5734</a> | <a href="mailto:info@ravenlotusandgrey.com">info@ravenlotusandgrey.com</a>
     </address>
+    <div class="trust-badges">
+        <a href="https://www.psychologytoday.com/us/therapists/raven-lotus-grey-salt-lake-city-ut/1708269" class="trust-badge" target="_blank" rel="noopener noreferrer">Verified on Psychology Today</a>
+        <a href="https://maps.google.com/?cid=8307513080412740282" class="trust-badge" target="_blank" rel="noopener noreferrer">Find Us on Google</a>
+    </div>
     &copy; 2026 Raven, Lotus & Grey
 </footer>
 
 <script>
+    /* ---------- Scroll reveal ---------- */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('visible'));
+    }
+
     /* ---------- Mobile nav toggle ---------- */
     const navToggle = document.getElementById("nav-toggle");
     const navLinksEl = document.getElementById("nav-links");
