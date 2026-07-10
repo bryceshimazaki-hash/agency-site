@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Raven, Lotus & Grey is a trauma-informed clinical practice in Salt Lake City specializing in domestic violence recovery, PTSD, and relational trauma therapy.">
+    <meta property="og:title" content="Raven, Lotus & Grey | Trauma-Informed Healing Salt Lake City">
+    <meta property="og:description" content="Trauma-informed therapy for domestic violence recovery, PTSD, and relational healing in Salt Lake City, Utah.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bryceshimazaki-hash.github.io/agency-site/">
+    <meta property="og:image" content="https://bryceshimazaki-hash.github.io/agency-site/logo.png">
     <title>Raven, Lotus & Grey | Trauma-Informed Healing Salt Lake City</title>
     <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
-
         :root {
             --rlg-slate: #2F353B;
             --rlg-moss: #848D82;
+            --rlg-moss-text: #5A6357;
             --rlg-cream: #F9F8F6;
             --rlg-mist: #EAECE9;
             --white: #ffffff;
@@ -30,6 +38,14 @@
 
         section, .office-location-container { scroll-margin-top: 90px; }
 
+        /* Skip link */
+        .skip-link {
+            position: absolute; top: -60px; left: 1rem; background: var(--rlg-slate); color: var(--white);
+            padding: 0.75rem 1.25rem; border-radius: 4px; z-index: 5000; text-decoration: none;
+            font-size: 0.8rem; font-weight: 600; transition: top 0.2s ease;
+        }
+        .skip-link:focus { top: 1rem; }
+
         /* Navigation */
         nav {
             padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
@@ -42,12 +58,21 @@
         .nav-brand { font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--rlg-slate); }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--rlg-slate); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); }
-        .nav-links a:hover { color: var(--rlg-moss); }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--rlg-moss-text); }
         .nav-booking-btn {
             margin-left: 2rem !important; background: var(--rlg-slate); color: var(--white) !important;
             padding: 0.7rem 1.4rem; border-radius: 4px; letter-spacing: 0.1em !important;
         }
-        .nav-booking-btn:hover { background: var(--rlg-moss); color: var(--white) !important; }
+        .nav-booking-btn:hover, .nav-booking-btn:focus-visible { background: var(--rlg-moss-text); color: var(--white) !important; }
+
+        .nav-toggle {
+            display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 20px;
+            background: none; border: none; cursor: pointer; padding: 0; z-index: 1100;
+        }
+        .nav-toggle span { display: block; height: 2px; width: 100%; background: var(--rlg-slate); border-radius: 2px; transition: var(--transition); }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
         /* Quick Exit */
         .safe-exit-float {
@@ -63,6 +88,7 @@
             background: linear-gradient(rgba(47, 53, 59, 0.25), rgba(47, 53, 59, 0.45)), url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-position: center; color: white; position: relative;
         }
+        .hero:focus { outline: none; }
         .hero-content { max-width: 850px; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
         .hero p { font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.7; font-weight: 300; letter-spacing: 0.01em; opacity: 0.95; }
@@ -89,12 +115,12 @@
         .clinician-card:hover .clinician-img { filter: grayscale(0%); }
 
         .clinician-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; margin-bottom: 0.3rem; }
-        .clinician-title { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; color: var(--rlg-moss); display: block; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
-        .clinician-email { display: block; font-size: 0.75rem; color: var(--rlg-moss); margin-bottom: 1.5rem; text-decoration: none; font-weight: 500; transition: var(--transition); letter-spacing: 0.02em; }
+        .clinician-title { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; color: var(--rlg-moss-text); display: block; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+        .clinician-email { display: block; font-size: 0.75rem; color: var(--rlg-moss-text); margin-bottom: 1.5rem; text-decoration: none; font-weight: 500; transition: var(--transition); letter-spacing: 0.02em; }
         .clinician-email:hover { color: var(--rlg-slate); text-decoration: underline; }
 
         .read-bio-btn { background: none; border: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--rlg-slate); cursor: pointer; border-bottom: 2px solid var(--rlg-mist); padding-bottom: 4px; transition: var(--transition); letter-spacing: 0.05em; font-family: 'Inter', sans-serif; }
-        .read-bio-btn:hover { border-color: var(--rlg-moss); color: var(--rlg-moss); }
+        .read-bio-btn:hover, .read-bio-btn:focus-visible { border-color: var(--rlg-moss); color: var(--rlg-moss-text); }
 
         /* Groups */
         section#groups { padding: 9rem 5% 8rem; background: rgba(234, 236, 233, 0.4); border-top: 1px solid rgba(132, 141, 130, 0.1); border-bottom: 1px solid rgba(132, 141, 130, 0.1); }
@@ -127,8 +153,13 @@
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(47, 53, 59, 0.7); backdrop-filter: blur(8px); }
         .modal-content { background-color: var(--rlg-cream); margin: 6% auto; padding: 4rem 3.5rem; border-radius: 12px; width: 85%; max-width: 800px; max-height: 78vh; overflow-y: auto; position: relative; box-shadow: 0 30px 70px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.5); }
         .modal-content h2 { font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; font-size: 2.2rem; }
-        .close-modal { position: absolute; right: 2.5rem; top: 2rem; font-size: 2.2rem; cursor: pointer; color: var(--rlg-moss); font-weight: 300; transition: var(--transition); }
-        .close-modal:hover { color: var(--rlg-slate); }
+        .close-modal {
+            position: absolute; right: 2.5rem; top: 2rem; font-size: 2.2rem; cursor: pointer; color: var(--rlg-moss);
+            font-weight: 300; transition: var(--transition); background: none; border: none; font-family: 'Inter', sans-serif;
+            line-height: 1; padding: 0.25rem;
+        }
+        .close-modal:hover, .close-modal:focus-visible { color: var(--rlg-slate); }
+        .close-modal:focus-visible { outline: 2px solid var(--rlg-moss); outline-offset: 2px; border-radius: 4px; }
         .bio-text { margin-bottom: 1.75rem; font-size: 0.98rem; color: #444; line-height: 1.85; }
 
         /* Footer */
@@ -139,10 +170,15 @@
 
         @media (max-width: 1200px) { .clinician-card { width: calc(50% - 2.5rem); } }
         @media (max-width: 900px) {
-            nav { flex-direction: column; gap: 1rem; }
-            .nav-links { flex-wrap: wrap; justify-content: center; row-gap: 0.75rem; }
-            .nav-links a { margin-left: 1rem; }
-            .nav-booking-btn { margin-left: 1rem !important; }
+            .nav-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
+                background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem 5% 2rem;
+                box-shadow: 0 10px 30px rgba(47,53,59,0.08); border-bottom: 1px solid rgba(132,141,130,0.15);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { margin-left: 0; margin-bottom: 1.25rem; text-align: center; }
+            .nav-booking-btn { margin-left: 0 !important; text-align: center; }
         }
         @media (max-width: 768px) {
             .clinician-card { width: 100%; } .hero h1 { font-size: 2.8rem; } section { padding: 6rem 5%; }
@@ -152,12 +188,17 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <nav>
     <a href="index.html" class="nav-logo-container">
         <img src="logo.png" alt="Raven, Lotus & Grey Logo" class="logo-img">
         <span class="nav-brand">Raven, Lotus & Grey</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
         <a href="#clinicians">Team</a>
         <a href="#groups">Groups</a>
         <a href="#insurance">Insurance</a>
@@ -169,7 +210,7 @@
 
 <button id="quick-exit-btn" class="safe-exit-float" aria-label="Quickly leave this site to a neutral webpage">Quick Exit</button>
 
-<header class="hero" id="home">
+<header class="hero" id="main-content" tabindex="-1">
     <div class="hero-content">
         <h1>You Matter.</h1>
         <p>Healing from domestic violence is complex—but you don’t have to do it alone. I combine lived experience, training, advocacy, and court reform work to walk with survivors as they reclaim safety, strength, and hope. Together, we heal without judgment, rewire for safety, and make your story truly your own.</p>
@@ -185,56 +226,56 @@
             <h3 class="clinician-name">Amy Perry</h3>
             <span class="clinician-title">CMHC, NCC | Clinical Director</span>
             <a href="mailto:amy@ravenlotusandgrey.com" class="clinician-email">amy@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-amy')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-amy', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><img src="EP.jpeg" class="clinician-img" alt="Eric Pribyl"></div>
             <h3 class="clinician-name">Eric Pribyl</h3>
             <span class="clinician-title">LCSW | Clinician</span>
             <a href="mailto:eric@ravenlotusandgrey.com" class="clinician-email">eric@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-eric')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-eric', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><img src="liz-hoffmann.png" class="clinician-img" alt="Elizabeth Hoffmann"></div>
             <h3 class="clinician-name">Elizabeth Hoffmann</h3>
             <span class="clinician-title">LCSW | Clinician</span>
             <a href="mailto:elizabeth@ravenlotusandgrey.com" class="clinician-email">elizabeth@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-elizabeth')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-elizabeth', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><img src="MT.jpeg" class="clinician-img" alt="Megan Thomson"></div>
             <h3 class="clinician-name">Megan Thomson</h3>
             <span class="clinician-title">CMHC, NCC | Clinician</span>
             <a href="mailto:megan@ravenlotusandgrey.com" class="clinician-email">megan@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-megan')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-megan', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><img src="bryce.jpeg" class="clinician-img" alt="Bryce Shimazaki"></div>
             <h3 class="clinician-name">Bryce Shimazaki</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <a href="mailto:bryce@ravenlotusandgrey.com" class="clinician-email">bryce@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-bryce')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-bryce', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><img src="ellen-seely.png" class="clinician-img" alt="Ellen Seely"></div>
             <h3 class="clinician-name">Ellen Seely</h3>
             <span class="clinician-title">CSW | Clinician</span>
             <a href="mailto:ellen@ravenlotusandgrey.com" class="clinician-email">ellen@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-ellen')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-ellen', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><img src="RS.jpeg" class="clinician-img" alt="Rebecca Symes"></div>
             <h3 class="clinician-name">Rebecca Symes</h3>
             <span class="clinician-title">ACMHC | Clinician</span>
             <a href="mailto:rebecca@ravenlotusandgrey.com" class="clinician-email">rebecca@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-rebecca')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-rebecca', this)">Read Bio</button>
         </div>
         <div class="clinician-card">
             <div class="img-container"><span style="color:#ddd; font-weight:600; font-family:'Playfair Display', serif; font-style: italic;">Erika Vergueiro</span></div>
             <h3 class="clinician-name">Erika Vergueiro</h3>
             <span class="clinician-title">Clinician</span>
             <a href="mailto:erika@ravenlotusandgrey.com" class="clinician-email">erika@ravenlotusandgrey.com</a>
-            <button class="read-bio-btn" onclick="openModal('modal-pending')">Read Bio</button>
+            <button class="read-bio-btn" onclick="openModal('modal-pending', this)">Read Bio</button>
         </div>
     </div>
 </section>
@@ -295,10 +336,10 @@
     </div>
 </div>
 
-<div id="modal-amy" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-amy" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-amy-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-amy')">&times;</span>
-        <h2>Amy Perry</h2>
+        <button class="close-modal" onclick="closeModal('modal-amy')" aria-label="Close">&times;</button>
+        <h2 id="modal-amy-title">Amy Perry</h2>
         <p class="bio-text">I specialize in working with individuals and families impacted by domestic violence, trauma, narcissistic abuse, PTSD and other kinds of abuse. With over eight years as a certified domestic violence counselor—and additional years immersed in advocacy, mentorship and support work—I bring both professional expertise and lived experience as a partner, parent, and co-parent. Clients often find that this combination allows for a deeper level of understanding, clarity, and connection as we navigate the complexities of their experiences together.</p>
         <p class="bio-text">I support clients across a wide range of situations, including growing up in abusive environments, experiencing harm from a partner or parent, leaving unsafe relationships, and navigating the legal system—with or without children. My work also includes guiding clients through custody concerns, creating safety plans, and rebuilding stability and identity during and after crisis. I work closely with parents who are co-parenting with an unsafe individual, helping them develop practical skills to support and protect their children. When appropriate, I also work directly with children affected by these dynamics.</p>
         <p class="bio-text">My approach is grounded in empowerment, honesty, and practical support. I integrate modalities such as somatic experiencing, Dialectical Behavior Therapy (DBT), EMDR (including both 1.0 and 2.0), solution-focused therapy, healthy communication, and psychoeducation to help clients process trauma and move toward a more stable, self-directed life.</p>
@@ -307,10 +348,10 @@
     </div>
 </div>
 
-<div id="modal-eric" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-eric" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-eric-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-eric')">&times;</span>
-        <h2>Eric Pribyl</h2>
+        <button class="close-modal" onclick="closeModal('modal-eric')" aria-label="Close">&times;</button>
+        <h2 id="modal-eric-title">Eric Pribyl</h2>
         <p class="bio-text">I’m a Domestic Violence–certified therapist, and I believe that healing from trauma isn’t about “getting over it” or “pulling yourself up by your bootstraps.” It’s about reclaiming a sense of safety in your own skin. Whether you’re navigating the complexities of domestic or intimate partner violence, processing deep-seated trauma, or seeking a space where your LGBTQIA+ identity is not just respected but truly celebrated, you don’t have to do it alone.</p>
         <p class="bio-text">I work with individuals ages 7+ and focus especially on supporting the queer community—particularly trans and gender-diverse folks—as well as individuals working to stop using violence in all relationships. I specialize in working with both survivors and perpetrators of domestic violence, offering a therapeutic space rooted in accountability, compassion, and meaningful change. I also have experience working with personality disorders, particularly BPD and NPD.</p>
         <p class="bio-text">Clients often share that I bring a warmth and steadiness that helps them feel genuinely safe, seen, and valued. I strive to create an affirming environment where trust and authentic connection can grow. Through consistency, authenticity, and clinical insight, I support clients in processing their experiences and moving toward greater confidence, stability, and fulfillment.</p>
@@ -319,10 +360,10 @@
     </div>
 </div>
 
-<div id="modal-bryce" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-bryce" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-bryce-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-bryce')">&times;</span>
-        <h2>Bryce Shimazaki</h2>
+        <button class="close-modal" onclick="closeModal('modal-bryce')" aria-label="Close">&times;</button>
+        <h2 id="modal-bryce-title">Bryce Shimazaki</h2>
         <p class="bio-text">I’m a mental health clinician with four years of experience supporting diverse populations across school, community, and domestic violence settings. I work with individuals navigating trauma, depression, anxiety, and major life transitions, offering a safe and supportive space grounded in dignity, advocacy, and empowerment.</p>
         <p class="bio-text">I see therapy as a collaborative partnership—you set the direction, and I provide the clinical tools to help you get there. My approach is rooted in the belief that many struggles began as survival skills. Together, we’ll honor how you’ve protected yourself while building new patterns that align with your values, helping you move from survival toward a more intentional, authentic life.</p>
         <p class="bio-text">I use evidence-based practices such as DBT, ACT, CBT, mindfulness, and psychoeducation to support emotional regulation, psychological flexibility, and a stronger sense of agency. My work is trauma-informed and considers not only individual experiences but also the systems and relationships that shape them.</p>
@@ -330,10 +371,10 @@
     </div>
 </div>
 
-<div id="modal-megan" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-megan" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-megan-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-megan')">&times;</span>
-        <h2>Megan Thomson</h2>
+        <button class="close-modal" onclick="closeModal('modal-megan')" aria-label="Close">&times;</button>
+        <h2 id="modal-megan-title">Megan Thomson</h2>
         <p class="bio-text">Therapy is often described as a difficult and raw process—and at times, it truly is. But it can also be energizing, motivating, and even enjoyable. There are moments in therapy where you may feel empowered by new insights and begin discovering truths about who you are and what you’re capable of becoming.</p>
         <p class="bio-text">I’m passionate about working with adults and teenagers (12+) who are ready to learn, heal, and grow—both mentally and physically. I commonly support clients navigating PTSD, anxiety, depression, domestic violence, ADHD, trauma, OCD, and eating disorders, with a strong focus on individual therapeutic work.</p>
         <p class="bio-text">My approach integrates evidence-based modalities such as Dialectical Behavior Therapy (DBT), Cognitive Behavioral Therapy (CBT), and Acceptance and Commitment Therapy (ACT), along with psychoeducation, somatic approaches, person-centered therapy, and traditional talk therapy. I focus on methods that translate effectively into the online space, ensuring our work together is both practical and impactful.</p>
@@ -342,10 +383,10 @@
     </div>
 </div>
 
-<div id="modal-ellen" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-ellen" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-ellen-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-ellen')">&times;</span>
-        <h2>Ellen Seely</h2>
+        <button class="close-modal" onclick="closeModal('modal-ellen')" aria-label="Close">&times;</button>
+        <h2 id="modal-ellen-title">Ellen Seely</h2>
         <p class="bio-text">I’m a Domestic Violence–certified therapist who works with women, queer communities, people who use drugs, and individuals ages 16+. I offer affirming, inclusive care grounded in empowerment, autonomy, and authenticity. With a strong background in public health and harm reduction, I bring specialized experience in sexual health, social justice, and supporting marginalized communities.</p>
         <p class="bio-text">Over the past several years, I’ve taught sexual health programs to youth and young adults, facilitated groups for queer youth and adults, provided case management for individuals living with HIV/AIDS, Hepatitis C, and other communicable infections, and offered compassionate, nonjudgmental support to people navigating stigma, trauma, and complex life challenges.</p>
         <p class="bio-text">My therapeutic approach integrates solution-focused therapy, Emotionally Focused Therapy (EFT), Cognitive Behavioral Therapy (CBT), somatic experiencing, sound healing, and other trauma-informed modalities. My work is rooted in the belief that lasting change comes from addressing the underlying root causes of distress. I use a trauma-focused, harm reduction lens that centers personal autonomy, dignity, and client-defined success.</p>
@@ -353,10 +394,10 @@
     </div>
 </div>
 
-<div id="modal-rebecca" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-rebecca" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-rebecca-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-rebecca')">&times;</span>
-        <h2>Rebecca Symes</h2>
+        <button class="close-modal" onclick="closeModal('modal-rebecca')" aria-label="Close">&times;</button>
+        <h2 id="modal-rebecca-title">Rebecca Symes</h2>
         <p class="bio-text">I am a therapist based in Salt Lake City, Utah, specializing in trauma and relational healing. I work with individuals navigating the impact of domestic violence and relationship trauma, as well as adoptees exploring identity, attachment, and belonging. I bring lived experience to my work and understand that both relational trauma and adoption-related experiences can deeply shape how you see yourself, connect with others, and move through the world.</p>
         <p class="bio-text">My work with survivors of domestic violence focuses on helping you process trauma responses, rebuild self-trust, strengthen boundaries, and restore a sense of safety and stability in your life. In my work with adoptees, I support you in exploring themes of identity formation, grief, connection, and belonging, with particular attention to attachment and narrative integration.</p>
         <p class="bio-text">My approach is trauma-informed, collaborative, and integrative. I draw from Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), Internal Family Systems (IFS), mindfulness-based practices, and somatic awareness to support both emotional processing and embodied healing. I believe therapy is most effective when it feels like a safe partnership—one where you are respected as the expert of your own lived experience and supported in moving toward clarity, connection, and meaningful change.</p>
@@ -364,20 +405,20 @@
     </div>
 </div>
 
-<div id="modal-elizabeth" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-elizabeth" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-elizabeth-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-elizabeth')">&times;</span>
-        <h2>Elizabeth Hoffmann</h2>
+        <button class="close-modal" onclick="closeModal('modal-elizabeth')" aria-label="Close">&times;</button>
+        <h2 id="modal-elizabeth-title">Elizabeth Hoffmann</h2>
         <p class="bio-text">I am a Domestic Violence certified therapist who is person-centered, compassionate, and flexible, drawing from a range of evidence-based practices to meet your unique needs. I integrate modalities such as EMDR 1.0 and 2.0, somatic therapy, DBT, solution-focused techniques, and psychoeducation. I have specialized experience working with women impacted by trauma, domestic violence, narcissistic abuse, grief, and other forms of interpersonal harm.</p>
         <p class="bio-text">I believe each person already holds the capacity for healing and growth. I like to help you access that inner strength, better understand your experiences, and develop new ways of coping that feel empowering and sustainable.</p>
         <p class="bio-text">I strive to create a space that feels safe, nonjudgmental, and genuine—where you can speak openly and be fully heard. My style is warm, direct, and supportive, and I am honored to walk alongside you as you begin or continue your healing journey. It’s never too late to reach out for help and start creating meaningful change.</p>
     </div>
 </div>
 
-<div id="modal-pending" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="modal-pending" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-pending-title">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modal-pending')">&times;</span>
-        <h2>Clinician Bio</h2>
+        <button class="close-modal" onclick="closeModal('modal-pending')" aria-label="Close">&times;</button>
+        <h2 id="modal-pending-title">Clinician Bio</h2>
         <p class="bio-text">Professional biography pending. Please contact our office for more information regarding this clinician's specialties.</p>
     </div>
 </div>
@@ -387,40 +428,93 @@
         Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
         Main Office: <a href="tel:+18018395734">801-839-5734</a> | <a href="mailto:info@ravenlotusandgrey.com">info@ravenlotusandgrey.com</a>
     </address>
-    &copy; 2026 Specialized Clinical Services
+    &copy; 2026 Raven, Lotus & Grey
 </footer>
 
 <script>
-    function openModal(id) {
+    /* ---------- Mobile nav toggle ---------- */
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinksEl = document.getElementById("nav-links");
+    if (navToggle && navLinksEl) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = navLinksEl.classList.toggle("open");
+            navToggle.classList.toggle("open", isOpen);
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+        navLinksEl.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinksEl.classList.remove("open");
+                navToggle.classList.remove("open");
+                navToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    }
+
+    /* ---------- Modal focus management ---------- */
+    let lastFocusedElement = null;
+
+    function getFocusable(container) {
+        return Array.from(container.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])'))
+            .filter(el => el.offsetParent !== null);
+    }
+
+    function openModal(id, triggerEl) {
         const modal = document.getElementById(id);
         if (!modal) return;
+        lastFocusedElement = triggerEl || document.activeElement;
         modal.style.display = "block";
         modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
+        const focusable = getFocusable(modal);
+        if (focusable.length) focusable[0].focus();
     }
+
     function closeModal(id) {
         const modal = document.getElementById(id);
         if (!modal) return;
         modal.style.display = "none";
         modal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "auto";
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+            lastFocusedElement = null;
+        }
     }
+
     window.onclick = function(event) {
         if (event.target.classList && event.target.classList.contains("modal")) {
             closeModal(event.target.id);
         }
     };
 
+    /* ---------- Quick exit ---------- */
     function quickExit() {
         window.location.replace("https://www.weather.com");
     }
     const quickExitBtn = document.getElementById("quick-exit-btn");
     if (quickExitBtn) { quickExitBtn.addEventListener("click", quickExit); }
 
+    /* ---------- Keyboard handling: focus trap, escape, quick-exit ---------- */
     let escapeTimeout;
     document.addEventListener("keydown", function(event) {
+        const openModalEl = document.querySelector('.modal[style*="display: block"]');
+
+        if (openModalEl && event.key === "Tab") {
+            const focusable = getFocusable(openModalEl);
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+            return;
+        }
+
         if (event.key === "Escape") {
-            const openModalEl = document.querySelector('.modal[style*="display: block"]');
             if (openModalEl) { closeModal(openModalEl.id); return; }
             if (escapeTimeout) { quickExit(); }
             else { escapeTimeout = setTimeout(() => { escapeTimeout = null; }, 500); }
