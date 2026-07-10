@@ -150,6 +150,13 @@
         footer address { font-style: normal; line-height: 2; margin-bottom: 1rem; }
         footer a { color: #b1b5b9; text-decoration: underline; }
         footer a:hover { color: var(--white); }
+        .trust-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0 2.5rem; }
+        .trust-badge {
+            display: inline-block; border: 1px solid rgba(177, 181, 185, 0.35); padding: 0.65rem 1.3rem;
+            border-radius: 50px; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+            font-weight: 600; color: #b1b5b9; text-decoration: none !important; transition: var(--transition);
+        }
+        .trust-badge:hover { border-color: var(--rlg-moss); color: var(--white); }
 
         @media (max-width: 900px) {
             .nav-toggle { display: flex; }
@@ -170,6 +177,24 @@
             .thumbnail-container { height: 240px; }
             .close-viewer { right: 1.5rem; top: 1rem; }
         }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal:nth-child(1) { transition-delay: 0s; }
+        .reveal:nth-child(2) { transition-delay: 0.06s; }
+        .reveal:nth-child(3) { transition-delay: 0.12s; }
+        .reveal:nth-child(4) { transition-delay: 0.18s; }
+        .reveal:nth-child(5) { transition-delay: 0.24s; }
+        .reveal:nth-child(6) { transition-delay: 0.3s; }
+        .reveal:nth-child(7) { transition-delay: 0.36s; }
+        .reveal:nth-child(8) { transition-delay: 0.42s; }
     </style>
 </head>
 <body>
@@ -203,7 +228,7 @@
 
 <div class="resource-container">
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'advocacy')" aria-expanded="false" aria-controls="advocacy">
             Victim Advocacy <span class="accordion-icon">+</span>
         </button>
@@ -217,7 +242,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'edu')" aria-expanded="false" aria-controls="edu">
             Educational Info & Wheels <span class="accordion-icon">+</span>
         </button>
@@ -249,7 +274,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'crisis')" aria-expanded="false" aria-controls="crisis">
             Crisis & Suicide Prevention <span class="accordion-icon">+</span>
         </button>
@@ -262,7 +287,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'shelter')" aria-expanded="false" aria-controls="shelter">
             Shelter & Housing <span class="accordion-icon">+</span>
         </button>
@@ -274,7 +299,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'legal')" aria-expanded="false" aria-controls="legal">
             Legal Aid <span class="accordion-icon">+</span>
         </button>
@@ -285,7 +310,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'animals')" aria-expanded="false" aria-controls="animals">
             Animals <span class="accordion-icon">+</span>
         </button>
@@ -295,7 +320,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'aging')" aria-expanded="false" aria-controls="aging">
             Aging Services <span class="accordion-icon">+</span>
         </button>
@@ -305,7 +330,7 @@
         </div>
     </div>
 
-    <div class="accordion-item">
+    <div class="accordion-item reveal">
         <button class="accordion-header" onclick="toggleAccordion(this, 'essential')" aria-expanded="false" aria-controls="essential">
             Other Essential Needs <span class="accordion-icon">+</span>
         </button>
@@ -328,10 +353,30 @@
         Raven, Lotus & Grey | 231 East 400 South, Suite 370, SLC, UT 84111<br>
         Main Office: <a href="tel:+18018395734">801-839-5734</a> | <a href="mailto:info@ravenlotusandgrey.com">info@ravenlotusandgrey.com</a>
     </address>
+    <div class="trust-badges">
+        <a href="https://www.psychologytoday.com/us/therapists/raven-lotus-grey-salt-lake-city-ut/1708269" class="trust-badge" target="_blank" rel="noopener noreferrer">Verified on Psychology Today</a>
+        <a href="https://maps.google.com/?cid=8307513080412740282" class="trust-badge" target="_blank" rel="noopener noreferrer">Find Us on Google</a>
+    </div>
     &copy; 2026 Raven, Lotus & Grey
 </footer>
 
 <script>
+    /* ---------- Scroll reveal ---------- */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('visible'));
+    }
+
     /* ---------- Mobile nav toggle ---------- */
     const navToggle = document.getElementById("nav-toggle");
     const navLinksEl = document.getElementById("nav-links");
