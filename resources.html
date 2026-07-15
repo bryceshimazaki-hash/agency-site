@@ -17,13 +17,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rlg-slate: #2F353B;
-            --rlg-moss: #848D82;
-            --rlg-moss-text: #5A6357;
-            --rlg-clay: #B76E43;
-            --rlg-clay-dark: #8F5433;
-            --rlg-cream: #F9F8F6;
-            --rlg-mist: #EAECE9;
+            --rlg-slate: #262A45;
+            --rlg-moss: #8366AF;
+            --rlg-moss-text: #6B4F94;
+            --rlg-clay: #C9A85C;
+            --rlg-clay-dark: #8A6A2E;
+            --rlg-cream: #FAF9FC;
+            --rlg-mist: #EDEAF3;
             --white: #ffffff;
             --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -32,7 +32,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, var(--rlg-cream) 0%, #F4F5F2 50%, var(--rlg-cream) 100%);
+            background: linear-gradient(180deg, var(--rlg-cream) 0%, #F5F3F9 50%, var(--rlg-cream) 100%);
             color: var(--rlg-slate);
             line-height: 1.8;
         }
@@ -48,12 +48,12 @@
         nav {
             padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
             background: var(--white);
-            border-bottom: 1px solid rgba(132, 141, 130, 0.15); position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 20px rgba(47, 53, 59, 0.02);
+            border-bottom: 1px solid rgba(131, 102, 175, 0.15); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 20px rgba(38, 42, 69, 0.02);
         }
         .nav-logo-container { display: flex; align-items: center; gap: 14px; text-decoration: none; }
         .logo-img { height: 58px; width: auto; }
-        .nav-divider { width: 1px; height: 32px; background: rgba(47, 53, 59, 0.15); flex-shrink: 0; }
+        .nav-divider { width: 1px; height: 32px; background: rgba(38, 42, 69, 0.15); flex-shrink: 0; }
         .nav-brand-group { display: flex; flex-direction: column; line-height: 1.2; }
         .nav-brand { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.05rem; color: var(--rlg-slate); letter-spacing: 0.01em; }
         .nav-tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.62rem; color: var(--rlg-moss-text); letter-spacing: 0.03em; margin-top: 1px; }
@@ -93,9 +93,9 @@
         .accordion-item {
             background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 8px; overflow: hidden;
-            margin-bottom: 1rem; box-shadow: 0 12px 40px rgba(47, 53, 59, 0.03); transition: var(--transition);
+            margin-bottom: 1rem; box-shadow: 0 12px 40px rgba(38, 42, 69, 0.03); transition: var(--transition);
         }
-        .accordion-item:hover { border-color: rgba(132, 141, 130, 0.25); }
+        .accordion-item:hover { border-color: rgba(131, 102, 175, 0.25); }
         .accordion-header {
             width: 100%; padding: 1.5rem 2.25rem; background: none; border: none;
             text-align: left; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400;
@@ -105,9 +105,9 @@
         .accordion-header:hover, .accordion-header:focus-visible { color: var(--rlg-moss-text); }
         .accordion-header:focus-visible { outline: 2px solid var(--rlg-moss); outline-offset: -2px; }
         .accordion-icon { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 300; color: var(--rlg-moss); flex-shrink: 0; margin-left: 1rem; }
-        .accordion-content { display: none; padding: 0.5rem 2.25rem 2.25rem; border-top: 1px solid rgba(132, 141, 130, 0.15); }
+        .accordion-content { display: none; padding: 0.5rem 2.25rem 2.25rem; border-top: 1px solid rgba(131, 102, 175, 0.15); }
 
-        .resource-entry { padding: 1.4rem 0; border-bottom: 1px solid rgba(132, 141, 130, 0.1); }
+        .resource-entry { padding: 1.4rem 0; border-bottom: 1px solid rgba(131, 102, 175, 0.1); }
         .resource-entry:first-child { padding-top: 1.6rem; }
         .resource-entry:last-child { border-bottom: none; padding-bottom: 0; }
         .resource-name { font-weight: 600; color: var(--rlg-slate); font-size: 1.05rem; display: block; margin-bottom: 0.4rem; }
@@ -122,16 +122,16 @@
         .gallery-card p { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--rlg-slate); }
         .thumbnail-container {
             width: 100%; height: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center;
-            cursor: zoom-in; background: rgba(250, 249, 246, 0.8); border-radius: 6px; border: 1px solid rgba(132, 141, 130, 0.15);
+            cursor: zoom-in; background: rgba(250, 249, 246, 0.8); border-radius: 6px; border: 1px solid rgba(131, 102, 175, 0.15);
             position: relative; transition: var(--transition);
         }
-        .thumbnail-container:hover, .thumbnail-container:focus-visible { box-shadow: 0 12px 30px rgba(47, 53, 59, 0.08); }
+        .thumbnail-container:hover, .thumbnail-container:focus-visible { box-shadow: 0 12px 30px rgba(38, 42, 69, 0.08); }
         .thumbnail-container:focus-visible { outline: 2px solid var(--rlg-moss); outline-offset: 2px; }
         .thumbnail-container img { max-width: 100%; max-height: 100%; object-fit: contain; transition: var(--transition); }
         .thumbnail-container:hover img { transform: scale(1.04); }
         .thumbnail-container::after {
             content: "Click to enlarge"; position: absolute; bottom: 0; left: 0; width: 100%;
-            background: rgba(47, 53, 59, 0.8); color: #fff; font-size: 0.65rem; text-transform: uppercase;
+            background: rgba(38, 42, 69, 0.8); color: #fff; font-size: 0.65rem; text-transform: uppercase;
             padding: 5px 0; opacity: 0; transition: var(--transition); letter-spacing: 0.08em;
         }
         .thumbnail-container:hover::after, .thumbnail-container:focus-visible::after { opacity: 1; }
@@ -139,7 +139,7 @@
 
         .image-viewer-modal {
             display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(47, 53, 59, 0.95); backdrop-filter: blur(6px); justify-content: center;
+            background-color: rgba(38, 42, 69, 0.95); backdrop-filter: blur(6px); justify-content: center;
             align-items: center; cursor: zoom-out;
         }
         .viewer-content { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 4px; box-shadow: 0 4px 30px rgba(0,0,0,0.4); animation: zoomIn 0.2s ease; }
@@ -151,16 +151,16 @@
         .close-viewer:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
         @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        footer { padding: 6rem 10%; background: var(--rlg-slate); color: #b1b5b9; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-clay); }
+        footer { padding: 6rem 10%; background: var(--rlg-slate); color: #B0A9CC; text-align: center; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; border-top: 4px solid var(--rlg-clay); }
         footer address { font-style: normal; line-height: 2; margin-bottom: 1rem; }
         .footer-logo { height: 38px; width: auto; margin-bottom: 1.5rem; opacity: 0.9; }
-        footer a { color: #b1b5b9; text-decoration: underline; }
+        footer a { color: #B0A9CC; text-decoration: underline; }
         footer a:hover { color: var(--white); }
         .trust-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0 2.5rem; }
         .trust-badge {
             display: inline-block; border: 1px solid rgba(177, 181, 185, 0.35); padding: 0.65rem 1.3rem;
             border-radius: 50px; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
-            font-weight: 600; color: #b1b5b9; text-decoration: none !important; transition: var(--transition);
+            font-weight: 600; color: #B0A9CC; text-decoration: none !important; transition: var(--transition);
         }
         .trust-badge:hover { border-color: var(--rlg-moss); color: var(--white); }
 
